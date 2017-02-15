@@ -33,6 +33,7 @@
     "lodash": "^4.15.0",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
+    "react-modal": "^1.6.5",
     "react-redux": "^4.4.5",
     "react-router": "2.4.x",
     "redux": "^3.5.2",

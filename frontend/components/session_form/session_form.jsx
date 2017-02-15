@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router';
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { email: "", password: "" };
+		this.state = { email: "", password: "", formType: this.props.formType };
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -26,16 +26,10 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		const user = this.state;
-		this.props.processForm({user});
-	}
-
-	navLink() {
-		if (this.props.formType === "login") {
-			return <Link to="/signup">sign up instead</Link>;
-		} else {
-			return <Link to="/login">log in instead</Link>;
-		}
+		const user = {email: this.state.email, password:this.state.password};
+		this.props.processForm({user}).then(()=>{
+			this.props.parent.closeModal();
+		});
 	}
 
 	renderErrors() {
@@ -51,39 +45,71 @@ class SessionForm extends React.Component {
 	}
 
 	render() {
+		let buttonText;
+		let link;
+    if (this.state.formType === "login"){
+			buttonText = "Log In";
+			link = <p className="text-center">Dont't have an account yet? <a href="#" onClick={()=>this.setState({formType: "signup"})}>Sign Up here</a></p>
+		}
+		else {
+			buttonText = "Sign Up"
+			link = <p className="text-center">Already have an account? <a href="#" onClick={()=>this.setState({formType: "login"})}>Sign in here</a></p>
+		}
+
 		return (
-      <div className="modal">
-        <div className="modal-dialog">
-          <div className="modal-content">
-			<div className="login-form-container">
-				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Welcome to BenchBnB!
-					<br/>
-					Please {this.props.formType} or {this.navLink()}
-					{this.renderErrors()}
-					<div className="login-form">
-						<br/>
-						<label> Email:
-							<input type="text"
+
+		<div className="col-md-4 col-md-offset-4">
+			<div className="box">
+				<div className="input-group">
+					<span className="input-group-addon addon-facebook">
+						<i className="fa fa-fw fa-2x fa-facebook"></i>
+					</span>
+					<a className="btn btn-lg btn-block btn-facebook" href="#"> Log in with Facebook</a>
+				</div>
+
+				<div className="input-group">
+					<span className="input-group-addon addon-google">
+						<i className="fa fa-fw fa-2x fa-google fa-fw"></i>
+					</span>
+					<a className="btn btn-lg btn-block btn-google" href="#"> Log in with Google</a>
+				</div>
+				{this.renderErrors()}
+				<form role="form" onSubmit={this.handleSubmit}>
+
+					<div className="divider-form"></div>
+
+					<div className="form-group">
+						<label>Email address</label>
+							<input type="email"
 								value={this.state.email}
 								onChange={this.update("email")}
-								className="login-input" />
-						</label>
-						<br/>
-						<label> Password:
+								className="form-control"
+								placeholder="Enter email"
+							 />
+					</div>
+
+					<div className="divider-form"></div>
+
+					<div className="form-group">
+						<label>Password</label>
 							<input type="password"
 								value={this.state.password}
 								onChange={this.update("password")}
-								className="login-input" />
-						</label>
-						<br/>
-						<input type="submit" value="Submit" />
+								className="form-control"
+								placeholder="Password"
+							 />
 					</div>
+
+					<div className="divider-form"></div>
+
+					<p className="text-center">You agree to the <strong>Terms & Conditions</strong>.</p>
+
+					<button type="submit" className="btn-block btn btn-lg btn-primary">{buttonText}</button>
+					{link}
 				</form>
 			</div>
-    </div>
-    </div>
-  </div>
+		</div>
+
 		);
 	}
 
