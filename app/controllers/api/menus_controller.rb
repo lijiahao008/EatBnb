@@ -1,8 +1,8 @@
 class Api::MenusController < ApplicationController
-  before_action :require_logged_in
+  before_action :require_logged_in, except: [:index, :show]
 
   def index
-    @menus = Menu.all
+    @menus = Menu.all.take(6)
   end
 
   def create
@@ -12,6 +12,10 @@ class Api::MenusController < ApplicationController
     else
       render json: @menu.errors.full_messages, status: 422
     end
+  end
+
+  def show
+    @menu = Menu.includes(:owner).find(params[:id])
   end
 
   def update

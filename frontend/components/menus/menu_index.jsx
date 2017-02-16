@@ -1,5 +1,8 @@
 import React from 'react';
-import MenuIndexItem from './menu_index_item';
+import Coverflow from 'react-coverflow';
+import { Link, hashHistory } from 'react-router';
+import {StyleRoot} from 'radium';
+
 
 class MenuIndex extends React.Component {
   componentDidMount() {
@@ -8,20 +11,34 @@ class MenuIndex extends React.Component {
 
   render () {
     return (
-
-  <div className="container featuredMenus">
-    <div className="row align-items-center">
+    <StyleRoot>
+      <Coverflow width="auto" height="auto"
+        displayQuantityOfSide={2}
+        navigation={false}
+        enableScroll={true}
+        clickable={true}
+        active={0}
+        media={{
+         '@media (max-width: 900px)': {
+           width: '600px',
+           height: '200px'
+         },
+         '@media (min-width: 900px)': {
+           width: '960px',
+           height: '300px'
+         }
+       }}
+        >
         {
           this.props.menus.map(menu => (
-
-            <MenuIndexItem
-              key={menu.id}
-              menu={menu} />
+            <img src= "http://loremflickr.com/320/240/meal" alt={menu.title}
+            key={menu.id}
+            onClick={()=>hashHistory.push(`/menus/${menu.id}`)}
+            />
           ))
         }
-    </div>
-  </div>
-
+      </Coverflow>
+    </StyleRoot>
     );
   }
 }

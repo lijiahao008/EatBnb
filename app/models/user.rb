@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   has_many :menus,
     foreign_key: :owner_id
+  has_many :reservations,
+    foreign_key: :owner_id
 
 
 	def password= password
