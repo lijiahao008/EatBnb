@@ -17,6 +17,10 @@
  @import "bootstrap";
 
 
+ body{
+   font-family: arial, sans-serif;
+ }
+
  nav.navbar-eatbnb {
    background: #fff;
    border-color: #ccc;
@@ -74,18 +78,18 @@ nav.navbar-eatbnb button.navbar-toggle > span.icon-bar {
   z-index: 100;
 }
 
-.box {
-  opacity: 1;
-}
+
 
 .col-md-4 {
   position: fixed;
   top: 20%;
 }
 
-.box {
+#box {
 	background-color: #fff;
 	padding: 25px 40px;
+  z-index: 200;
+  opacity: 1;
 }
 
 .input-group {
@@ -169,19 +173,58 @@ strong {
 //   list-style: none;
 //   padding: 10px;
 // }
+.container-full {
+  // position: relative;
+  height: 700px;
+}
 
 .container-full > img {
-  position: absolute;
+  height: auto;
+  max-height: 100%;
   width: 100%;
-  min-width: 100%;
-  min-height: 80%;
-
 }
 
 .menu-detail {
-  position: absolute;
-  top: 80%;
+  top: 90%;
+  margin-left: 10%;
   width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.ownerProfilePic {
+  height: 100px;
+  width: 100px;
+  padding: 10px;
+}
+
+.menu-detail-owner {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: grey;
+}
+
+.menu-detail-description {
+  margin-left: 10%;
+}
+
+.menu-detail-description > h4 {
+  color: grey;
+}
+
+.specs {
+  margin-left: 10%;
+  width: 60%;
+
+}
+
+.specs > h2 {
+  padding: 20px;
+}
+
+.specs > p {
+  padding-left: 20px;
 }
 
 // .container-full > img{

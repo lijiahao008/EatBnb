@@ -1,1 +1,1 @@
-json.array! @menus, partial: 'api/menus/menu', as: :menu
+json.array! @menus, :id, :title

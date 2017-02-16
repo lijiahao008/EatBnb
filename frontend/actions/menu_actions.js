@@ -21,7 +21,7 @@ export const fetchMenus = () => dispatch => (
 
 export const fetchMenu = id => dispatch => (
   APIUtil.fetchMenu(id)
-  .then(menu => dispatch(receiveMenu(menu)))
+  .then(menu => {return dispatch(receiveMenu(menu))})
 );
 
 export const createMenu = (menu) => dispatch => (

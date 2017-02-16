@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
 		return (
 
 		<div className="col-md-4 col-md-offset-4">
-			<div className="box">
+			<div id="box">
 				<div className="input-group">
 					<span className="input-group-addon addon-facebook">
 						<i className="fa fa-fw fa-2x fa-facebook"></i>

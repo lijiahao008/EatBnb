@@ -12,12 +12,26 @@ class MenuShow extends React.Component {
       return <div>Loading...</div>;
       }
     return (
-    <div className="container-full">
-      <img src="http://lorempixel.com/600/300/food" />
-      <div className="menu-detail">
-        <h3>{menu.title}</h3>
-        <h1>{menu.price}</h1>
-        <h1>{menu.description}</h1>
+    <div>
+      <div className="container-full">
+        <img src="http://lorempixel.com/600/300/food" />
+          <hr width="90%" align="left"/>
+        <div className="menu-detail">
+          <div className="menu-detail-owner">
+            <img src={menu.owner_profile_pic} className="ownerProfilePic"/>
+            <h4>{menu.owner_name}</h4>
+          </div>
+          <div className="menu-detail-description">
+            <h1>{menu.title}</h1>
+            <h4>{menu.address}</h4>
+            <h4>{menu.description}</h4>
+          </div>
+        </div>
+        <hr width="90%" align="left"/>
+        <div className="specs">
+          <h2>About this listing</h2>
+          <p>{menu.description}</p>
+        </div>
       </div>
     </div>
     );
