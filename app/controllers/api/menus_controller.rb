@@ -1,6 +1,9 @@
 class Api::MenusController < ApplicationController
   before_action :require_logged_in
 
+  def index
+    @menus = Menu.all
+  end
 
   def create
     @menu = Menu.new(menu_params)

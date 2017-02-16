@@ -6,6 +6,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 // react components
 import App from './app';
+import MenuIndexContainer from './menus/menu_index_container';
 
 const Root = ({ store }) => {
 
@@ -20,6 +21,7 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
+          <IndexRoute component={MenuIndexContainer} />
         </Route>
       </Router>
     </Provider>

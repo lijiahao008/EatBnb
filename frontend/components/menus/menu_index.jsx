@@ -8,17 +8,20 @@ class MenuIndex extends React.Component {
 
   render () {
     return (
-      <div>
-        <ul>
-          {
-            this.props.menus.map(menu => (
-              <MenuIndexItem
-                key={menu.id}
-                menu={menu} />
-            ))
-          }
-        </ul>
-      </div>
+
+  <div className="container featuredMenus">
+    <div className="row align-items-center">
+        {
+          this.props.menus.map(menu => (
+
+            <MenuIndexItem
+              key={menu.id}
+              menu={menu} />
+          ))
+        }
+    </div>
+  </div>
+
     );
   }
 }
