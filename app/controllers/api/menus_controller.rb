@@ -3,10 +3,11 @@ class Api::MenusController < ApplicationController
 
   def index
     if params[:top_rated]
-      @menus = Menu.order(:average_rating).limit(6)
+      @menus = Menu.order(average_rating: :desc).limit(6)
     else
       @menus = Menu.all.take(6)
     end
+
   end
 
   def create
@@ -19,7 +20,7 @@ class Api::MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.includes(:owner).find(params[:id])
+    @menu = Menu.includes(:owner, :reviews).find(params[:id])
   end
 
   def update

@@ -105,6 +105,9 @@ class SessionForm extends React.Component {
 					<p className="text-center">You agree to the <strong>Terms & Conditions</strong>.</p>
 
 					<button type="submit" className="btn-block btn btn-lg btn-primary">{buttonText}</button>
+					<button className="btn-block btn btn-lg btn-danger" onClick={()=> this.props.login({user: {email: "123@gmail.com", password: "password"}}).then(()=>{
+						this.props.parent.closeModal();
+					})}>Guest Log In</button>
 					{link}
 				</form>
 			</div>

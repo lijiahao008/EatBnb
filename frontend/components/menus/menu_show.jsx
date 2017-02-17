@@ -11,6 +11,7 @@ class MenuShow extends React.Component {
     if (!menu) {
       return <div>Loading...</div>;
       }
+
     return (
     <div>
       <div className="container-full">
@@ -31,6 +32,21 @@ class MenuShow extends React.Component {
         <div className="specs">
           <h2>About this listing</h2>
           <p>{menu.description}</p>
+          <hr/>
+          <h2>{menu.reviews.length} Review(s)</h2>
+          <ul>{menu.reviews.map(review => (
+              <div className="single-review" key={review.score}>
+                <div className="review-owner">
+                  <img src={review.owner_profile_pic} />
+                  <h4>{review.owner_name}</h4>
+                </div>
+                <div className="review-body">
+                  <p>{review.body}</p>
+                  <strong>{review.created_at}</strong>
+                  <hr width="100%"/>
+                </div>
+              </div>
+            ))}</ul>
         </div>
       </div>
     </div>

@@ -10,19 +10,28 @@ class TopRatedMenus extends React.Component {
   render () {
     let settings = {
       dots: true,
+      arrows: true,
       speed: 500,
       slidesToShow: 4,
-      slidesToScroll: 2
+      slidesToScroll: 2,
+      className: "slider"
     };
+    const menus = this.props.menus;
+    if (menus.length === 0) {
+      return <div>Loading...</div>;
+    }
     return (
-
       <Slider {...settings}>
-        <div><h3>1</h3></div>
-        <div><h3>2</h3></div>
-        <div><h3>3</h3></div>
-        <div><h3>4</h3></div>
-        <div><h3>5</h3></div>
-        <div><h3>6</h3></div>
+        {this.props.menus.map(menu => {
+          return (
+            <div className="topRatedMenus"
+              key={menu.id}>
+              <img src="https://placeimg.com/400/250/people" />
+              <strong>${menu.price} </strong>
+              {menu.title}
+            </div>
+          )
+        })}
       </Slider>
     );
   }

@@ -67,8 +67,7 @@ nav.navbar-eatbnb button.navbar-toggle > span.icon-bar {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #000000;
-  opacity: 0.7;
+  background-color: rgba(0, 0, 0, .5);
   z-index: 99;
 }
 
@@ -162,6 +161,41 @@ strong {
     box-shadow: none;
 }
 
+.homeSearchBar {
+  height: 400px;
+  margin-top: 100px;
+}
+
+.homeSearchBar h1 {
+  color: #f14444;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+
+.homeRecomendedMenus h3 {
+  color: grey;
+}
+
+.homeTopRatedMenus h3 {
+  color: grey;
+  margin-bottom: 50px;
+}
+
+.topRatedMenus > img {
+  border-width: 10px;
+  border-color: white;
+}
+
+.slider{
+  .slick-prev, .slick-next,
+  .slick-prev:hover, .slick-next:hover {
+    background-color: grey;
+  }
+
+}
+
+
 .container-full {
   height: 700px;
 }
@@ -170,6 +204,9 @@ strong {
   height: auto;
   max-height: 100%;
   width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 .menu-detail {
@@ -194,7 +231,7 @@ strong {
 }
 
 .menu-detail-description {
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 .menu-detail-description > h4 {
@@ -209,16 +246,31 @@ strong {
 
 .specs > h2 {
   padding: 20px;
+  font-size: 20px;
 }
 
 .specs > p {
   padding-left: 20px;
 }
 
-// .container-full > img{
-//     position: absolute;
-//     top: 7%;
-//     width: 100%;
-//     left: 0;
-//
-// }
+.single-review {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .review-owner {
+    display: flex;
+    flex-direction: column;
+    color: grey;
+  }
+  img {
+    height: 50px;
+    weight: 50px;
+  }
+  .review-body {
+    position: relative;
+    top: 20px;
+    left: 5%;
+  }
+
+
+}
