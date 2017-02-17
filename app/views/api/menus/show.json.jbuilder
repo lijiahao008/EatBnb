@@ -3,7 +3,10 @@ json.title @menu.title
 json.description @menu.description
 json.price @menu.price
 json.address @menu.address
+json.average_rating @menu.average_rating
 json.owner_name @menu.owner.f_name + " " + @menu.owner.l_name
+json.owner_description @menu.owner.description
+json.owner_member_since @menu.owner.created_at.strftime("%B %Y")
 json.owner_profile_pic @menu.owner.profile_image_url
 json.reviews @menu.reviews do |review|
      json.score review.score

@@ -14,6 +14,7 @@ class Api::UsersController < ApplicationController
 
   end
 
+  
   def update
     if @user.update(user_params)
       render "/"

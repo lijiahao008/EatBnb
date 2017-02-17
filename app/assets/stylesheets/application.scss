@@ -187,9 +187,15 @@ strong {
   border-color: white;
 }
 
+.slick-slide {
+  margin: 0px, 10px;
+}
+.slick-list {
+  margin: 0px, -10px;
+}
 .slider{
   .slick-prev, .slick-next,
-  .slick-prev:hover, .slick-next:hover {
+  .slick-prev:hover, .slick-next:hover, .slick-next:focus, .slick-next:focus, .slick-next:active, .slick-next:active, .slick-next:target, .slick-next:target {
     background-color: grey;
   }
 
@@ -217,10 +223,16 @@ strong {
   align-items: center;
 }
 
+.fa-spoon {
+  margin-right: 3px;
+  color: #f14444;
+}
+
 .ownerProfilePic {
   height: 100px;
   width: 100px;
   padding: 10px;
+  border-radius: 50%;
 }
 
 .menu-detail-owner {
@@ -249,8 +261,26 @@ strong {
   font-size: 20px;
 }
 
-.specs > p {
+.specs > h4 {
   padding-left: 20px;
+}
+
+.specs h4 {
+  color: grey;
+}
+.host-information {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
+  .host-description {
+    width: 60%;
+    margin-left: 10%;
+  }
 }
 
 .single-review {
@@ -265,11 +295,13 @@ strong {
   img {
     height: 50px;
     weight: 50px;
+    border-radius: 50%;
   }
   .review-body {
     position: relative;
     top: 20px;
     left: 5%;
+    right: 5%;
   }
 
 

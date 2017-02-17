@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { Link, hashHistory } from 'react-router';
 
 
 class TopRatedMenus extends React.Component {
@@ -25,7 +26,8 @@ class TopRatedMenus extends React.Component {
         {this.props.menus.map(menu => {
           return (
             <div className="topRatedMenus"
-              key={menu.id}>
+              key={menu.id}
+              onClick={()=> (hashHistory.push(`/menus/${menu.id}`))}>
               <img src="https://placeimg.com/400/250/people" />
               <strong>${menu.price} </strong>
               {menu.title}

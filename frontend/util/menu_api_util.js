@@ -7,10 +7,11 @@ export const fetchTopRatedMenus = () => {
   });
 };
 
-export const fetchMenus = () => {
+export const fetchMenus = (filter) => {
   return $.ajax({
     method: 'GET',
-    url: '/api/menus'
+    url: '/api/menus',
+    data: filter
   });
 };
 
