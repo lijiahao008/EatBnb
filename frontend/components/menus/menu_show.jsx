@@ -15,7 +15,7 @@ class MenuShow extends React.Component {
     return (
     <div>
       <div className="container-full">
-        <img src="http://lorempixel.com/600/300/food" />
+        <img src="https://placeimg.com/400/250/people" />
           <hr width="90%"/>
         <div className="menu-detail">
           <div className="menu-detail-owner">
