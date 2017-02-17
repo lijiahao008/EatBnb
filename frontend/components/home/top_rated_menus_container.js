@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import MenuIndex from './menu_index';
-import { fetchMenus } from '../../actions/menu_actions';
+import TopRatedMenus from './top_rated_menus';
+import { fetchTopRatedMenus } from '../../actions/menu_actions';
 
 const mapStateToProps = state => {
   return {
@@ -8,10 +8,10 @@ const mapStateToProps = state => {
 }};
 
 const mapDispatchToProps = dispatch => ({
-  fetchMenus: () => dispatch(fetchMenus())
+  fetchTopRatedMenus: () => dispatch(fetchTopRatedMenus())
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MenuIndex);
+)(TopRatedMenus);

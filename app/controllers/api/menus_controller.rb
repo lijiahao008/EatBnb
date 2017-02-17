@@ -2,7 +2,11 @@ class Api::MenusController < ApplicationController
   before_action :require_logged_in, except: [:index, :show]
 
   def index
-    @menus = Menu.all.take(6)
+    if params[:top_rated]
+      @menus = Menu.order(:average_rating).limit(6)
+    else
+      @menus = Menu.all.take(6)
+    end
   end
 
   def create

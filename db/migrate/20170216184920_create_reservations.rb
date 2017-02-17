@@ -8,5 +8,6 @@ class CreateReservations < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_index :reservations, :owner_id
   end
 end

@@ -4,7 +4,7 @@ import { Link, hashHistory } from 'react-router';
 import {StyleRoot} from 'radium';
 
 
-class MenuIndex extends React.Component {
+class RecomendedMenus extends React.Component {
   componentDidMount() {
     this.props.fetchMenus();
   }
@@ -21,11 +21,13 @@ class MenuIndex extends React.Component {
         media={{
          '@media (max-width: 900px)': {
            width: '600px',
-           height: '200px'
+           height: '200px',
+           background: 'white'
          },
          '@media (min-width: 900px)': {
            width: '960px',
-           height: '300px'
+           height: '300px',
+           background: 'white'
          }
        }}
         >
@@ -43,4 +45,4 @@ class MenuIndex extends React.Component {
   }
 }
 
-export default MenuIndex;
+export default RecomendedMenus;

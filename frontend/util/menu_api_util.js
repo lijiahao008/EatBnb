@@ -1,4 +1,12 @@
 
+export const fetchTopRatedMenus = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/menus',
+    data: { top_rated: true }
+  });
+};
+
 export const fetchMenus = () => {
   return $.ajax({
     method: 'GET',

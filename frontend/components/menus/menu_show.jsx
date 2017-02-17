@@ -15,7 +15,7 @@ class MenuShow extends React.Component {
     <div>
       <div className="container-full">
         <img src="http://lorempixel.com/600/300/food" />
-          <hr width="90%" align="left"/>
+          <hr width="90%"/>
         <div className="menu-detail">
           <div className="menu-detail-owner">
             <img src={menu.owner_profile_pic} className="ownerProfilePic"/>
@@ -27,7 +27,7 @@ class MenuShow extends React.Component {
             <h4>{menu.description}</h4>
           </div>
         </div>
-        <hr width="90%" align="left"/>
+        <hr width="90%"/>
         <div className="specs">
           <h2>About this listing</h2>
           <p>{menu.description}</p>
