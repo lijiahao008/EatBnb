@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory, Router, withRouter } from 'react-router';
 import SessionFormContainer from '../session_form/session_form_container';
 import Modal from 'react-modal';
 
@@ -17,11 +17,33 @@ class NavBar extends React.Component {
     this.openLogInModal = this.openLogInModal.bind(this);
     this.openSignUpModal = this.openSignUpModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleBecomeAHost = this.handleBecomeAHost.bind(this);
   }
 
   componentWillMount() {
-      Modal.setAppElement('body');
-   }
+    Modal.setAppElement('body');
+  }
+
+  openLogInModal() {
+    this.setState({modalIsOpen: true, formType: "login"});
+  }
+
+  openSignUpModal() {
+    this.setState({modalIsOpen: true, formType: "signup"});
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
+  handleBecomeAHost(){
+    if (this.props.currentUser) {
+      this.props.router.push(`/users/${this.props.currentUser.id}/edit`)
+    }
+    else {
+      this.openLogInModal();
+    }
+  }
 
   nav_bar(items) {
     const form = this.state.formType === "login" ? <SessionFormContainer formType="login" parent={this} /> :
@@ -63,7 +85,7 @@ class NavBar extends React.Component {
       this.nav_bar(
         <div className="collapse navbar-collapse" id="navbar">
       		<ul className="nav navbar-nav navbar-right">
-            <li><a href="#">Become A Host</a></li>
+            <li><a href="#" onClick={this.handleBecomeAHost}>Become A Host</a></li>
       			<li><a href="#" onClick={this.openLogInModal}>Log In </a></li>
             <li><a href="#" onClick={this.openSignUpModal}>Sign Up</a></li>
       		</ul>
@@ -73,11 +95,26 @@ class NavBar extends React.Component {
   };
 
   logged_in(currentUser, logout){
+    let greeting;
+    if (currentUser.f_name === "") {
+      greeting = <li><a>Hi, {currentUser.email}!</a></li>;
+    }
+    else {
+      greeting = <li><a>Hi, {currentUser.f_name}!</a></li>;
+    }
+    let link;
+    if (currentUser.host) {
+      link = <li><a href="#" onClick={()=> {hashHistory.push("/menus/new")}}>Create A New Menu</a></li>
+    }
+    else {
+      link = <li><a href="#" onClick={this.handleBecomeAHost}>Become A Host</a></li>
+    }
     return(
       this.nav_bar(
         <div className="collapse navbar-collapse" id="navbar">
       		<ul className="nav navbar-nav navbar-right">
-      			<li><a>Hi, {currentUser.email}!</a></li>
+            {link}
+      			{greeting}
             <li><a href="#" onClick={logout}>Log Out</a></li>
       		</ul>
         </div>
@@ -85,17 +122,6 @@ class NavBar extends React.Component {
     )
   };
 
-  openLogInModal() {
-    this.setState({modalIsOpen: true, formType: "login"});
-  }
-
-  openSignUpModal() {
-    this.setState({modalIsOpen: true, formType: "signup"});
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }
 
   render() {
     if (this.props.currentUser) {
@@ -108,4 +134,4 @@ class NavBar extends React.Component {
 
 
 
-export default NavBar;
+export default withRouter(NavBar);

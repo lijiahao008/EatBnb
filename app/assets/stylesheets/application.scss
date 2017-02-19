@@ -73,11 +73,11 @@ nav.navbar-eatbnb button.navbar-toggle > span.icon-bar {
 
 .Modal {
   left: 30%;
-  top: 20%;
+  top: 15%;
   z-index: 100;
 }
 
-.col-md-4 {
+.login-form {
   position: fixed;
   top: 20%;
 }
@@ -175,6 +175,11 @@ strong {
 
 .homeRecomendedMenus h3 {
   color: grey;
+  width: 100%;
+}
+
+.homeRecomendedMenus button {
+  top: 5px;
 }
 
 .homeTopRatedMenus h3 {
@@ -182,127 +187,37 @@ strong {
   margin-bottom: 50px;
 }
 
-.topRatedMenus > img {
-  border-width: 10px;
-  border-color: white;
-}
 
-.slick-slide {
-  margin: 0px, 10px;
-}
-.slick-list {
-  margin: 0px, -10px;
-}
 .slider{
+  left: 10px;
+  right: 10%;
   .slick-prev, .slick-next,
   .slick-prev:hover, .slick-next:hover, .slick-next:focus, .slick-next:focus, .slick-next:active, .slick-next:active, .slick-next:target, .slick-next:target {
     background-color: grey;
   }
-
-}
-
-
-.container-full {
-  height: 700px;
-}
-
-.container-full > img {
-  height: auto;
-  max-height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
-
-.menu-detail {
-  top: 90%;
-  margin-left: 10%;
-  width: 60%;
-  display: flex;
-  align-items: center;
-}
-
-.fa-spoon {
-  margin-right: 3px;
-  color: #f14444;
-}
-
-.ownerProfilePic {
-  height: 100px;
-  width: 100px;
-  padding: 10px;
-  border-radius: 50%;
-}
-
-.menu-detail-owner {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  color: grey;
-}
-
-.menu-detail-description {
-  margin-left: 5%;
-}
-
-.menu-detail-description > h4 {
-  color: grey;
-}
-
-.specs {
-  margin-left: 10%;
-  width: 60%;
-
-}
-
-.specs > h2 {
-  padding: 20px;
-  font-size: 20px;
-}
-
-.specs > h4 {
-  padding-left: 20px;
-}
-
-.specs h4 {
-  color: grey;
-}
-.host-information {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
+  .slide{
+    margin-left: 5px;
   }
-  .host-description {
-    width: 60%;
-    margin-left: 10%;
-  }
+
 }
 
-.single-review {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  .review-owner {
+.user-edit {
+  margin-top: 15%;
+  .checkboxes{
     display: flex;
-    flex-direction: column;
-    color: grey;
+    flex-direction: row;
+    align-items: center;
   }
-  img {
-    height: 50px;
-    weight: 50px;
-    border-radius: 50%;
+  .checkbox{
+    margin: 10px;
   }
-  .review-body {
-    position: relative;
-    top: 20px;
-    left: 5%;
-    right: 5%;
-  }
+}
 
-
+.dropzone {
+  border-color: grey;
+  border-style: dashed;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  text-align: justify;
 }

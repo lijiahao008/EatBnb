@@ -14,19 +14,19 @@ class RecomendedMenus extends React.Component {
     <StyleRoot>
       <Coverflow width="auto" height="auto"
         displayQuantityOfSide={2}
-        navigation={false}
-        enableScroll={true}
+        navigation={true}
+        enableScroll={false}
         clickable={true}
-        active={0}
+        active={4}
         media={{
          '@media (max-width: 900px)': {
-           width: '600px',
-           height: '200px',
+           width: '80%',
+           height: '250px',
            background: 'white'
          },
          '@media (min-width: 900px)': {
-           width: '960px',
-           height: '300px',
+           width: '80%',
+           height: '350px',
            background: 'white'
          }
        }}

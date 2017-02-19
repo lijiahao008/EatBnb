@@ -14,11 +14,10 @@ class MenuShow extends React.Component {
 
     const stars = [];
     for (var i = 0; i < this.props.menu.average_rating; i++) {
-      stars.push(<i className="fa fa-spoon" aria-hidden="true"></i>);
+      stars.push(<i className="fa fa-spoon" aria-hidden="true" key={i}></i>);
     }
 
     return (
-    <div>
       <div className="container-full">
         <img src="http://lorempixel.com/600/300/food" />
           <hr width="90%"/>
@@ -41,7 +40,7 @@ class MenuShow extends React.Component {
           <hr/>
           <h2>{menu.reviews.length} Review(s)</h2>
           <ul>{menu.reviews.map(review => (
-              <div className="single-review" key={review.score}>
+              <div className="single-review" key={review.id}>
                 <div className="review-owner">
                   <img src={review.owner_profile_pic} />
                   <h4>{review.owner_name}</h4>
@@ -66,7 +65,6 @@ class MenuShow extends React.Component {
             <hr/>
         </div>
       </div>
-    </div>
     );
   }
 }

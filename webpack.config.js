@@ -21,6 +21,9 @@ module.exports = {
   },
   devtool: 'source-maps',
   resolve: {
-    extensions: ["", ".js", ".jsx" ]
+    extensions: ["", ".js", ".jsx" ],
+    alias: {
+      radium: path.join(__dirname, 'node_modules', 'radium')
+    }
   }
 };

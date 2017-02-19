@@ -1,13 +1,19 @@
 class Api::MenuReviewsController < ApplicationController
   before_action :require_logged_in, except: [:index, :show]
 
-  def index
-
-  end
-
   def create
     @menu_review = MenuReview.new(menu_review_params)
+    @menu_review.owner_id = current_user.id
     if @menu_review.save
+      render "api/menus/show/#{@menu_review.menu_id}"
+    else
+      render json: @menu_review.errors.full_messages, status: 422
+    end
+  end
+
+  def update
+    @menu_review = MenuReview.find(params[:id])
+    if @menu_review.update(menu_review_params)
       render "api/menus/show/#{@menu_review.menu_id}"
     else
       render json: @menu_review.errors.full_messages, status: 422

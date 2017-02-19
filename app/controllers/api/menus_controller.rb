@@ -12,6 +12,7 @@ class Api::MenusController < ApplicationController
 
   def create
     @menu = Menu.new(menu_params)
+    @menu.owner_id = current_user.id
     if @menu.save
       render "api/menus/show"
     else
@@ -29,10 +30,6 @@ class Api::MenusController < ApplicationController
     else
       render json: @menu.errors.full_messages, status: 422
     end
-
-  end
-
-  def destroy
 
   end
 

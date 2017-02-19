@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to:"home_page#homepage"
 
   namespace :api, defaults: {format: :json} do
-    resource :user, only: [:create]
+    resource :user, only: [:create, :update]
     resource :session, only: [:create, :destroy, :show]
     resources :menus, only: [:index, :create, :update, :show]
     resources :menu_reviews, only: [:create, :update]

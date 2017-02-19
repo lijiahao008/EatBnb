@@ -31,16 +31,20 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.1.18",
     "lodash": "^4.15.0",
+    "radium-grid": "2.0.0",
     "react": "^15.3.1",
+    "react-coverflow": "0.2.3",
     "react-dom": "^15.3.1",
+    "react-dropzone": "^3.10.0",
     "react-modal": "^1.6.5",
     "react-redux": "^4.4.5",
     "react-router": "2.8.1",
-    "radium-grid": "2.0.0",
-    "react-coverflow": "0.2.3",
     "react-slick": "0.14.2",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "webpack": "^1.12.2"
+  },
+  "peerDependency": {
+    "radium": "0.18.1"
   }
 }

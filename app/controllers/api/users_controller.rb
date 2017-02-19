@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  before_action :require_logged_in, only: [:update]
+
   def create
     @user = User.new(user_params)
 
@@ -10,14 +12,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def edit
-
-  end
-
-  
   def update
-    if @user.update(user_params)
-      render "/"
+    @user = User.find(params[:id])
+    if @user.id == current_user.id && @user.update(user_params) 
+      render "api/users/show"
     else
       render json: @user.errors.full_messages, status: 422
     end
@@ -26,6 +24,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :f_name, :l_name, :description, :profile_image_url)
   end
 end

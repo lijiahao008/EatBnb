@@ -8,15 +8,15 @@ class SessionForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	componentDidUpdate() {
-		this.redirectIfLoggedIn();
-	}
+	// componentDidUpdate() {
+	// 	this.redirectIfLoggedIn();
+	// }
 
-	redirectIfLoggedIn() {
-		if (this.props.loggedIn) {
-			this.props.router.push("/");
-		}
-	}
+	// redirectIfLoggedIn() {
+	// 	if (this.props.loggedIn) {
+	// 		this.props.router.push("/");
+	// 	}
+	// }
 
 	update(field) {
 		return e => this.setState({
@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
 
 		return (
 
-		<div className="col-md-4 col-md-offset-4">
+		<div className="col-md-4 col-md-offset-4 login-form">
 			<div id="box">
 				<div className="input-group">
 					<span className="input-group-addon addon-facebook">
@@ -104,10 +104,10 @@ class SessionForm extends React.Component {
 
 					<p className="text-center">You agree to the <strong>Terms & Conditions</strong>.</p>
 
-					<button type="submit" className="btn-block btn btn-lg btn-primary">{buttonText}</button>
-					<button className="btn-block btn btn-lg btn-danger" onClick={()=> this.props.login({user: {email: "123@gmail.com", password: "password"}}).then(()=>{
+					<button className="btn-block btn btn-lg btn-primary">{buttonText}</button>
+					<a className="btn-block btn btn-lg btn-danger" onClick={()=> this.props.login({user: {email: "123@gmail.com", password: "password"}}).then(()=>{
 						this.props.parent.closeModal();
-					})}>Guest Log In</button>
+					})}>Guest Log In</a>
 					{link}
 				</form>
 			</div>
