@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MenuForm from './menu_form';
-import { createMenu } from '../../actions/menu_actions';
+import { createMenu, updateMenu } from '../../actions/menu_actions';
 
 const mapStateToProps = (state,ownProps) => {
   return {
@@ -9,7 +9,8 @@ const mapStateToProps = (state,ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  createMenu: (menu) => dispatch(createMenu(menu))
+  createMenu: (menu) => dispatch(createMenu(menu)),
+  updateMenu: (menu) => dispatch(updateMenu(menu))
 });
 
 export default connect(

@@ -33,3 +33,8 @@ export const createMenu = (menu) => dispatch => (
   APIUtil.createMenu(menu).then(
     menu => dispatch(receiveMenu(menu)))
 );
+
+export const updateMenu = (menu) => dispatch => (
+  APIUtil.updateMenu(menu).then(
+    menu => dispatch(receiveMenu(menu)))
+);

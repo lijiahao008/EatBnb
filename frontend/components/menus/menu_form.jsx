@@ -6,6 +6,12 @@ import Dropzone from 'react-dropzone';
 class MenuForm extends React.Component {
   constructor(props){
     super(props)
+    this.state={
+      title: "",
+      description: "",
+      price: 0,
+      address: ""
+    }
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -19,7 +25,6 @@ class MenuForm extends React.Component {
     e.preventDefault();
     const menu = this.state;
     this.props.createMenu({menu}).then(hashHistory.push('/'));
-
   }
 
   onDrop(acceptedFiles, rejectedFiles){
@@ -47,9 +52,10 @@ class MenuForm extends React.Component {
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="form-group">
-                                        <input type="text" className="form-control" placeholder="Title" required />
+                                        <input type="text" className="form-control" placeholder="What would you name your menu?"
+                                        onChange={this.update("title")}
+                                        required />
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -68,7 +74,8 @@ class MenuForm extends React.Component {
                             <div className="row">
                                 <div className="col-md-12">
                                   <div className="form-group">
-                                      <textarea className="form-control" placeholder="Description" rows="5" required></textarea>
+                                      <textarea className="form-control" placeholder="Tell everybody about your menu." rows="5"
+                                      onChange={this.update("description")} required />
                                   </div>
                                 </div>
                             </div>
@@ -89,12 +96,69 @@ class MenuForm extends React.Component {
                             <div className="row">
                                 <div className="col-md-12">
                                   <div className="form-group">
-                                      <input type="text" className="form-control" placeholder="Price" required />
+                                      <input type="text" className="form-control" placeholder="How much are you charging?"
+                                      onChange={this.update("price")}
+                                      required />
                                   </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="panel panel-default">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                    <div className="panel-heading">
+                        <h4 className="panel-title">
+                            <i className="fa fa-location-arrow" aria-hidden="true"></i> Location
+                        </h4>
+                    </div>
+                    </a>
+                    <div id="collapseFour" className="panel-collapse collapse">
+                        <div className="panel-body">
+                            <div className="row">
+                                <div className="col-md-12">
+                                  <div className="form-group">
+                                      <input type="text" className="form-control" placeholder="Where will this be hosted?"
+                                      onChange={this.update("address")}
+                                      required />
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="panel panel-default">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                    <div className="panel-heading">
+                        <h4 className="panel-title">
+                            <i className="fa fa-picture-o" aria-hidden="true"></i> Photos
+                        </h4>
+                    </div>
+                    </a>
+                    <div id="collapseFive" className="panel-collapse collapse">
+                        <div className="panel-body">
+                            <div className="row">
+                                <div className="col-md-12">
+                                  <div className="form-group">
+                                    <Dropzone
+                                      onDrop={this.onDrop}
+                                      className="menu-dropzone">
+                                      <p>Drop some files here, or click to select files to upload.</p>
+                                    </Dropzone>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="panel panel-default menu-finish">
+                  <a onClick={this.handleSubmit}>
+                    <div className="panel-heading">
+                        <h4 className="panel-title">
+                            <i className="fa fa-check" aria-hidden="true"></i> Finish
+                        </h4>
+                    </div>
+                  </a>
                 </div>
             </div>
         </div>

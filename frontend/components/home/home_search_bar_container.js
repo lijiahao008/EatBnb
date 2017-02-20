@@ -8,10 +8,10 @@ const mapStateToProps = state => {
 }};
 
 const mapDispatchToProps = dispatch => ({
-  fetchMenus: () => dispatch(fetchMenus())
+  fetchMenus: (data) => dispatch(fetchMenus(data))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RecomendedMenus);
+)(HomeSearchBar);

@@ -104,10 +104,20 @@ class NavBar extends React.Component {
   logged_in(currentUser, logout){
     let greeting;
     if (currentUser.f_name === "") {
-      greeting = <li><a>Hi, {currentUser.email}!</a></li>;
+      greeting = <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, {currentUser.email}!</a>
+        <ul className="dropdown-menu" role="menu">
+  						<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i> My Profile</Link></li>
+  						<li><a href="#"><i className="fa fa-calendar-minus-o" aria-hidden="true"></i> My Reservations</a></li>
+  					</ul>
+      </li>;
     }
     else {
-      greeting = <li><a>Hi, {currentUser.f_name}!</a></li>;
+      greeting = <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, {currentUser.f_name}!</a>
+        <ul className="dropdown-menu" role="menu">
+  						<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i>My Profile</Link></li>
+  						<li><a href="#"><i className="fa fa-calendar-minus-o" aria-hidden="true"></i> My Reservations</a></li>
+  					</ul>
+      </li>;
     }
     let link;
     if (currentUser.host) {

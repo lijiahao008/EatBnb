@@ -5,13 +5,12 @@ class Api::MenusController < ApplicationController
     if params[:top_rated]
       @menus = Menu.order(average_rating: :desc).limit(6)
     else
-      @menus = Menu.all.take(6)
+      @menus = Menu.all
     end
 
   end
 
   def create
-    debugger
     @menu = Menu.new(menu_params)
     @menu.owner_id = current_user.id
 

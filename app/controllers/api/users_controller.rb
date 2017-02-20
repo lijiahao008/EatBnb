@@ -14,9 +14,9 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(user_params[:id])
-    user_session_token = @user.session_token
+    
     if @user.id == current_user.id && @user.update(user_params)
-      @user.session_token = user_session_token
+      session[:session_token] = @user.session_token
       render "api/users/show"
     else
       render json: @user.errors.full_messages, status: 422

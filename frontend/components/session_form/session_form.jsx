@@ -18,10 +18,17 @@ class SessionForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = {email: this.state.email, password:this.state.password};
+		if (this.state.formType === "login") {
+			this.props.login({user}).then(()=>{
+				this.props.parent.closeModal();
+			});
+		}
+		else if (this.state.formType == "signup") {
+			this.props.signup({user}).then(()=>{
+				this.props.parent.closeModal();
+			});
+		}
 
-		this.props.processForm({user}).then(()=>{
-			this.props.parent.closeModal();
-		});
 	}
 
 	renderErrors() {

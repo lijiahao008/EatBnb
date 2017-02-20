@@ -1,6 +1,8 @@
 import React from 'react';
 import RecomendedMenusContainer from './recomended_menus_container';
 import TopRatedMenusContainer from './top_rated_menus_container';
+import HomeSearchBarContainer from './home_search_bar_container';
+
 
 const Home = (props) => {
   return (
@@ -10,6 +12,7 @@ const Home = (props) => {
           <div className="col-lg-8">
             <h1>Welcome to EatBnb</h1>
             <h2>The 21 century's solution for an authentic meal experience.</h2>
+            <HomeSearchBarContainer />
           </div>
         </div>
         <div className="row homeRecomendedMenus">

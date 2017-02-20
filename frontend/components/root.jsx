@@ -13,7 +13,7 @@ import UserEditFormContainer from './user/user_edit_form_container';
 
 
 const Root = ({ store }) => {
-
+  
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
