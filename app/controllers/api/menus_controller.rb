@@ -11,9 +11,12 @@ class Api::MenusController < ApplicationController
   end
 
   def create
+    debugger
     @menu = Menu.new(menu_params)
     @menu.owner_id = current_user.id
+
     if @menu.save
+
       render "api/menus/show"
     else
       render json: @menu.errors.full_messages, status: 422

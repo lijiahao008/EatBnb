@@ -202,7 +202,7 @@ strong {
 }
 
 .user-edit {
-  margin-top: 15%;
+  margin-top: 100px;
   .checkboxes{
     display: flex;
     flex-direction: row;
@@ -220,4 +220,14 @@ strong {
   height: 150px;
   width: 150px;
   text-align: justify;
+  div {
+    color: grey;
+    margin: 10px;
+    padding-top: 21px;
+  }
+}
+
+.menu-steps{
+  margin-top: 100px;
+
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
+import { Link, hashHistory, withRouter } from 'react-router';
 import Dropzone from 'react-dropzone';
 
 
@@ -8,6 +8,7 @@ class UserEditForm extends React.Component {
     super(props)
     let user = this.props.user
     this.state = {
+      id: user.id,
       f_name: user.f_name,
       l_name: user.l_name,
       description: user.description,
@@ -15,7 +16,7 @@ class UserEditForm extends React.Component {
       host: user.host,
       profile_image_url: user.profile_image_url
     }
-
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -23,19 +24,24 @@ class UserEditForm extends React.Component {
       this.setState({[field]: e.target.value})
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = this.state;
+    this.props.editUser({user}).then(()=> hashHistory.push('/'));
+  }
+
   onDrop(acceptedFiles, rejectedFiles){
     console.log('Accepted files: ', acceptedFiles);
-     console.log('Rejected files: ', rejectedFiles);
+    console.log('Rejected files: ', rejectedFiles);
   }
 
 
   render () {
-
     return (
   <div className="container user-edit">
     <div className="row">
       <div className="col-md-10 ">
-      <form className="form-horizontal">
+      <form className="form-horizontal" onSubmit={this.handleSubmit}>
       <fieldset>
 
       <legend>Edit User Profile</legend>
@@ -90,12 +96,12 @@ class UserEditForm extends React.Component {
       </div>
 
       <div className="form-group">
-        <label className="col-md-4 control-label" >upload photo</label>
+        <label className="col-md-4 control-label" >Upload Photo</label>
         <div className="col-md-4">
             <Dropzone
               onDrop={this.onDrop}
               className="dropzone">
-              <div>      Try dropping some files here, or click to select files to upload.</div>
+              <div>Drop some files here, or click to select files to upload.</div>
             </Dropzone>
         </div>
       </div>
@@ -103,7 +109,7 @@ class UserEditForm extends React.Component {
       <div className="form-group">
         <label className="col-md-4 control-label" ></label>
         <div className="col-md-4">
-          <button id="singlebutton" className="btn btn-primary">submit</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </div>
       </div>
 
@@ -119,4 +125,4 @@ class UserEditForm extends React.Component {
   }
 }
 
-export default UserEditForm;
+export default withRouter(UserEditForm);

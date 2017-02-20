@@ -13,8 +13,10 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.id == current_user.id && @user.update(user_params) 
+    @user = User.find(user_params[:id])
+    user_session_token = @user.session_token
+    if @user.id == current_user.id && @user.update(user_params)
+      @user.session_token = user_session_token
       render "api/users/show"
     else
       render json: @user.errors.full_messages, status: 422
@@ -24,6 +26,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :f_name, :l_name, :description, :profile_image_url)
+    params.require(:user).permit(:id, :email, :password, :f_name, :l_name, :host, :description, :profile_image_url)
   end
 end

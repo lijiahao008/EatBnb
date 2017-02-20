@@ -18,6 +18,7 @@ class NavBar extends React.Component {
     this.openSignUpModal = this.openSignUpModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleBecomeAHost = this.handleBecomeAHost.bind(this);
+    this.handleCreateAMenu = this.handleCreateAMenu.bind(this);
   }
 
   componentWillMount() {
@@ -36,13 +37,19 @@ class NavBar extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
-  handleBecomeAHost(){
+  handleBecomeAHost(e){
+    e.preventDefault();
     if (this.props.currentUser) {
-      this.props.router.push(`/users/${this.props.currentUser.id}/edit`)
+      hashHistory.push(`/users/${this.props.currentUser.id}/edit`)
     }
     else {
       this.openLogInModal();
     }
+  }
+
+  handleCreateAMenu(e){
+    e.preventDefault();
+    hashHistory.push("/menus/new");
   }
 
   nav_bar(items) {
@@ -104,10 +111,10 @@ class NavBar extends React.Component {
     }
     let link;
     if (currentUser.host) {
-      link = <li><a href="#" onClick={()=> {hashHistory.push("/menus/new")}}>Create A New Menu</a></li>
+      link = <li><a href="#" onClick={this.handleCreateAMenu}>Create A New Menu</a></li>
     }
     else {
-      link = <li><a href="#" onClick={this.handleBecomeAHost}>Become A Host</a></li>
+      link = <li><a onClick={this.handleBecomeAHost}>Become A Host</a></li>
     }
     return(
       this.nav_bar(

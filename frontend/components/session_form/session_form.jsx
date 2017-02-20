@@ -8,15 +8,6 @@ class SessionForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	// componentDidUpdate() {
-	// 	this.redirectIfLoggedIn();
-	// }
-
-	// redirectIfLoggedIn() {
-	// 	if (this.props.loggedIn) {
-	// 		this.props.router.push("/");
-	// 	}
-	// }
 
 	update(field) {
 		return e => this.setState({
@@ -27,6 +18,7 @@ class SessionForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = {email: this.state.email, password:this.state.password};
+
 		this.props.processForm({user}).then(()=>{
 			this.props.parent.closeModal();
 		});
