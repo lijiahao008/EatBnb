@@ -225,7 +225,14 @@ strong {
 
 }
 
-.map{
-  height: 500px;
-  width: 500px;
+.search-page{
+  margin-top: 100px;
+  .row > div:first-child {
+    float: right;
+  }
+  .map{
+    height: 750px;
+    width: 750px;
+  }
+
 }

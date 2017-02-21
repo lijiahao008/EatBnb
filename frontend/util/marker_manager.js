@@ -30,7 +30,8 @@ export default class MarkerManager {
     const marker = new google.maps.Marker({
       position: pos,
       map: this.map,
-      menuId: menu.id
+      menuId: menu.id,
+      icon: "http://www.iconsdb.com/icons/preview/soylent-red/spoon-xl.png"
     });
     marker.addListener('click', () => this.handleClick(menu));
     this.markers.push(marker);
