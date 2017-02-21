@@ -18,7 +18,7 @@ class Api::MenusController < ApplicationController
     end
 
     if params[:address]
-      @menus = @menus.where("address LIKE ?", "%#{params[:address]}%")
+      @menus = @menus.where("address LIKE ?", "%#{params[:address].downcase}%")
     end
 
   end

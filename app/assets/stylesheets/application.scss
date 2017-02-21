@@ -231,41 +231,9 @@ strong {
     float: right;
   }
   .map{
-    height: 750px;
-    width: 750px;
+    position: absolute;
+    height: 700px;
+    width: 100%;
   }
 
-}
-
-.rheostat {
-  overflow: visible;
-}
-
-.rheostat-background {
-  background-color: #fcfcfc;
-  border: 1px solid #d8d8d8;
-  position: relative;
-}
-
-.rheostat-progress {
-  background-color: #abc4e8;
-  position: absolute;
-}
-
-.rheostat-handle {
-  background-color: #fff;
-  border: 1px solid #d8d8d8;
-  border-radius: 20%;
-  height: 24px;
-  outline: none;
-  z-index: 2;
-  width: 24px;
-}
-
-.rheostat-handle:before,
-.rheostat-handle:after {
-  content: '';
-  display: block;
-  position: absolute;
-  background-color: #dadfe8;
 }

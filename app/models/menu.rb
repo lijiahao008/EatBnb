@@ -1,6 +1,8 @@
 class Menu < ApplicationRecord
   geocoded_by :address
   validates :title, :price, :description, :address, :owner, presence:true
+  before_save :downcase_address
+  after_validation :geocode
 
   belongs_to :owner,
     class_name: "User",
@@ -15,14 +17,15 @@ class Menu < ApplicationRecord
     foreign_key: :menu_id
 
 
-
-  after_validation :geocode
-
   def self.in_bounds(bounds)
     self.where("latitude < ?", bounds[:northEast][:lat])
         .where("latitude > ?", bounds[:southWest][:lat])
         .where("longitude > ?", bounds[:southWest][:lng])
         .where("longitude < ?", bounds[:northEast][:lng])
+  end
+
+  def downcase_address
+    self.address.downcase!
   end
 
 end

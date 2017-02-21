@@ -32,6 +32,10 @@ class SessionForm extends React.Component {
 
 	}
 
+	componentWillReceiveProps(newProps) {
+		debugger
+	}
+
 	renderErrors() {
 		return(
 			<ul>
@@ -49,11 +53,21 @@ class SessionForm extends React.Component {
 		let link;
     if (this.state.formType === "login"){
 			buttonText = "Log In";
-			link = <p className="text-center">Dont't have an account yet? <a href="#" onClick={()=>this.setState({formType: "signup"})}>Sign Up here</a></p>
+			link = <p className="text-center">Dont't have an account yet? <a href="#" onClick={
+					()=>{
+						this.props.clearErrors();
+						this.setState({formType: "signup"});
+					}
+			}>Sign Up here</a></p>
 		}
 		else {
 			buttonText = "Sign Up"
-			link = <p className="text-center">Already have an account? <a href="#" onClick={()=>this.setState({formType: "login"})}>Sign in here</a></p>
+			link = <p className="text-center">Already have an account? <a href="#" onClick={
+						()=>{
+							this.props.clearErrors();
+							this.setState({formType: "login"});
+						}
+					}>Sign in here</a></p>
 		}
 
 		return (

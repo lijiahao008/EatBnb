@@ -4,7 +4,10 @@ import { Link, withRouter } from 'react-router';
 class HomeSearchBar extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { date: "", address: "New York, US" };
+		this.state = Object.assign(
+			{ date: "", address: "New York, US" },
+			this.props.filters
+		);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -16,20 +19,9 @@ class HomeSearchBar extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-
+		this.props.updateSearchResults(this.state).then(this.props.router.push('/search'))
 	}
 
-	renderErrors() {
-		return(
-			<ul>
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
-	}
 
 	render() {
 
