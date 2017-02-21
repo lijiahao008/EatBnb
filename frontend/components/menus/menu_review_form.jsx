@@ -27,8 +27,8 @@ class MenuReviewForm extends React.Component {
   }
 
   onStarClick(nextValue, prevValue, name) {
-        this.setState({score: nextValue});
-    }
+    this.setState({score: nextValue});
+  }
 
 
   render () {

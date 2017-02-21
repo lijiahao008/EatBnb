@@ -10,10 +10,11 @@ import HomePage from './home/home_page';
 import MenuShowContainer from './menus/menu_show_container';
 import MenuFormContainer from './menus/menu_form_container';
 import UserEditFormContainer from './user/user_edit_form_container';
+import SearchContainer from './search/search_container';
 
 
 const Root = ({ store }) => {
-  
+
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
@@ -24,6 +25,7 @@ const Root = ({ store }) => {
             component={MenuFormContainer} />
           <Route path="/menus/:menuId"
             component={MenuShowContainer} />
+          <Route path="/search" component={SearchContainer} />
         </Route>
       </Router>
     </Provider>

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import RecomendedMenusContainer from './recomended_menus_container';
 import TopRatedMenusContainer from './top_rated_menus_container';
 import HomeSearchBarContainer from './home_search_bar_container';

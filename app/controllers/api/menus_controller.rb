@@ -4,8 +4,14 @@ class Api::MenusController < ApplicationController
   def index
     if params[:top_rated]
       @menus = Menu.order(average_rating: :desc).limit(6)
+    elsif bounds
+      @menus = Menu.in_bounds(bounds)
     else
       @menus = Menu.all
+    end
+
+    if (params[:minPrice] && params[:maxPrice])
+      @menus = @menus.where(price: price_range)
     end
 
   end
@@ -41,7 +47,15 @@ class Api::MenusController < ApplicationController
 
   private
 
+  def price_range
+    (params[:minPrice]..params[:maxPrice])
+  end
+
   def menu_params
     params.require(:menu).permit(:title, :price, :description, :address, :owner_id)
+  end
+
+  def bounds
+    params[:bounds]
   end
 end
