@@ -37,7 +37,7 @@ class MenuForm extends React.Component {
     return (
   <div className="container menu-steps">
     <div className="row">
-        <div className="col-md-6 col-md-offset-3">
+        <div className="col-md-6">
             <div className="panel-group" id="accordion">
                 <div className="panel panel-default">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
@@ -161,6 +161,9 @@ class MenuForm extends React.Component {
                   </a>
                 </div>
             </div>
+        </div>
+        <div className="col-md-6 text-center">
+          <a href="https://clipartfest.com/download/9d8b98c6e628dab878145182fa4559299a5021a4"><img src="https://img.clipartfest.com/5076c81c86b3d51ddd74703dd93c401d_-barbeque-pig-pit-style-pig-cooking-clipart_1600-1526.png" width="400" alt="pig cooking clipart" /></a>
         </div>
     </div>
 </div>
