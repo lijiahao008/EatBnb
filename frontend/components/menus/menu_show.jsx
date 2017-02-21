@@ -1,9 +1,23 @@
 import React from 'react';
+import MenuReviewFormContainer from './menu_review_form_container';
 
 class MenuShow extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      reviews: this.props.reviews
+    }
+
+  }
 
   componentDidMount() {
     this.props.fetchMenu(this.props.params.menuId);
+  }
+
+  componentWillReceiveProps(newProps){
+    if (newProps.reviews.length !== this.props.reviews.length) {
+      this.props.fetchMenu(this.props.params.menuId);
+    }
   }
 
   render () {
@@ -46,9 +60,9 @@ class MenuShow extends React.Component {
                   <h4>{review.owner_name}</h4>
                 </div>
                 <div className="review-body">
+                  <h4>Score: {review.score}</h4>
                   <h4>{review.body}</h4>
                   <strong>{review.created_at}</strong>
-                  <hr width="100%"/>
                 </div>
               </div>
             ))}</ul>
@@ -63,7 +77,11 @@ class MenuShow extends React.Component {
             </div>
             </div>
             <hr/>
+              <h2>Write A Review</h2>
+              <hr />
+            <MenuReviewFormContainer menuId={menu.id} />
         </div>
+
       </div>
     );
   }

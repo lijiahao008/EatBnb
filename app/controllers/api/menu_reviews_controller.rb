@@ -5,7 +5,7 @@ class Api::MenuReviewsController < ApplicationController
     @menu_review = MenuReview.new(menu_review_params)
     @menu_review.owner_id = current_user.id
     if @menu_review.save
-      render "api/menus/show/#{@menu_review.menu_id}"
+      render "api/menu_reviews/show"
     else
       render json: @menu_review.errors.full_messages, status: 422
     end
@@ -14,7 +14,7 @@ class Api::MenuReviewsController < ApplicationController
   def update
     @menu_review = MenuReview.find(params[:id])
     if @menu_review.update(menu_review_params)
-      render "api/menus/show/#{@menu_review.menu_id}"
+      render "api/menu_reviews/show"
     else
       render json: @menu_review.errors.full_messages, status: 422
     end
@@ -23,6 +23,6 @@ class Api::MenuReviewsController < ApplicationController
   private
 
   def menu_review_params
-    params.require(:menu_review).permit(:score, :body, :menu_id, :owner_id)
+    params.require(:menu_review).permit(:score, :body, :menu_id)
   end
 end

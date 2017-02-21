@@ -23,12 +23,13 @@
   width: 50%;
   display: flex;
   align-items: center;
+  .fa-spoon {
+    margin-right: 3px;
+    color: #f14444;
+  }
 }
 
-.fa-spoon {
-  margin-right: 3px;
-  color: #f14444;
-}
+
 
 .ownerProfilePic {
   height: 100px;
@@ -59,7 +60,7 @@
 }
 
 .specs > h2 {
-  padding: 20px;
+  padding: 15px;
   font-size: 20px;
 }
 
@@ -89,6 +90,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-bottom: 1px solid #EBEFF1;
+  padding: 5px;
   .review-owner {
     display: flex;
     flex-direction: column;
@@ -101,10 +104,73 @@
   }
   .review-body {
     position: relative;
-    top: 20px;
     left: 5%;
     right: 5%;
   }
 
 
+}
+
+
+.menu-steps{
+  margin-top: 100px;
+
+  a:link{
+    color: #f14444;
+    text-decoration: none;
+  }
+  .panel-heading:hover{
+    background: lightgrey;
+    cursor: pointer;
+  }
+  .menu-dropzone {
+    width: 100%;
+    height: 200px;
+    border: 3px dashed #aebbcb;
+    border-radius: 5%;
+    p {
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+  .menu-finish {
+    a{
+      color: white;
+      text-align: center;
+      text-decoration: none;
+    }
+    background: #f14444;
+    .panel-heading:hover{
+      background: red;
+    }
+  }
+}
+
+.new-review{
+  .spoons{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px;
+    h4 {
+      padding-right: 10px;
+    }
+  }
+  i.fa.fa-spoon{
+    margin-right: 20px;
+    transform: scale(3, 3);
+  }
+  textarea {
+    border: 2px dashed #aebbcb;
+    border-radius: 5%;
+  }
+  .new-review-body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    button {
+      height: 50px;
+      margin-left: 5%;
+      border: none;
+    }
+  }
 }

@@ -15,7 +15,6 @@ class Api::MenusController < ApplicationController
     @menu.owner_id = current_user.id
 
     if @menu.save
-
       render "api/menus/show"
     else
       render json: @menu.errors.full_messages, status: 422
@@ -23,7 +22,12 @@ class Api::MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.includes(:owner, :reviews).find(params[:id])
+    @menu = Menu.includes(:owner, [{reviews: :owner}]).find(params[:id])
+    unless @menu.reviews.length == 0
+      @average_rating = @menu.reviews.map{|review| review.score }.reduce(:+) / @menu.reviews.length
+    else
+      @average_rating = 0
+    end
   end
 
   def update

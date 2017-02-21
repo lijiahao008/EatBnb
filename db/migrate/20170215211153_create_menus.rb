@@ -8,7 +8,7 @@ class CreateMenus < ActiveRecord::Migration[5.0]
       t.float :longitude, null: false
       t.float :latitude, null: false
       t.integer :owner_id, null: false
-      t.integer :average_rating, default: 0
+    
 
       t.timestamps
     end

@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 import MenuReviewForm from './menu_review_form';
-import { fetchMenu } from '../../actions/menu_actions';
+import { createMenuReview } from '../../actions/review_actions';
 
 const mapStateToProps = (state,ownProps) => {
   return {
-  menu: state.menus[ownProps.params.menuId]
+    menuId: ownProps.menuId
 }};
 
 const mapDispatchToProps = dispatch => ({
-  fetchMenu: (id) => dispatch(fetchMenu(id))
+  createMenuReview: (review) => dispatch(createMenuReview(review))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MenuShow);
+)(MenuReviewForm);

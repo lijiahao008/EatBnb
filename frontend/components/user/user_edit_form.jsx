@@ -78,9 +78,11 @@ class UserEditForm extends React.Component {
       <div className="form-group">
         <label className="col-md-4 control-label">Host?</label>
         <div className="col-md-4 checkboxes">
-          <input type="checkbox"
+          <input type="radio"
+            name="host"
             className="checkbox" value="true" onChange={this.update("host")} />Yes
-          <input type="checkbox"
+          <input type="radio"
+            name="host"
             className="checkbox" value="false" onChange={this.update("host")} />No
         </div>
       </div>

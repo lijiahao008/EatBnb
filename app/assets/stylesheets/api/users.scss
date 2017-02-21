@@ -1,3 +1,37 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user-edit {
+  margin-top: 100px;
+  .checkboxes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .checkbox{
+    margin: 10px;
+  }
+  button {
+    background: #f14444;
+    border: none;
+  }
+  button:hover{
+    background: red;
+  }
+}
+
+.dropzone {
+  border-color: grey;
+  border-style: dashed;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  text-align: justify;
+  div {
+    color: grey;
+    margin: 10px;
+    padding-top: 21px;
+  }
+}
