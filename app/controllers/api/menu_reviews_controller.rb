@@ -5,7 +5,8 @@ class Api::MenuReviewsController < ApplicationController
     @menu_review = MenuReview.new(menu_review_params)
     @menu_review.owner_id = current_user.id
     if @menu_review.save
-      render "api/menu_reviews/show"
+      @menu = @menu_review.menu
+      render "api/menus/show"
     else
       render json: @menu_review.errors.full_messages, status: 422
     end

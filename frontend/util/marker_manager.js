@@ -26,7 +26,7 @@ export default class MarkerManager {
   }
 
   _createMarkerFromMenu(menu) {
-    const pos = new google.maps.LatLng(menu.lat, menu.lng);
+    const pos = new google.maps.LatLng(menu.latitude, menu.longitude);
     const marker = new google.maps.Marker({
       position: pos,
       map: this.map,

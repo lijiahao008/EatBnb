@@ -17,7 +17,10 @@ class MenuReviewForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const menu_review = this.state;
-    this.props.createMenuReview({menu_review}).then(this.setState({score: 0, body: ""}));
+    this.props.createMenuReview({menu_review}).then(() => {
+      console.log(this);
+      this.setState({score: 0, body: ""})
+    });
   }
 
   update(field){
@@ -32,7 +35,6 @@ class MenuReviewForm extends React.Component {
 
 
   render () {
-
     return (
     <div className="container new-review">
       <div className="row">
@@ -52,7 +54,8 @@ class MenuReviewForm extends React.Component {
             </div>
             <div className="new-review-body">
               <textarea cols="50" placeholder="Enter your review here..." rows="5"
-                onChange={this.update("body")} />
+                onChange={this.update("body")}
+                value={this.state.body}/>
 
               <button className="btn btn-danger btn-md" type="submit">Create Review</button>
             </div>

@@ -7,7 +7,6 @@ const handleChange = (filter, updateFilter) => (
 
 const FilterForm = ({ minPrice, maxPrice, updateFilter }) => (
   <div>
-    <span className="filter">Filter results:</span>
     <br/>
     <label>Minimum Prices </label>
     <input

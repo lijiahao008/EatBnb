@@ -1,1 +1,1 @@
-json.array! @menus, :id, :title, :price
+json.array! @menus, :id, :title, :price, :description, :latitude, :longitude

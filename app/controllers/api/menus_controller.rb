@@ -4,7 +4,10 @@ class Api::MenusController < ApplicationController
   def index
     if params[:top_rated]
       @menus = Menu.order(average_rating: :desc).limit(6)
-    elsif bounds
+      render 'api/menus/top_rated'
+    end
+
+    if bounds
       @menus = Menu.in_bounds(bounds)
     else
       @menus = Menu.all
