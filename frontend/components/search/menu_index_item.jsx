@@ -21,12 +21,12 @@ class IndexItem extends React.Component {
         <div className="index-item-info">
           <span className="index-item-category">Price: </span>
           <span className="index-item-copy">
-            {price || "No reviews yet"}
+            {price}
           </span>
           <span className="index-item-category">Description: </span>
           <span className="index-item-copy">{description}</span>
         </div>
-        
+
       </div>
     );
   }

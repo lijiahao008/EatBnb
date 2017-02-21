@@ -17,6 +17,10 @@ class Api::MenusController < ApplicationController
       @menus = @menus.where(price: price_range)
     end
 
+    if params[:address]
+      @menus = @menus.where("address LIKE ?", "%#{params[:address]}%")
+    end
+
   end
 
   def create

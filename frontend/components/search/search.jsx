@@ -4,7 +4,7 @@ import FilterForm from './filter_form';
 import MenuIndex from './menu_index';
 import MenuMap from './../menu_map/menu_map';
 
-const Search = ({ menus, minPrice, maxPrice, updateFilter }) => (
+const Search = ({ menus, minPrice, maxPrice, address, updateFilter }) => (
   <div className="container search-page">
     <div className="row">
       <div className="col-md-6">
@@ -17,6 +17,7 @@ const Search = ({ menus, minPrice, maxPrice, updateFilter }) => (
       <FilterForm
         minPrice={minPrice}
         maxPrice={maxPrice}
+        address={address}
         updateFilter={updateFilter} />
       <MenuIndex menus={menus} />
     </div>
