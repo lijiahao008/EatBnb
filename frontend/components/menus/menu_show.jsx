@@ -14,11 +14,6 @@ class MenuShow extends React.Component {
     this.props.fetchMenu(this.props.params.menuId);
   }
 
-  componentWillReceiveProps(newProps){
-    if (newProps.reviews.length !== this.props.reviews.length) {
-      this.props.fetchMenu(this.props.params.menuId);
-    }
-  }
 
   render () {
     const menu = this.props.menu;

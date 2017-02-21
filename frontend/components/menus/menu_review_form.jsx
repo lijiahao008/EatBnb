@@ -18,7 +18,6 @@ class MenuReviewForm extends React.Component {
     e.preventDefault();
     const menu_review = this.state;
     this.props.createMenuReview({menu_review}).then(() => {
-      console.log(this);
       this.setState({score: 0, body: ""})
     });
   }

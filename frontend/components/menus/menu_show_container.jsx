@@ -4,8 +4,7 @@ import { fetchMenu } from '../../actions/menu_actions';
 
 const mapStateToProps = (state,ownProps) => {
   return {
-  menu: state.menus[ownProps.params.menuId],
-  reviews: Object.keys(state.reviews).map(id => state.reviews[id])
+  menu: state.menus[ownProps.params.menuId]
 }};
 
 const mapDispatchToProps = dispatch => ({
