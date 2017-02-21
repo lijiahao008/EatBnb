@@ -23,10 +23,11 @@ class TopRatedMenus extends React.Component {
     if (menus.length === 0) {
       return <div>Loading...</div>;
     }
-    const items = this.props.menus.map(menu => {
+    const items = this.props.menus.map((menu, idx) => {
+
       return (
         <div
-        key={menu.id}
+        key={idx}
         onClick={()=> (hashHistory.push(`/menus/${menu.id}`))}
         className="slide">
           <img src="https://placeimg.com/400/250/people"
