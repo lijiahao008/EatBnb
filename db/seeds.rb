@@ -29,3 +29,19 @@ Menu.create(title: 'GP', description: "Spin-off of a longtime Italian joint serv
 
 Menu.create(title: 'Night of Joy
 ', description: "Herbal infusions star in the elaborate cocktails at this antiques-filled lounge with a roof patio.", price: 30, address: "667 Lorimer St, Brooklyn, NY 11211", average_rating: 4, owner_id: 1)
+
+
+MenuReview.destroy_all
+MenuReview.create(score: 3, body:"Best food ever!!", menu_id: Menu.first.id, owner_id: 1)
+
+MenuReview.create(score: 4, body:"I love the seafood.", menu_id: Menu.last.id, owner_id: 1)
+
+MenuReview.create(score: 3, body:"My favorite spot.", menu_id: Menu.first.id, owner_id: 1)
+
+MenuReview.create(score: 4, body:"Best place to a party!", menu_id: Menu.last.id, owner_id: 1)
+
+MenuReview.create(score: 5, body:"I love this place!!!", menu_id: Menu.last.id, owner_id: 1)
+
+MenuReview.create(score: 2, body:"I guess the food is ok.", menu_id: Menu.first.id, owner_id: 1)
+
+MenuReview.create(score: 1, body:"I hate this place, the waiter is so rude.", menu_id: Menu.last.id, owner_id: 1)
