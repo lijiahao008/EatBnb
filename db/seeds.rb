@@ -20,3 +20,12 @@ Menu.create(title: 'Maialino', description: "Classic Roman-Italian soul food in 
 Menu.create(title: 'Trattoria Trecolori', description: "Bustling Italian spot serving classic red-sauce dishes in a warm space with exposed brick.", price: 40, address: "254 W 47th St, New York, NY 10036", average_rating: 4, owner_id: 1)
 
 Menu.create(title: 'Gradisca', description: "All of the pasta is handmade at this sophisticated, seasonal Italian restaurant.", price: 60, address: "126 W 13th St, New York, NY 10011", average_rating: 4, owner_id: 1)
+
+Menu.create(title: 'Skinner Loft', description: "Charming, upscale-casual restaurant & bar with a New American menu, craft brews & rooftop dining.", price: 200, address: "146 Newark Ave, Jersey City, NJ 07302", average_rating: 4, owner_id: 1)
+
+Menu.create(title: 'Battello', description: "Waterfront Italian spot serving lunch, dinner & brunch, known for harbor views & a late-night bar.", price: 20, address: "502 Washington Blvd, Jersey City, NJ 07310", average_rating: 4, owner_id: 1)
+
+Menu.create(title: 'GP', description: "Spin-off of a longtime Italian joint serving old-school fare in a warm, midcentury setting.", price: 90, address: "236 Pavonia Ave, Jersey City, NJ 07102", average_rating: 4, owner_id: 1)
+
+Menu.create(title: 'Night of Joy
+', description: "Herbal infusions star in the elaborate cocktails at this antiques-filled lounge with a roof patio.", price: 30, address: "667 Lorimer St, Brooklyn, NY 11211", average_rating: 4, owner_id: 1)
