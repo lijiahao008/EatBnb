@@ -19,7 +19,9 @@ const Search = ({ address, results, updateFilter }) => {
       <FilterForm
         minPrice={1}
         maxPrice={1000}
+        address={address}
         updateFilter={updateFilter} />
+
       <MenuIndex menus={results} />
     </div>
 

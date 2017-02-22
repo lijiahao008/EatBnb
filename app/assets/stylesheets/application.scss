@@ -227,13 +227,29 @@ strong {
 
 .search-page{
   margin-top: 100px;
+  width: 100%;
+  bottom: 0;
   .row > div:first-child {
     float: right;
   }
   .map{
     position: absolute;
-    height: 700px;
+    height: 850px;
     width: 100%;
   }
+  .menu-index{
+    height: 700px;
+    overflow: scroll;
+  }
+  .search-menu-items{
+    padding: 20px;
+    img{
+      cursor: pointer;
+    }
+  }
+  .filter-form{
+    .row:first-child{
 
+    }
+  }
 }

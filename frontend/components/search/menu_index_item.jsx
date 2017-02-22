@@ -18,13 +18,11 @@ class IndexItem extends React.Component {
     return (
         <div
           key={menu.id}
-          onClick={()=> (hashHistory.push(`/menus/${menu.id}`))}
-          className="">
-            <img src="https://placeimg.com/400/250/people"
-          height="180" width="270"/>
+          className="col-md-6 search-menu-items">
+            <img src="http://lorempixel.com/600/300/food" height="180" width="270" onClick={()=> (hashHistory.push(`/menus/${menu.id}`))}
+            />
            <div>
-             Price: {menu.price}
-             Title: {menu.title}
+             ${menu.price} Title: {menu.title}
            </div>
       </div>
     );
