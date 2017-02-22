@@ -29,7 +29,7 @@ class FilterForm extends React.Component  {
       onChange={this.handleChange('address', this.props.updateFilter)}/>
      <br/>
 
-    <label>Minimum Prices </label>
+    <label>Minimum Price </label>
     <input
       type="number"
       value={this.state.minPrice}
