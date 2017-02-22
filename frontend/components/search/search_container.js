@@ -6,12 +6,9 @@ import { updateFilter } from '../../actions/filter_actions';
 import Search from './search';
 
 const mapStateToProps = state => {
-  
   return {
-  menus: Object.keys(state.menus).map(id => state.menus[id]),
-  minPrice: state.filters.minPrice,
-  maxPrice: state.filters.maxPrice,
-  address: state.filters.address
+    results: Object.keys(state.searchResults).map(id => state.searchResults[id]),
+    address: state.filters.address
 }};
 
 const mapDispatchToProps = dispatch => ({

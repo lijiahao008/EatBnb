@@ -8,13 +8,15 @@ class HomeSearchBar extends React.Component {
 			{ date: "", address: "New York, US" },
 			this.props.filters
 		);
+
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	update(field) {
-		return e => this.setState({
-			[field]: e.currentTarget.value
-		});
+		return e => {
+			this.setState({[field]: e.currentTarget.value});
+			this.props.updateFilter([field], e.currentTarget.value)
+		}
 	}
 
 	handleSubmit(e) {
@@ -32,7 +34,7 @@ class HomeSearchBar extends React.Component {
 				<div className="col-md-12">
 					<div className="form-section">
 						<div className="row">
-								<form>
+								<form onSubmit={this.handleSubmit}>
 									<div className="col-md-4">
 										<div className="form-group">
 											<input type="text" className="form-control" placeholder={this.state.address}

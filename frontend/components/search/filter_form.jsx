@@ -8,7 +8,7 @@ class FilterForm extends React.Component  {
     this.state = {
       minPrice: this.props.minPrice,
       maxPrice: this.props.maxPrice,
-      address: this.props.address
+      address: ""
     }
     this.handleChange = this.handleChange.bind(this);
   }

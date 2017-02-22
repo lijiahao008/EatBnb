@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import HomeSearchBar from './home_search_bar';
 import { fetchMenus } from '../../actions/menu_actions';
+import { updateSearchResults } from '../../actions/search_actions';
+import { updateFilter } from '../../actions/filter_actions';
 
 const mapStateToProps = state => {
   return {
@@ -9,7 +11,10 @@ const mapStateToProps = state => {
 }};
 
 const mapDispatchToProps = dispatch => ({
-  fetchMenus: (data) => dispatch(fetchMenus(data))
+  fetchMenus: (data) => dispatch(fetchMenus(data)),
+  updateSearchResults: (filters) => dispatch(updateSearchResults(filters)),
+  updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
+
 });
 
 export default connect(

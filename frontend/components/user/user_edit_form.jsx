@@ -49,7 +49,7 @@ class UserEditForm extends React.Component {
       <div className="form-group">
         <label className="col-md-4 control-label" >Email</label>
         <div className="col-md-4">
-        <input id="textinput" name="textinput" type="text" placeholder="Email" className="form-control input-md" value={this.state.email}
+        <input name="textinput" type="text" placeholder="Email" className="form-control input-md" value={this.state.email}
         onChange={this.update("email")}/>
 
         </div>

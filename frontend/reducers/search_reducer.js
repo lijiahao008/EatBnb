@@ -5,7 +5,7 @@ const SearchReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_SEARCH_RESULTS:
-      return merge({}, oldState, action.searchResults);
+      return merge({}, action.results);
     default:
       return oldState;
   }

@@ -14,7 +14,7 @@ const FiltersReducer = (state = _defaultFilters, action) => {
     const newFilter = {
       [action.filter]: action.value
     };
-    return merge({}, state, newFilter);
+    return Object.assign({}, state, newFilter);
   } else {
     return state;
   }

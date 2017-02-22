@@ -8,23 +8,44 @@ const _getCoordsObj = latLng => ({
   lng: latLng.lng()
 });
 
-let _mapOptions = {
-  center: {lat: 40.757173, lng: -73.982840},
-  zoom: 13
-};
+
 
 class MenuMap extends Component {
+  constructor(props){
+    super(props);
+    this.center = props.address;
+
+  }
 
   componentDidMount() {
-    const map = this.refs.map;
-    this.map = new google.maps.Map(map, _mapOptions);
-    this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
-    if (this.props.singleBench) {
-      this.props.fetchMenu(this.props.benchId);
-    } else {
-      this._registerListeners();
-      this.MarkerManager.updateMarkers(this.props.menus);
+
+    let result;
+    const createMap = address => {
+      let geocoder = new google.maps.Geocoder();
+      if (address === "") {
+        address = "new york"
+      }
+      geocoder.geocode( { 'address': address}, (results, status) => {
+        result = {lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()}
+
+        const _mapOptions = {
+          center: result,
+          zoom: 11
+        }
+        console.log(this);
+        const map = this.refs.map;
+        this.map = new google.maps.Map(map, _mapOptions);
+        this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
+        if (this.props.singleBench) {
+          this.props.fetchMenu(this.props.benchId);
+        } else {
+          this._registerListeners();
+          this.MarkerManager.updateMarkers(this.props.menus);
+        }
+      });
     }
+    createMap(this.center);
+
   }
 
   componentDidUpdate() {
@@ -61,6 +82,7 @@ class MenuMap extends Component {
   }
 
   render() {
+
     return <div className="map" ref="map">Map</div>;
   }
 }
