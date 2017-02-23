@@ -6,6 +6,7 @@ class Api::MenuReviewsController < ApplicationController
     @menu_review.owner_id = current_user.id
     if @menu_review.save
       @menu = Menu.includes(:owner, [{reviews: :owner}]).find(@menu_review.menu_id)
+      @reviews = @menu.reviews || []
       render "api/menus/show"
     else
       render json: @menu_review.errors.full_messages, status: 422

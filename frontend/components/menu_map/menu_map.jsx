@@ -30,7 +30,7 @@ class MenuMap extends Component {
 
         const _mapOptions = {
           center: result,
-          zoom: 11
+          zoom: 12
         }
         const map = this.refs.map;
         this.map = new google.maps.Map(map, _mapOptions);
