@@ -28,6 +28,8 @@ class Api::MenusController < ApplicationController
     @menu.owner_id = current_user.id
 
     if @menu.save
+      @reviews = []
+      @average_rating = 0
       render "api/menus/show"
     else
       render json: @menu.errors.full_messages, status: 422

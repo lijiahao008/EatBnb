@@ -24,7 +24,8 @@ class MenuForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const menu = this.state;
-    this.props.createMenu({menu}).then(hashHistory.push('/'));
+    this.props.createMenu({menu}).then((menu)=>{debugger; hashHistory.push(`/menus/${menu.menu.id}`)});
+
   }
 
   onDrop(acceptedFiles, rejectedFiles){

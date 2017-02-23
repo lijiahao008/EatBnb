@@ -4,24 +4,19 @@ export const RECEIVE_ALL_RESERVATIONS = "RECEIVE_ALL_RESERVATIONS";
 export const RECEIVE_RESERVATION = "RECEIVE_RESERVATION";
 
 
-export const receiveAllMenus = reservations => ({
+export const receiveAllReservations = reservations => ({
   type: RECEIVE_ALL_RESERVATIONS,
   reservations
 });
 
-export const receiveMenu = reservation => ({
+export const receiveReservation = reservation => ({
   type: RECEIVE_RESERVATION,
   reservation
 });
 
-export const fetchReservations = () => dispatch => (
-  APIUtil.fetchReservations()
+export const fetchReservations = (userId) => dispatch => (
+  APIUtil.fetchReservations(userId)
   .then(reservations => dispatch(receiveAllReservations(reservations)))
-);
-
-export const fetchReservation = id => dispatch => (
-  APIUtil.fetchReservation(id)
-  .then(reservation => {return dispatch(receiveReservation(reservation))})
 );
 
 export const createReservation = (reservation) => dispatch => (
