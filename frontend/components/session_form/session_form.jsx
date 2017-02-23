@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router';
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		debugger
 		this.state = { email: "", password: "", formType: this.props.formType };
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -30,10 +29,6 @@ class SessionForm extends React.Component {
 			});
 		}
 
-	}
-
-	componentWillReceiveProps(newProps) {
-		debugger
 	}
 
 	renderErrors() {

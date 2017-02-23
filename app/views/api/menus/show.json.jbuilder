@@ -2,7 +2,7 @@ json.id @menu.id
 json.title @menu.title
 json.description @menu.description
 json.price @menu.price
-json.address @menu.address
+json.address @menu.address.upcase
 json.average_rating @average_rating
 json.owner_name @menu.owner.f_name + " " + @menu.owner.l_name
 json.owner_description @menu.owner.description
