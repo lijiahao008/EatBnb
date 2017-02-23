@@ -31,7 +31,7 @@ export default class MarkerManager {
       position: pos,
       map: this.map,
       menuId: menu.id,
-      icon: "http://www.iconsdb.com/icons/preview/soylent-red/spoon-xl.png"
+      icon: window.images.spoon
     });
     marker.addListener('click', () => this.handleClick(menu));
     this.markers.push(marker);

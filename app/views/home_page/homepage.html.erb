@@ -3,5 +3,8 @@
   	window.currentUser = <%= render("api/users/user.json.jbuilder",
   		user: current_user).html_safe %>
   <% end %>
+  window.images = {
+    spoon: "<%= image_path("spoon.png") %>"
+  }
 </script>
 <main id="root"></main>

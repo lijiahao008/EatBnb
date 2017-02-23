@@ -22,7 +22,7 @@ class IndexItem extends React.Component {
             <img src={menu.picture_url} height="180" width="270" onClick={()=> (hashHistory.push(`/menus/${menu.id}`))}
             />
            <div>
-             ${menu.price} Title: {menu.title}
+             ${menu.price}  {menu.title}
            </div>
       </div>
     );
