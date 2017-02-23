@@ -26,9 +26,18 @@ class MenuShow extends React.Component {
       stars.push(<i className="fa fa-spoon" aria-hidden="true" key={i}></i>);
     }
 
+    let num_reviews;
+    if (menu.reviews) {
+        num_reviews = menu.reviews.length;
+    }
+    else {
+      num_reviews = 0;
+      menu.reviews = [];
+    }
+
     return (
       <div className="container-full">
-        <img src="http://lorempixel.com/600/300/food" />
+        <img src={menu.picture_url} />
           <hr width="90%"/>
         <div className="menu-detail">
           <div className="menu-detail-owner">
@@ -47,7 +56,7 @@ class MenuShow extends React.Component {
           <h2>About this listing</h2>
           <h4>{menu.description}</h4>
           <hr/>
-          <h2>{menu.reviews.length} Review(s)</h2>
+          <h2>{num_reviews} Review(s)</h2>
           <ul>{menu.reviews.map(review => (
               <div className="single-review" key={review.id}>
                 <div className="review-owner">

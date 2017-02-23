@@ -26,16 +26,16 @@ ActiveRecord::Schema.define(version: 20170217152430) do
   end
 
   create_table "menus", force: :cascade do |t|
-    t.string   "title",                      null: false
-    t.integer  "price",                      null: false
-    t.text     "description",                null: false
-    t.string   "address",                    null: false
-    t.float    "longitude",                  null: false
-    t.float    "latitude",                   null: false
-    t.integer  "owner_id",                   null: false
-    t.integer  "average_rating", default: 0
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "title",                                                            null: false
+    t.integer  "price",                                                            null: false
+    t.text     "description",                                                      null: false
+    t.string   "address",                                                          null: false
+    t.float    "longitude",                                                        null: false
+    t.float    "latitude",                                                         null: false
+    t.integer  "owner_id",                                                         null: false
+    t.string   "picture_url", default: "http://www.drodd.com/images15/food18.jpg"
+    t.datetime "created_at",                                                       null: false
+    t.datetime "updated_at",                                                       null: false
     t.index ["owner_id"], name: "index_menus_on_owner_id", using: :btree
     t.index ["price"], name: "index_menus_on_price", using: :btree
   end
@@ -51,16 +51,16 @@ ActiveRecord::Schema.define(version: 20170217152430) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                             null: false
-    t.string   "password_digest",                   null: false
-    t.string   "session_token",                     null: false
-    t.string   "f_name",            default: "",    null: false
-    t.string   "l_name",            default: "",    null: false
-    t.string   "profile_image_url", default: "",    null: false
-    t.text     "description",       default: "",    null: false
-    t.boolean  "host",              default: false, null: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.string   "email",                                                                                                                             null: false
+    t.string   "password_digest",                                                                                                                   null: false
+    t.string   "session_token",                                                                                                                     null: false
+    t.string   "f_name",            default: "",                                                                                                    null: false
+    t.string   "l_name",            default: "",                                                                                                    null: false
+    t.string   "profile_image_url", default: "http://free-profile-pics.com/profile-pictures/01232014/download/mr-bean-profile-picture-360x360.png", null: false
+    t.text     "description",       default: "",                                                                                                    null: false
+    t.boolean  "host",              default: false,                                                                                                 null: false
+    t.datetime "created_at",                                                                                                                        null: false
+    t.datetime "updated_at",                                                                                                                        null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 

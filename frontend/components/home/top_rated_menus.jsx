@@ -30,7 +30,7 @@ class TopRatedMenus extends React.Component {
         key={idx}
         onClick={()=> (hashHistory.push(`/menus/${menu.id}`))}
         className="slide">
-          <img src="https://placeimg.com/400/250/people"
+          <img src={menu.picture_url}
             height="180" width="270"
          />
         </div>

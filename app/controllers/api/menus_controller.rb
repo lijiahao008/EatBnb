@@ -3,7 +3,7 @@ class Api::MenusController < ApplicationController
 
   def index
     if params[:top_rated]
-      @menus = Menu.order(average_rating: :desc).limit(6)
+      @menus = Menu.order(price: :desc).limit(6)
       render 'api/menus/top_rated'
     end
 
@@ -41,6 +41,7 @@ class Api::MenusController < ApplicationController
     else
       @average_rating = 0
     end
+    @reviews = @menu.reviews
   end
 
   def update

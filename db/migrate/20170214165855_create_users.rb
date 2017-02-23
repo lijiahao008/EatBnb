@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :session_token, null: false
       t.string :f_name, null: false, default: ""
       t.string :l_name, null: false, default: ""
-      t.string :profile_image_url, null: false, default: ""
+      t.string :profile_image_url, null: false, default: "http://free-profile-pics.com/profile-pictures/01232014/download/mr-bean-profile-picture-360x360.png"
       t.text :description, null: false, default: ""
       t.boolean :host, null: false, default: false
 

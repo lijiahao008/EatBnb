@@ -8,7 +8,8 @@ class CreateMenus < ActiveRecord::Migration[5.0]
       t.float :longitude, null: false
       t.float :latitude, null: false
       t.integer :owner_id, null: false
-    
+      t.string :picture_url, default: "http://www.drodd.com/images15/food18.jpg"
+
 
       t.timestamps
     end

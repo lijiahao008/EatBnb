@@ -114,9 +114,9 @@ class NavBar extends React.Component {
     else {
       greeting = <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, {currentUser.f_name}! <span className="caret"></span></a>
         <ul className="dropdown-menu" role="menu">
-  						<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i>My Profile</Link></li>
-  						<li><a href="#"><i className="fa fa-calendar-minus-o" aria-hidden="true"></i> My Reservations</a></li>
-  					</ul>
+					<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i>My Profile</Link></li>
+					<li><a href="#"><i className="fa fa-calendar-minus-o" aria-hidden="true"></i> My Reservations</a></li>
+				</ul>
       </li>;
     }
     let link;
