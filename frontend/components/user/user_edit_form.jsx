@@ -6,6 +6,7 @@ import Dropzone from 'react-dropzone';
 class UserEditForm extends React.Component {
   constructor(props){
     super(props)
+    
     let user = this.props.user
     this.state = {
       id: user.id,
