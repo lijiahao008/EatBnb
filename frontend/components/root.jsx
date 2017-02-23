@@ -11,6 +11,7 @@ import MenuShowContainer from './menus/menu_show_container';
 import MenuFormContainer from './menus/menu_form_container';
 import UserEditFormContainer from './user/user_edit_form_container';
 import SearchContainer from './search/search_container';
+import MyMenusContainer from './menus/my_menus_container';
 
 
 const Root = ({ store }) => {
@@ -26,6 +27,7 @@ const Root = ({ store }) => {
           <Route path="/menus/:menuId"
             component={MenuShowContainer} />
           <Route path="/search" component={SearchContainer} />
+          <Route path="/myMenus" component={MyMenusContainer} />
         </Route>
       </Router>
     </Provider>

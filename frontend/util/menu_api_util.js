@@ -7,6 +7,16 @@ export const fetchTopRatedMenus = () => {
   });
 };
 
+
+export const fetchMyMenus = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/menus',
+    data: { my_menus: true }
+  });
+};
+
+
 export const fetchMenus = (filter) => {
   return $.ajax({
     method: 'GET',

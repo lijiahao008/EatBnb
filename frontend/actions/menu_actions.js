@@ -19,6 +19,12 @@ export const fetchTopRatedMenus = () => dispatch => (
   .then(menus => dispatch(receiveAllMenus(menus)))
 );
 
+export const fetchMyMenus = () => dispatch => (
+  APIUtil.fetchMyMenus()
+  .then(menus => dispatch(receiveAllMenus(menus)))
+);
+
+
 export const fetchMenus = (filters) => dispatch => (
   APIUtil.fetchMenus(filters)
   .then(menus => dispatch(receiveAllMenus(menus)))

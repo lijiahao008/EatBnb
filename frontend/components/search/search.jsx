@@ -21,7 +21,6 @@ const Search = ({ address, results, updateFilter }) => {
         maxPrice={1000}
         address={address}
         updateFilter={updateFilter} />
-
       <MenuIndex menus={results} />
     </div>
 

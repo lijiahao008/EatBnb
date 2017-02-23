@@ -9,6 +9,7 @@ class Api::ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.owner_id = current_user.id
     if @reservation.save
       render "api/reservations/show"
     else
@@ -16,9 +17,6 @@ class Api::ReservationsController < ApplicationController
     end
   end
 
-  def show
-    @reservation = Reservation.includes(:owner).find(params[:id])
-  end
 
   def update
     if @reservation.update(reservation_params)
@@ -29,13 +27,10 @@ class Api::ReservationsController < ApplicationController
 
   end
 
-  def destroy
-
-  end
 
   private
 
   def reservation_params
-    params.require(:reservation).permit(:title, :price, :description, :address, :owner_id)
+    params.require(:reservation).permit(:date, :owner_id, :menu_id)
   end
 end

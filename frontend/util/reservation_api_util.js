@@ -5,12 +5,6 @@ export const fetchReservations = () => {
   });
 };
 
-export const fetchReservation = (id) => {
-  return $.ajax({
-    method: 'GET',
-    url: `/api/reservations/${id}`
-  });
-};
 
 export const createReservation = (reservation) => {
   return $.ajax({

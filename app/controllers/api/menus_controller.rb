@@ -21,6 +21,10 @@ class Api::MenusController < ApplicationController
       @menus = @menus.where("address LIKE ?", "%#{params[:address].downcase}%")
     end
 
+    if params[:my_menus]
+      @menus = current_user.menus
+    end
+
   end
 
   def create
