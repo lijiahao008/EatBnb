@@ -32,7 +32,6 @@ class MenuMap extends Component {
           center: result,
           zoom: 11
         }
-        console.log(this);
         const map = this.refs.map;
         this.map = new google.maps.Map(map, _mapOptions);
         this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
@@ -51,7 +50,7 @@ class MenuMap extends Component {
   componentDidUpdate() {
     if(this.props.singleMenu){
       this.MarkerManager.updateMarkers([this.props.menus[Object.keys(this.props.menus)[0]]]);
-    } else {
+    } else if(this.MarkerManager){
       this.MarkerManager.updateMarkers(this.props.menus);
     }
   }
