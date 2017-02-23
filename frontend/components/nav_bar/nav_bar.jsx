@@ -106,7 +106,7 @@ class NavBar extends React.Component {
     if (currentUser.f_name === "") {
       greeting = <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, {currentUser.email}! <span className="caret"></span></a>
         <ul className="dropdown-menu" role="menu">
-  						<li><a href={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i> My Profile</a></li>
+  						<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i> My Profile</Link></li>
   						<li><a href="#"><i className="fa fa-calendar-minus-o" aria-hidden="true"></i> My Reservations</a></li>
   					</ul>
       </li>;

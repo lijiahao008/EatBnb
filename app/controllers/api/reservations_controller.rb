@@ -1,8 +1,8 @@
 class Api::ReservationsController < ApplicationController
-  before_action :require_logged_in, except: [:index, :show]
+  before_action :require_logged_in
 
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.where(owner_id: current_user.id)
   end
 
 
