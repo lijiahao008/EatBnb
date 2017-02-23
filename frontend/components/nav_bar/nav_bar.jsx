@@ -106,16 +106,16 @@ class NavBar extends React.Component {
     if (currentUser.f_name === "") {
       greeting = <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, {currentUser.email}! <span className="caret"></span></a>
         <ul className="dropdown-menu" role="menu">
-  						<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i> My Profile</Link></li>
-  						<li><Link to={`myMenus`}><i className="fa fa-calendar-minus-o" aria-hidden="true"></i> My Listings</Link></li>
-  					</ul>
+					<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i> My Profile</Link></li>
+					<li><Link to={`myMenus`}><i className="fa fa-list" aria-hidden="true"></i> My Listings</Link></li>
+				</ul>
       </li>;
     }
     else {
       greeting = <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, {currentUser.f_name}! <span className="caret"></span></a>
         <ul className="dropdown-menu" role="menu">
-					<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i>My Profile</Link></li>
-					<li><Link to={`myMenus`}><i className="fa fa-calendar-minus-o" aria-hidden="true"></i> My Listings</Link></li>
+					<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i> My Profile</Link></li>
+					<li><Link to={`myMenus`}><i className="fa fa-list" aria-hidden="true"></i> My Listings</Link></li>
 				</ul>
       </li>;
     }

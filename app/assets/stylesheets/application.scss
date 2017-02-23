@@ -188,7 +188,6 @@ strong {
   margin-bottom: 50px;
 }
 
-
 .slider{
   left: 10px;
   right: 10%;
@@ -198,6 +197,9 @@ strong {
   }
   .slide{
     margin-left: 5px;
+  }
+  .slide:hover{
+    cursor: pointer;
   }
 
 }
