@@ -37,7 +37,7 @@ class HomeSearchBar extends React.Component {
 								<form onSubmit={this.handleSubmit}>
 									<div className="col-md-4">
 										<div className="form-group">
-											<input type="text" className="form-control" placeholder={this.state.address}
+											<input type="text" className="form-control" placeholder="Ex. New York"
 											onChange={this.update("address")}/>
 										</div>
 									</div>
