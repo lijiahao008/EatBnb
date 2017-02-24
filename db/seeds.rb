@@ -40,7 +40,7 @@ Menu.create(title: 'Night of Joy
 MenuReview.destroy_all
 MenuReview.create(score: 3, body:"Best food ever!!", menu_id: Menu.first.id, owner_id: User.first.id)
 
-MenuReview.create(score: 4, body:"I love the seafood.", menu_id: Menu.last.id + 1, owner_id: User.last.id)
+MenuReview.create(score: 4, body:"I love the seafood.", menu_id: Menu.last.id - 5, owner_id: User.last.id)
 
 MenuReview.create(score: 3, body:"My favorite spot.", menu_id: Menu.first.id + 2, owner_id: User.last.id)
 
