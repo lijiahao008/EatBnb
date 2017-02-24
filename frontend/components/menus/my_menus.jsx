@@ -26,8 +26,10 @@ class MyMenus extends React.Component {
         				<img src={menu.picture_url} className="img-thumbnail" height="300" width="400"/>
         				<h2>${menu.price} {menu.title}</h2>
         				<p>{menu.description}</p>
+                <div>
         				<a className="btn btn-danger btn-block"> Edit </a>
                 <a className="btn btn-default btn-block pull-right"> Delete </a>
+                </div>
         			</div>
             </div>
           )

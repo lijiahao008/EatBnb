@@ -287,12 +287,18 @@ strong {
 }
 .destacados {
   .col-md-4 {
-    height: 500px;
+    height: 400px;
     div {
       height: 100%;
+      position: relative;
       img {
         object-fit: cover;
         height: 200px;
+      }
+      div {
+        position: absolute;
+        bottom: -3px;
+        margin-left: -2px;
       }
     }
     div:hover {
