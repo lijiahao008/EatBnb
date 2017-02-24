@@ -7,8 +7,6 @@ const ReservationsReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_RESERVATIONS:
       return merge({}, action.reservations);
-    case RECEIVE_RESERVATION:
-      return merge({}, oldState, {[action.reservation.id]: action.reservation});
     default:
       return oldState;
   }

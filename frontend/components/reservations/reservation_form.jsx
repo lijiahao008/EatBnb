@@ -4,12 +4,13 @@ import { Link, hashHistory, withRouter } from 'react-router';
 
 class ReservationForm extends React.Component {
   constructor(props){
+
     super(props)
     this.state={
       date: "",
-      menu_id: this.props.menuId
+      menu_id: props.menu.id,
+      num_guests: 0
     }
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -21,7 +22,7 @@ class ReservationForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const reservation = this.state;
-    this.props.createReservation({reservation}).then(this.setState({date: ""}));
+    this.props.createReservation({reservation}).then(hashHistory.push('/myReservations'));
   }
 
 
@@ -34,14 +35,14 @@ class ReservationForm extends React.Component {
                 <h4 className="col-xs-6 pull-right text-right">Per Meal</h4>
               </div>
                 <div className="panel-body">
-
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                       <div className="form-group">
                           <label>
                               DATE</label>
                             <div className="input-group">
                               <input type="date" className="form-control"
-                                  required autofocus />
+                              onChange={this.update("date")}
+                              required autoFocus />
                           </div>
                       </div>
                     <div className="form-group">
@@ -50,17 +51,16 @@ class ReservationForm extends React.Component {
                           <div className="input-group">
                             <input type="number" className="form-control"
                             placeholder="3"
-                                required autofocus />
+                            onChange={this.update("num_guests")}
+                            required autoFocus />
                         </div>
                     </div>
                     <div className="form-group">
                       <label>Final Amount</label>
                       <strong className="pull-right">{this.props.menu.price}</strong>
                     </div>
+                    <button type="submit" className="btn btn-danger btn-lg btn-block">Reserve</button>
                     </form>
-                </div>
-                <div>
-                  <a className="btn btn-danger btn-lg btn-block" role="button">Reserve</a>
                 </div>
             </div>
 

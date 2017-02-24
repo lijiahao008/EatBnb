@@ -1,5 +1,4 @@
 import React from 'react';
-import MyMenusContainer from './my_menus_container';
 import { Link, hashHistory } from 'react-router';
 
 

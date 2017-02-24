@@ -2,7 +2,7 @@ class Api::ReservationsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @reservations = Reservation.where(owner_id: current_user.id)
+    @reservations = Reservation.where(owner_id: current_user.id).order(created_at: :desc)
   end
 
 
@@ -11,7 +11,8 @@ class Api::ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.owner_id = current_user.id
     if @reservation.save
-      render "api/reservations/show"
+      @reservations = Reservation.where(owner_id: current_user.id).order(created_at)
+      render action: :index
     else
       render json: @reservation.errors.full_messages, status: 422
     end

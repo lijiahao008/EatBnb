@@ -7,6 +7,7 @@ class Api::MenuReviewsController < ApplicationController
     if @menu_review.save
       @menu = Menu.includes(:owner, [{reviews: :owner}]).find(@menu_review.menu_id)
       @reviews = @menu.reviews || []
+      @average_rating = @menu.reviews.map{|review| review.score }.reduce(:+) / @menu.reviews.length
       render "api/menus/show"
     else
       render json: @menu_review.errors.full_messages, status: 422

@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20170217152430) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.date     "date",       null: false
-    t.boolean  "confirmed",  null: false
-    t.integer  "owner_id",   null: false
-    t.integer  "menu_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "date",                       null: false
+    t.boolean  "confirmed",  default: false, null: false
+    t.integer  "owner_id",                   null: false
+    t.integer  "menu_id",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["owner_id"], name: "index_reservations_on_owner_id", using: :btree
   end
 

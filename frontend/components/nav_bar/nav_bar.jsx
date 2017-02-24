@@ -108,6 +108,7 @@ class NavBar extends React.Component {
         <ul className="dropdown-menu" role="menu">
 					<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i> My Profile</Link></li>
 					<li><Link to={`myMenus`}><i className="fa fa-list" aria-hidden="true"></i> My Listings</Link></li>
+					<li><Link to={`myReservations`}><i className="fa fa-book" aria-hidden="true"></i> My Reservations</Link></li>
 				</ul>
       </li>;
     }
@@ -116,6 +117,7 @@ class NavBar extends React.Component {
         <ul className="dropdown-menu" role="menu">
 					<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i> My Profile</Link></li>
 					<li><Link to={`myMenus`}><i className="fa fa-list" aria-hidden="true"></i> My Listings</Link></li>
+          <li><Link to={`myReservations`}><i className="fa fa-book" aria-hidden="true"></i> My Reservations</Link></li>
 				</ul>
       </li>;
     }

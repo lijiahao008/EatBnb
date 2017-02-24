@@ -5,14 +5,16 @@ import ReservationFormContainer from '../reservations/reservation_form_container
 class MenuShow extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      reviews: this.props.reviews
-    }
+
 
   }
 
   componentDidMount() {
     this.props.fetchMenu(this.props.params.menuId);
+  }
+
+  componentWillReceiveProps(newProps){
+
   }
 
 
@@ -23,7 +25,7 @@ class MenuShow extends React.Component {
       }
 
     const stars = [];
-    for (var i = 0; i < this.props.menu.average_rating; i++) {
+    for (var i = 0; i < menu.average_rating; i++) {
       stars.push(<i className="fa fa-spoon" aria-hidden="true" key={i}></i>);
     }
 
