@@ -208,7 +208,6 @@ strong {
   margin-top: 7%;
 	border: 2px solid lightgrey;
 	border-radius: 5px;
-	padding: 10px;
   button {
     background: #f14444;
     border: none;
@@ -220,6 +219,7 @@ strong {
   }
   .col-md-4:first-child{
     border-left: none;
+    margin-top: 6px;
   }
   .col-md-4:last-child{
     margin: auto;
