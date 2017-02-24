@@ -1,5 +1,6 @@
 import React from 'react';
 import MenuReviewFormContainer from './menu_review_form_container';
+import ReservationFormContainer from '../reservations/reservation_form_container';
 
 class MenuShow extends React.Component {
   constructor(props){
@@ -84,6 +85,7 @@ class MenuShow extends React.Component {
               <h2>Write A Review</h2>
               <hr />
             <MenuReviewFormContainer menuId={menu.id} />
+            <ReservationFormContainer menu={menu}/>
         </div>
 
       </div>
