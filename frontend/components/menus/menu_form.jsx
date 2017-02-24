@@ -36,6 +36,7 @@ class MenuForm extends React.Component {
 
   render () {
     return (
+
   <div className="container menu-steps">
     <div className="row">
         <div className="col-md-6">
@@ -97,7 +98,7 @@ class MenuForm extends React.Component {
                             <div className="row">
                                 <div className="col-md-12">
                                   <div className="form-group">
-                                      <input type="text" className="form-control" placeholder="How much are you charging?"
+                                      <input type="number" className="form-control" placeholder="How much are you charging?"
                                       onChange={this.update("price")}
                                       required />
                                   </div>

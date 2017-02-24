@@ -57,7 +57,7 @@ class ReservationForm extends React.Component {
                     </div>
                     <div className="form-group">
                       <label>Final Amount</label>
-                      <strong className="pull-right">{this.props.menu.price}</strong>
+                      <strong className="pull-right">{this.props.menu.price * this.state.num_guests}</strong>
                     </div>
                     <button type="submit" className="btn btn-danger btn-lg btn-block">Reserve</button>
                     </form>
