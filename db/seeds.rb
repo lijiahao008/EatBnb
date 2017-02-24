@@ -42,7 +42,7 @@ MenuReview.create(score: 3, body:"Best food ever!!", menu_id: Menu.first.id, own
 
 MenuReview.create(score: 4, body:"I love the seafood.", menu_id: Menu.last.id + 1, owner_id: User.last.id)
 
-MenuReview.create(score: 3, body:"My favorite spot.", menu_id: Menu.first.id + 2, owner_id: User.first.id)
+MenuReview.create(score: 3, body:"My favorite spot.", menu_id: Menu.first.id + 2, owner_id: User.last.id)
 
 MenuReview.create(score: 4, body:"Best place to a party!", menu_id: Menu.last.id, owner_id: User.first.id)
 
@@ -57,3 +57,11 @@ MenuReview.create(score: 5, body:"I like this place so much.", menu_id: Menu.las
 MenuReview.create(score: 4, body:"This is the best spot in the neighborhood", menu_id: Menu.last.id - 2, owner_id: User.last.id)
 
 MenuReview.create(score: 5, body:"This is my favorite place to eat dinner.", menu_id: Menu.last.id - 1, owner_id: User.last.id)
+
+MenuReview.create(score: 5, body:"This is my favorite place to eat lunch.", menu_id: Menu.last.id - 3, owner_id: User.last.id)
+
+MenuReview.create(score: 5, body:"I love the music and the food here.", menu_id: Menu.last.id - 4, owner_id: User.last.id)
+
+MenuReview.create(score: 1, body:"I have no idea how this place is still in business.", menu_id: Menu.first.id + 3, owner_id: User.first.id)
+
+MenuReview.create(score: 1, body:"The worst place I have ever been.", menu_id: Menu.last.id - 5, owner_id: User.last.id)
