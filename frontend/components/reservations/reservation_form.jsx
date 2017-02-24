@@ -50,7 +50,7 @@ class ReservationForm extends React.Component {
                             NUMBER OF GUEST</label>
                           <div className="input-group">
                             <input type="number" className="form-control"
-                            placeholder="3"
+                            placeholder="Ex. 2"
                             onChange={this.update("num_guests")}
                             required autoFocus />
                         </div>
