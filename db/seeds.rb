@@ -65,3 +65,12 @@ MenuReview.create(score: 5, body:"I love the music and the food here.", menu_id:
 MenuReview.create(score: 1, body:"I have no idea how this place is still in business.", menu_id: Menu.first.id + 3, owner_id: User.first.id)
 
 MenuReview.create(score: 1, body:"The worst place I have ever been.", menu_id: Menu.last.id - 5, owner_id: User.last.id)
+
+Reservation.destroy_all
+Reservation.create(date: DateTime.new(2015, 6, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
+
+Reservation.create(date: DateTime.new(2016, 6, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.last.id)
+
+Reservation.create(date: DateTime.new(2015, 7, 28), confirmed: false, owner_id: User.first.id, menu_id: Menu.last.id)
+
+Reservation.create(date: DateTime.new(2016, 3, 12), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
