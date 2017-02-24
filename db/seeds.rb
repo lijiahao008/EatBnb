@@ -74,3 +74,27 @@ Reservation.create(date: DateTime.new(2016, 6, 22), confirmed: true, owner_id: U
 Reservation.create(date: DateTime.new(2015, 7, 28), confirmed: false, owner_id: User.first.id, menu_id: Menu.last.id)
 
 Reservation.create(date: DateTime.new(2016, 3, 12), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
+
+Reservation.create(date: DateTime.new(2017, 6, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
+
+Reservation.create(date: DateTime.new(2017, 8, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.last.id)
+
+Reservation.create(date: DateTime.new(2017, 9, 28), confirmed: false, owner_id: User.first.id, menu_id: Menu.last.id)
+
+Reservation.create(date: DateTime.new(2017, 2, 12), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
+
+Reservation.create(date: DateTime.new(2017, 6, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
+
+Reservation.create(date: DateTime.new(2017, 6, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.last.id)
+
+Reservation.create(date: DateTime.new(2017, 7, 28), confirmed: false, owner_id: User.first.id, menu_id: Menu.last.id)
+
+Reservation.create(date: DateTime.new(2017, 3, 12), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
+
+Reservation.create(date: DateTime.new(2017, 6, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
+
+Reservation.create(date: DateTime.new(2017, 8, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.last.id)
+
+Reservation.create(date: DateTime.new(2017, 9, 28), confirmed: false, owner_id: User.first.id, menu_id: Menu.last.id)
+
+Reservation.create(date: DateTime.new(2017, 2, 12), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
