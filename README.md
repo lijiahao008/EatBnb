@@ -42,8 +42,6 @@ EatBnb uses:
 
 ## Primary Components
 
-![home]
-
 #### User Authorization
 Backend uses BCrypt for password hashing. Passwords are not saved to the database, only password hashes are. When users log in, a random session-token is created and will be used for verifying the current user later.
 
@@ -76,6 +74,6 @@ EatBnb gives you the ability to search listings based on location, price and key
 
 [signin]: ./app/assets/images/sign-in.jpg
 [create-menu]: ./app/assets/images/create-menu.jpg
-[user-profile]: ./app/assets/images/user-prodile.jpg
+[user-profile]: ./app/assets/images/user-profile.jpg
 [search]: ./app/assets/images/search.jpg
 [home]: ./app/assets/images/home.jpg
