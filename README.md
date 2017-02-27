@@ -65,7 +65,7 @@ EatBnb gives you the ability to search listings based on location, price and key
 
 ![search]
 
-[eatbnb]: http://www.eatbnb.herokuapp.com/
+[eatbnb]: https://eatbnb.herokuapp.com/
 [react-slick]:https://github.com/akiran/react-slick
 [react-coverflow]:http://andyyou.github.io/react-coverflow/
 [react-infinite]:https://github.com/seatgeek/react-infinite
