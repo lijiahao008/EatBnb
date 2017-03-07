@@ -191,17 +191,12 @@ strong {
 .slider{
   left: 10px;
   right: 10%;
-  .slick-prev, .slick-next,
-  .slick-prev:hover, .slick-next:hover, .slick-next:focus, .slick-next:focus, .slick-next:active, .slick-next:active, .slick-next:target, .slick-next:target {
-    background-color: grey;
-  }
   .slide{
     margin-left: 5px;
   }
   .slide:hover{
     cursor: pointer;
   }
-
 }
 
 .search .form-section{

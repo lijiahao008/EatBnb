@@ -11,7 +11,6 @@ class TopRatedMenus extends React.Component {
   render () {
     let settings = {
       dots: true,
-      arrows: true,
       infinite: true,
       speed: 500,
       slidesToShow: 4,
