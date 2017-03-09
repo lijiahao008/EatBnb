@@ -21,7 +21,8 @@ class MyMenus extends React.Component {
       <div className="row destacados">
         {this.props.menus.map(menu => {
           return (
-            <div className="col-md-4">
+            <div className="col-md-4"
+                  key={menu.id}>
               <div onClick={() => hashHistory.push(`menus/${menu.id}`)}>
         				<img src={menu.picture_url} className="img-thumbnail" height="300" width="400"/>
         				<h2>${menu.price} {menu.title}</h2>

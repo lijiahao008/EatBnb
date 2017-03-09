@@ -173,14 +173,13 @@ strong {
   font-size: 50px;
 }
 
-
-.homeRecomendedMenus h3 {
-  color: grey;
-  width: 100%;
+.slider-frame {
+  width: 95%;
+  left: 2.5%;
 }
 
-.homeRecomendedMenus button {
-  top: 5px;
+.slider-slide {
+  text-align: center;
 }
 
 .homeTopRatedMenus h3 {
@@ -188,16 +187,7 @@ strong {
   margin-bottom: 50px;
 }
 
-.slider{
-  left: 10px;
-  right: 10%;
-  .slide{
-    margin-left: 5px;
-  }
-  .slide:hover{
-    cursor: pointer;
-  }
-}
+
 
 .search .form-section{
   margin-top: 7%;
@@ -241,11 +231,6 @@ strong {
     padding: 20px;
     img{
       cursor: pointer;
-    }
-  }
-  .filter-form{
-    .row:first-child{
-
     }
   }
 }

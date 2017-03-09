@@ -13,20 +13,20 @@ const Home = (props) => {
           <div className="col-lg-8">
             <h1>Welcome to EatBnb</h1>
             <h2>The 21 century's solution for an authentic meal experience.</h2>
+          </div>
+          <div>
             <HomeSearchBarContainer />
           </div>
         </div>
         <div className="row homeRecomendedMenus">
-          <div className="col-lg-12">
+          <div>
             <h3>Recomended Menus</h3>
               <RecomendedMenusContainer />
           </div>
         </div>
         <div className="row homeTopRatedMenus">
-          <div className="col-lg-12">
-            <h3>Top Rated Menus</h3>
-              <TopRatedMenusContainer />
-          </div>
+          <h3>Top Rated Menus</h3>
+          <TopRatedMenusContainer />
         </div>
       </div>
     </main>
