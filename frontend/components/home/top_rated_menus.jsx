@@ -16,7 +16,7 @@ class TopRatedMenus extends React.Component {
 
   render () {
     const menus = this.props.menus;
-    if (menus.length === 0) {
+    if (typeof(menus) === "undefined") {
       return <div>Loading...</div>;
     }
     const items = this.props.menus.map((menu, idx) => {

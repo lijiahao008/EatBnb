@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
 import RecomendedMenus from './recomended_menus';
-import { fetchMenus } from '../../actions/menu_actions';
+import { fetchRecommendedMenus } from '../../actions/menu_actions';
 
 const mapStateToProps = state => {
-  return {
-  menus: Object.keys(state.menus).map(id => state.menus[id])
-}};
+  return {menus: state.menus.recomended_menus}
+};
 
 const mapDispatchToProps = dispatch => ({
-  fetchMenus: () => dispatch(fetchMenus())
+  fetchRecommendedMenus: () => dispatch(fetchRecommendedMenus())
 });
 
 export default connect(

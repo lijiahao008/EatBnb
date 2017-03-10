@@ -51,7 +51,9 @@ class HomeSearchBar extends React.Component {
 									</div>
 
 									<div className="col-md-4 text-center hidden-sm hidden-xs">
-										<button type="submit" className="btn btn-lg btn-primary">Search</button>
+										<div className="form-group">
+											<button type="submit" className="btn btn-lg btn-danger">Search</button>
+										</div>
 									</div>
 								</form>
 						</div>

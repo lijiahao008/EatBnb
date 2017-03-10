@@ -7,6 +7,11 @@ class Api::MenusController < ApplicationController
       render 'api/menus/top_rated'
     end
 
+    if params[:recomended]
+      @menus = Menu.order(created_at: :desc).limit(6)
+      render 'api/menus/top_rated'
+    end
+
     if bounds
       @menus = Menu.in_bounds(bounds)
     else

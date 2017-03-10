@@ -6,15 +6,19 @@ import { Link, hashHistory } from 'react-router';
 class RecomendedMenus extends React.Component {
   constructor(props){
     super(props);
-    this.state = {count: 4}
+    this.state = {count: 4};
   }
 
   componentDidMount() {
-    this.props.fetchMenus();
+    this.props.fetchRecommendedMenus();
   }
 
   render () {
 
+    const menus = this.props.menus;
+    if (typeof(menus) === "undefined") {
+      return <div>Loading...</div>;
+    }
     return (
       <Carousel
             slidesToShow={this.state.count}

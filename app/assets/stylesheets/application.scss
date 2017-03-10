@@ -173,6 +173,28 @@ strong {
   font-size: 50px;
 }
 
+.form-section{
+  margin-top: 7%;
+	border: 2px solid lightgrey;
+	border-radius: 5px;
+  button {
+    background: #f14444;
+    border: none;
+    border-radius: 10%;
+    margin-top: 6px;
+
+  }
+  .col-md-4{
+    border-left: 2px solid lightgrey;
+  }
+  .col-md-4:first-child{
+    border-left: none;
+    margin-top: 6px;
+  }
+
+
+}
+
 .slider-frame {
   width: 95%;
   left: 2.5%;
@@ -183,33 +205,7 @@ strong {
 }
 
 .homeTopRatedMenus h3 {
-  color: grey;
   margin-bottom: 50px;
-}
-
-
-
-.search .form-section{
-  margin-top: 7%;
-	border: 2px solid lightgrey;
-	border-radius: 5px;
-  button {
-    background: #f14444;
-    border: none;
-    border-radius: 10%;
-
-  }
-  .col-md-4{
-    border-left: 2px solid lightgrey;
-  }
-  .col-md-4:first-child{
-    border-left: none;
-    margin-top: 6px;
-  }
-  .col-md-4:last-child{
-    margin: auto;
-  }
-
 }
 
 .search-page{
