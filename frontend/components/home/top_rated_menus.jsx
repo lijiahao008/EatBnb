@@ -52,7 +52,7 @@ class TopRatedMenus extends React.Component {
                        onClick={ this.props.currentSlide < this.props.slidesToScroll && this.props.currentSlide !== 0  ?
                          () => this.props.goToSlide(0) :
                          this.props.previousSlide  }>
-                       <i className="fa fa-angle-left" />
+                       <i className="fa fa-chevron-left" />
                      </button>
                    );
                  }
@@ -66,7 +66,7 @@ class TopRatedMenus extends React.Component {
                        onClick={this.props.currentSlide > this.props.slideCount - this.props.slidesToScroll ?
                          () => this.props.goToSlide(this.props.slideCount) :
                          this.props.nextSlide  }>
-                       <i className="fa fa-angle-right" />
+                       <i className="fa fa-chevron-right" />
                      </button>
                    );
                  },

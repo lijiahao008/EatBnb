@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RecomendedMenusContainer from './recomended_menus_container';
+import RecommendedMenusContainer from './recommended_menus_container';
 import TopRatedMenusContainer from './top_rated_menus_container';
 import HomeSearchBarContainer from './home_search_bar_container';
 
@@ -18,10 +18,10 @@ const Home = (props) => {
             <HomeSearchBarContainer />
           </div>
         </div>
-        <div className="row homeRecomendedMenus">
+        <div className="row homeRecommendedMenus">
           <div>
-            <h3>Recomended Menus</h3>
-              <RecomendedMenusContainer />
+            <h3>Recommended Menus</h3>
+              <RecommendedMenusContainer />
           </div>
         </div>
         <div className="row homeTopRatedMenus">

@@ -12,7 +12,7 @@ const MenusReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_MENUS:
       return merge({}, action.menus);
     case RECEIVE_RECOMMENDED_MENUS:
-      return merge({}, oldState, {"recomended_menus": action.menus});
+      return merge({}, oldState, {"recommended_menus": action.menus});
     case RECEIVE_TOPRATED_MENUS:
       return merge({}, oldState, {"top_rated_menus": action.menus});
     case RECEIVE_MY_MENUS:

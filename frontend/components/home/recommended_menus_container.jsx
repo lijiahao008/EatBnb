@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import RecomendedMenus from './recomended_menus';
+import RecommendedMenus from './recommended_menus';
 import { fetchRecommendedMenus } from '../../actions/menu_actions';
 
 const mapStateToProps = state => {
-  return {menus: state.menus.recomended_menus}
+  return {menus: state.menus.recommended_menus}
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RecomendedMenus);
+)(RecommendedMenus);
