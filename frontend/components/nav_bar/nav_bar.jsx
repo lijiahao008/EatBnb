@@ -76,7 +76,7 @@ class NavBar extends React.Component {
       				<span className="icon-bar"></span>
       				<span className="icon-bar"></span>
       			</button>
-            <Link to="/" className="navbar-brand">EatBnb</Link>
+            <Link to="/" className="navbar-brand"><i className="fa fa-spoon"></i> EatBnb</Link>
       		</div>
           {items}
 
