@@ -22,7 +22,14 @@ utilizing React.js/flux architecture. EatBnb allows users to:
 ## Overall Structure
 
 #### Back end
-Ruby on Rails is used as the back end together with postgreSQL as the database. All data requests are being made through AJAX requests and responded in JSON format. Associations are used to eliminate N + 1 queries for faster database performance.
+Ruby on Rails is used as the back end together with postgreSQL as the database. All data requests are being made through AJAX requests and responded in JSON format. Associations are used to eliminate N + 1 queries for faster database performance. Example:
+
+````ruby
+  def show
+    @menu = Menu.includes(:owner, [{reviews: :owner}]).find(params[:id])
+    @reviews = @menu.reviews
+  end
+````
 
 #### Front end
 

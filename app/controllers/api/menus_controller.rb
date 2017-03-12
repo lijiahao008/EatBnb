@@ -47,12 +47,12 @@ class Api::MenusController < ApplicationController
 
   def show
     @menu = Menu.includes(:owner, [{reviews: :owner}]).find(params[:id])
-    unless @menu.reviews.length == 0
-      @average_rating = @menu.reviews.map{|review| review.score }.reduce(:+) / @menu.reviews.length
+    @reviews = @menu.reviews
+    unless @reviews.length == 0
+      @average_rating = @reviews.map{|review| review.score }.reduce(:+) / @reviews.length
     else
       @average_rating = 0
     end
-    @reviews = @menu.reviews
   end
 
   def update
