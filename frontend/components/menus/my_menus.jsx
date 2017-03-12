@@ -5,6 +5,7 @@ import { Link, hashHistory } from 'react-router';
 class MyMenus extends React.Component {
   constructor(props){
     super(props);
+
   }
 
   componentDidMount(){
@@ -12,8 +13,9 @@ class MyMenus extends React.Component {
   }
 
   render () {
-    if (!this.props.menus) {
-      return (<div>fetching</div>)
+    const menus = this.props.menus;
+    if (typeof(menus) === "undefined") {
+      return <div>Loading...</div>;
     }
     return (
     <div className="container my-listing">
@@ -22,8 +24,9 @@ class MyMenus extends React.Component {
         {this.props.menus.map(menu => {
           return (
             <div className="col-md-4"
-                  key={menu.id}>
-              <div onClick={() => hashHistory.push(`menus/${menu.id}`)}>
+              key={menu.id}>
+              <div
+                onClick={() => hashHistory.push(`menus/${menu.id}`)}>
         				<img src={menu.picture_url} className="img-thumbnail" height="300" width="400"/>
         				<h2>${menu.price} {menu.title}</h2>
         				<p>{menu.description}</p>

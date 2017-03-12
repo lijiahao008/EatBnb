@@ -3,9 +3,7 @@ import MyMenus from './my_menus';
 import { fetchMyMenus } from '../../actions/menu_actions';
 
 const mapStateToProps = (state) => {
-  return {
-    menus: Object.keys(state.menus).map(id => state.menus[id])
-  }
+  return {menus: state.menus.my_menus}
 };
 
 const mapDispatchToProps = dispatch => ({

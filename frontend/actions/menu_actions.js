@@ -1,6 +1,7 @@
 import * as APIUtil from '../util/menu_api_util'
 
 export const RECEIVE_ALL_MENUS = "RECEIVE_ALL_MENUS";
+export const RECEIVE_MY_MENUS = "RECEIVE_MY_MENUS";
 export const RECEIVE_MENU = "RECEIVE_MENU";
 export const RECEIVE_TOPRATED_MENUS = "RECEIVE_TOPRATED_MENUS";
 export const RECEIVE_RECOMMENDED_MENUS = "RECEIVE_RECOMMENDED_MENUS";
@@ -8,6 +9,11 @@ export const RECEIVE_RECOMMENDED_MENUS = "RECEIVE_RECOMMENDED_MENUS";
 
 export const receiveAllMenus = menus => ({
   type: RECEIVE_ALL_MENUS,
+  menus
+});
+
+export const receiveMyMenus = menus => ({
+  type: RECEIVE_MY_MENUS,
   menus
 });
 
@@ -38,7 +44,7 @@ export const fetchRecommendedMenus = () => dispatch => (
 
 export const fetchMyMenus = () => dispatch => (
   APIUtil.fetchMyMenus()
-  .then(menus => dispatch(receiveAllMenus(menus)))
+  .then(menus => dispatch(receiveMyMenus(menus)))
 );
 
 

@@ -1,4 +1,5 @@
 import { RECEIVE_ALL_MENUS,
+         RECEIVE_MY_MENUS,
          RECEIVE_TOPRATED_MENUS,
          RECEIVE_RECOMMENDED_MENUS,
          RECEIVE_MENU,
@@ -14,6 +15,8 @@ const MenusReducer = (oldState = {}, action) => {
       return merge({}, oldState, {"recomended_menus": action.menus});
     case RECEIVE_TOPRATED_MENUS:
       return merge({}, oldState, {"top_rated_menus": action.menus});
+    case RECEIVE_MY_MENUS:
+      return merge({}, oldState, {"my_menus": action.menus});
     case RECEIVE_MENU:
       return merge({}, oldState, {[action.menu.id]: action.menu});
     case REMOVE_MENU:
