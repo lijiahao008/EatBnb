@@ -183,7 +183,6 @@ strong {
     border-radius: 10%;
     margin-top: 6px;
     outline: none;
-
   }
   .col-md-4{
     border-left: 2px solid lightgrey;
@@ -191,6 +190,22 @@ strong {
   .col-md-4:first-child{
     border-left: none;
     margin-top: 6px;
+    padding-left: 20px;
+    .form-group {
+      display: flex;
+      flex-direction: row;
+    }
+    .form-group > i {
+      position: absolute;
+      color: #aebbcb;
+      top: 15px;
+      right: 40px;
+      transform: scale(2, 2);
+    }
+    .form-group > i:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
   }
 }
 

@@ -34,28 +34,31 @@ class HomeSearchBar extends React.Component {
 				<div className="col-md-12">
 					<div className="form-section">
 						<div className="row">
-								<form onSubmit={this.handleSubmit}>
 									<div className="col-md-4">
 										<div className="form-group">
-											<input type="text" className="form-control" placeholder="  Ex. New York"
+											<input type="text" className="form-control" placeholder="Ex. New York"
 											onChange={this.update("address")}/>
+											<i className="hidden-lg hidden-md fa fa-search"
+												onClick={this.handleSubmit}></i>
 										</div>
 									</div>
 									<div className="col-md-4 hidden-sm hidden-xs">
 										<div className="form-group">
 											<div className="input-group">
-												<input type="date" className="form-control"
-													onChange={this.update("date")}/>
+												<input
+													type="date"
+												className="form-control"
+												onChange={this.update("date")}/>
 											</div>
+
 										</div>
 									</div>
 
 									<div className="col-md-4 text-center hidden-sm hidden-xs">
 										<div className="form-group">
-											<button type="submit" className="btn btn-lg btn-danger">Search</button>
+											<button onClick={this.handleSubmit} className="btn btn-lg btn-danger">Search</button>
 										</div>
 									</div>
-								</form>
 						</div>
 					</div>
 				</div>
