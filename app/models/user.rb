@@ -5,6 +5,9 @@ class User < ApplicationRecord
 	validates :email, uniqueness: true
 	validates :password, length: {minimum: 6}, allow_nil: :true
 
+  has_attached_file :profile_image, default_url: "default-profile.png"
+  validates_attachment_content_type :profile_image, content_type: /\Aimage\/.*\z/
+
 	after_initialize :ensure_session_token
 	before_validation :ensure_session_token_uniqueness
 

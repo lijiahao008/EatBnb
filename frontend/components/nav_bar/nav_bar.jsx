@@ -25,12 +25,13 @@ class NavBar extends React.Component {
     Modal.setAppElement('body');
   }
 
-  openLogInModal() {
+  openLogInModal(e) {
+    e.preventDefault();
     this.setState({modalIsOpen: true, formType: "login"});
   }
 
-  openSignUpModal() {
-    this.setState({modalIsOpen: true, formType: "signup"});
+  openSignUpModal(e) {
+    e.preventDefault();    this.setState({modalIsOpen: true, formType: "signup"});
   }
 
   closeModal() {
@@ -43,7 +44,7 @@ class NavBar extends React.Component {
       hashHistory.push(`/users/${this.props.currentUser.id}/edit`)
     }
     else {
-      this.openLogInModal();
+      this.openLogInModal(e);
     }
   }
 

@@ -54,7 +54,8 @@ Backend uses BCrypt for password hashing. Passwords are not saved to the databas
 
 ![signin]
 
-Front-end Authentication is done through bootstrapping the current user via javascript and embedded ruby. Example: 
+
+Front-end Authentication is done through bootstrapping the current user via javascript and embedded ruby. Example:
 
 ````javascript
   <script id="bootstrap-current-user" type="text/javascript">
@@ -67,6 +68,7 @@ Front-end Authentication is done through bootstrapping the current user via java
     }
   </script>
 ````
+
 
 #### Personal Accounts
 Here user can change their account information such as first name, last name, email and description etc. This will be the main interface that user interact with their account.

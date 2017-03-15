@@ -9,7 +9,7 @@
 User.destroy_all
 User.create(email: "123@gmail.com", password: "password", f_name: "James", l_name: "Bond", description: "I'm a self-taught chef who has been working at a 5 star hotel for the past 6 years. Please feel free to contact me directly here.", host: true)
 
-User.create(email: "1234@gmail.com", password: "password", f_name: "Howard", l_name: "Hall", description: "His upright nature though, this is what he's often adored for. People regularly count on this and his sense of order whenever they need assistance or help.", host: true, profile_image_url: "http://www.nettv4u.com/fileman/Uploads/The-Untold-Story-Of-The%20World's-Best-Comedians/eddie_murphy.jpg")
+User.create(email: "1234@gmail.com", password: "password", f_name: "Howard", l_name: "Hall", description: "His upright nature though, this is what he's often adored for. People regularly count on this and his sense of order whenever they need assistance or help.", host: true)
 
 
 Menu.destroy_all

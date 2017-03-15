@@ -5,18 +5,11 @@ import ReservationFormContainer from '../reservations/reservation_form_container
 class MenuShow extends React.Component {
   constructor(props){
     super(props);
-
-
   }
 
   componentDidMount() {
     this.props.fetchMenu(this.props.params.menuId);
   }
-
-  componentWillReceiveProps(newProps){
-
-  }
-
 
   render () {
     const menu = this.props.menu;

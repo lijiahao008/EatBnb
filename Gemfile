@@ -34,6 +34,11 @@ gem 'bootstrap-sass'
 
 gem 'geocoder'
 
+gem 'paperclip'
+
+gem 'figaro'
+gem 'aws-sdk'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

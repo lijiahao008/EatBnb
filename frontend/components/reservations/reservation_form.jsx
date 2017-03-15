@@ -4,7 +4,6 @@ import { Link, hashHistory, withRouter } from 'react-router';
 
 class ReservationForm extends React.Component {
   constructor(props){
-
     super(props)
     this.state={
       date: "",
@@ -21,8 +20,14 @@ class ReservationForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const reservation = this.state;
-    this.props.createReservation({reservation}).then(hashHistory.push('/myReservations'));
+    debugger
+    if (this.props.currentUser) {
+      const reservation = this.state;
+      this.props.createReservation({reservation}).then(hashHistory.push('/myReservations'));
+    }
+    else {
+      
+    }
   }
 
 
