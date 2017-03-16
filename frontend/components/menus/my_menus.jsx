@@ -12,10 +12,10 @@ class MyMenus extends React.Component {
   }
 
   render () {
-  
+
     const menus = this.props.menus;
     if (typeof(menus) === "undefined") {
-      return <div>Loading...</div>;
+      return <div className="loading"><img src={window.images.spinner}/></div>;
     }
     return (
     <div className="container my-listing">
