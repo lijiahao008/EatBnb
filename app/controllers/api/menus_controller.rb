@@ -71,6 +71,17 @@ class Api::MenusController < ApplicationController
 
   end
 
+  def destroy
+    @menu = Menu.find(params[:id])
+    if @menu.delete
+      @reviews = []
+      @average_rating = 0
+      render "api/menus/show"
+    else
+      render json: @menu.errors.full_messages, status: 422
+    end
+  end
+
   private
 
   def price_range

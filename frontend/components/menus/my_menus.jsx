@@ -12,6 +12,7 @@ class MyMenus extends React.Component {
   }
 
   render () {
+  
     const menus = this.props.menus;
     if (typeof(menus) === "undefined") {
       return <div>Loading...</div>;
@@ -33,7 +34,8 @@ class MyMenus extends React.Component {
         				<p>{menu.description}</p>
                 <div>
         				<a className="btn btn-danger btn-block" onClick={(e) => {e.preventDefault(); hashHistory.push(`menus/${menu.id}/edit`)}}> Edit </a>
-                <a className="btn btn-default btn-block pull-right"> Delete </a>
+                <a className="btn btn-default btn-block pull-right"
+                onClick={()=>this.props.deleteMenu(menu.id)}> Delete </a>
                 </div>
         			</div>
             </div>

@@ -40,6 +40,13 @@ export const fetchMenu = (id) => {
   });
 };
 
+export const removeMenu = (id) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/menus/${id}`
+  });
+};
+
 export const createMenu = (menu) => {
   return $.ajax({
     method: 'POST',
