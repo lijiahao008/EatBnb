@@ -26,10 +26,7 @@ class MenuShow extends React.Component {
       return <div>Loading...</div>;
       }
 
-    const stars = [];
-    for (var i = 0; i < menu.average_rating; i++) {
-      stars.push(<i className="fa fa-spoon" aria-hidden="true" key={i}></i>);
-    }
+    const average_rating_spoons = this.generateSpoon(menu.average_rating);
 
     let num_reviews;
     if (menu.reviews) {
@@ -51,7 +48,7 @@ class MenuShow extends React.Component {
           </div>
           <div className="menu-detail-description">
             <h1>{menu.title}</h1>
-            <h4>{stars} ({menu.average_rating})</h4>
+            <h4>{average_rating_spoons} ({menu.average_rating})</h4>
             <h4>{menu.address}</h4>
             <h4>{menu.description}</h4>
           </div>
