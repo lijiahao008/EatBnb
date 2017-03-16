@@ -36,6 +36,13 @@ Menu.create(title: 'Upstate', description: "Spin-off of a longtime Italian joint
 Menu.create(title: 'Night of Joy
 ', description: "Herbal infusions star in the elaborate cocktails at this antiques-filled lounge with a roof patio.", price: 30, address: "667 Lorimer St, Brooklyn, NY 11211", owner_id: User.last.id, picture: open("https://exercisearchive.files.wordpress.com/2017/01/high_fibre-food.jpg"))
 
+Menu.create(title: 'Hu Kitchen', description: "Veggie-oriented gluten-free eatery offering juices, bowls, soups & mains, many of them organic.", price: 100, address: "78 5th Ave, New York, NY 10011", owner_id: User.last.id, picture: open("https://truffle-assets.imgix.net/pxqrocxwsjcc_3xvZs3UYgMqmse8I2qugEU_Ramen%20Burger%20Thumbnail%201920x1080.png.jpg"))
+
+Menu.create(title: 'Veselka', description: "Borscht & pierogi are menu highlights at this cheap, no-frills Ukrainian eatery open 24 hours a day.", price: 50, address: "144 2nd Ave, New York, NY 10003", owner_id: User.first.id, picture: open("http://greentourua.com/wp-content/uploads/2015/05/borsch3.jpg"))
+
+Menu.create(title: 'Blue Hill', description: "Locally sourced, seasonal ingredients abound on the American menu served at this townhouse-set spot.", price: 50, address: "75 Washington Pl, New York, NY 10011", owner_id: User.last.id, picture: open("http://www.fluentu.com/blog/english/wp-content/uploads/sites/4/2014/05/fourth-july-picnic-english-vocabulary-american-food2.jpg"))
+
+
 
 MenuReview.destroy_all
 MenuReview.create(score: 3, body:"Best food ever!!", menu_id: Menu.first.id, owner_id: User.first.id)
@@ -65,6 +72,34 @@ MenuReview.create(score: 5, body:"I love the music and the food here.", menu_id:
 MenuReview.create(score: 1, body:"I have no idea how this place is still in business.", menu_id: Menu.first.id + 3, owner_id: User.first.id)
 
 MenuReview.create(score: 1, body:"The worst place I have ever been.", menu_id: Menu.last.id - 5, owner_id: User.last.id)
+
+MenuReview.create(score: 4, body:"The food was amazing!!", menu_id: Menu.first.id + 4, owner_id: User.first.id)
+
+MenuReview.create(score: 3, body:"I love the music here.", menu_id: Menu.last.id - 4, owner_id: User.last.id)
+
+MenuReview.create(score: 5, body:"My favorite spot for breakfast.", menu_id: Menu.first.id + 3, owner_id: User.last.id)
+
+MenuReview.create(score: 5, body:"Best place to a birthday party!", menu_id: Menu.last.id - 2, owner_id: User.first.id)
+
+MenuReview.create(score: 5, body:"I love their food so much!!!", menu_id: Menu.last.id - 6, owner_id: User.last.id)
+
+MenuReview.create(score: 1, body:"I really didn't like the food.", menu_id: Menu.first.id + 7, owner_id: User.first.id)
+
+MenuReview.create(score: 3, body:"The food was a little bit salty.", menu_id: Menu.last.id - 5, owner_id: User.first.id)
+
+MenuReview.create(score: 5, body:"I like this place so much.", menu_id: Menu.last.id - 4, owner_id: User.last.id)
+
+MenuReview.create(score: 4, body:"This place serve the best dessert", menu_id: Menu.last.id - 2, owner_id: User.last.id)
+
+MenuReview.create(score: 1, body:"My food was really cold.", menu_id: Menu.last.id - 1, owner_id: User.last.id)
+
+MenuReview.create(score: 1, body:"This is the worst place I have ever been.", menu_id: Menu.last.id - 3, owner_id: User.last.id)
+
+MenuReview.create(score: 4, body:"I love the food but not too much the music.", menu_id: Menu.last.id, owner_id: User.last.id)
+
+MenuReview.create(score: 3, body:"This place is not really authentic.", menu_id: Menu.first.id + 7, owner_id: User.first.id)
+
+MenuReview.create(score: 2, body:"The food was not as I expected.", menu_id: Menu.last.id - 8, owner_id: User.last.id)
 
 Reservation.destroy_all
 Reservation.create(date: DateTime.new(2015, 6, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
