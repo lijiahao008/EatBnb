@@ -5,10 +5,19 @@ import ReservationFormContainer from '../reservations/reservation_form_container
 class MenuShow extends React.Component {
   constructor(props){
     super(props);
+    this.generateSpoon = this.generateSpoon.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchMenu(this.props.params.menuId);
+  }
+
+  generateSpoon(num){
+    let result=[];
+    for (var i = 0; i < num; i++) {
+      result.push(<i className="fa fa-spoon spoons" key={i}></i>);
+    }
+    return result;
   }
 
   render () {
@@ -60,7 +69,7 @@ class MenuShow extends React.Component {
                   <h4>{review.owner_name}</h4>
                 </div>
                 <div className="review-body">
-                  <h4>Score: {review.score}</h4>
+                  <h4>Score: {this.generateSpoon(review.score)}</h4>
                   <h4>{review.body}</h4>
                   <strong>{review.created_at}</strong>
                 </div>
