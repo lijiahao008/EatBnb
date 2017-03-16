@@ -43,6 +43,8 @@ export const fetchMenu = (id) => {
 export const createMenu = (menu) => {
   return $.ajax({
     method: 'POST',
+    contentType: false,
+    processData: false,
     url: '/api/menus',
     data: menu
   });
@@ -51,6 +53,8 @@ export const createMenu = (menu) => {
 export const updateMenu = (menu) => {
   return $.ajax({
     method: 'PATCH',
+    contentType: false,
+    processData: false,
     url: `/api/menus/${menu.id}`,
     data: menu
   });

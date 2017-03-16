@@ -10,10 +10,37 @@ class MenuForm extends React.Component {
       title: "",
       description: "",
       price: 0,
-      address: ""
+      address: "",
+      picture_url: "",
+      picture: null
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onDrop = this.onDrop.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.formType === "edit") {
+      this.props.fetchMenu(this.props.params.menuId).then(action => {
+        this.setState(action.menu);
+      })
+    }
+    else {
+      this.setState({picture_url: "https://img.clipartfest.com/5076c81c86b3d51ddd74703dd93c401d_-barbeque-pig-pit-style-pig-cooking-clipart_1600-1526.png"})
+    }
+  }
+
+  componentWillReceiveProps(newProps){
+    if (newProps.formType === "new") {
+      this.setState({
+        title: "",
+        description: "",
+        price: 0,
+        address: "",
+        picture_url: "https://img.clipartfest.com/5076c81c86b3d51ddd74703dd93c401d_-barbeque-pig-pit-style-pig-cooking-clipart_1600-1526.png",
+        picture: null
+      })
+    }
   }
 
   update(field) {
@@ -23,14 +50,27 @@ class MenuForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const menu = this.state;
-    this.props.createMenu({menu}).then((menu)=>{ hashHistory.push(`/menus/${menu.menu.id}`)});
+    let formData = new FormData();
+    formData.append("menu[id]", this.props.params.menuId);
+    formData.append("menu[title]", this.state.title);
+    formData.append("menu[description]", this.state.description);
+    formData.append("menu[price]", this.state.price);
+    formData.append("menu[address]", this.state.address);
+    if (this.state.picture) {
+      formData.append("menu[picture]", this.state.picture);
+    }
+    if (this.props.formType === "new") {
+      this.props.createMenu(formData).then((menu)=>{ hashHistory.push(`/myMenus`)});
+    }
+    else if(this.props.formType === "edit"){
+      this.props.updateMenu(formData).then((menu)=>{ hashHistory.push(`/menus/${menu.menu.id}`)});
+    }
 
   }
 
   onDrop(acceptedFiles, rejectedFiles){
-    console.log('Accepted files: ', acceptedFiles);
-    console.log('Rejected files: ', rejectedFiles);
+    this.setState({picture: acceptedFiles[0],
+    picture_url: acceptedFiles[0].preview})
   }
 
 
@@ -55,6 +95,7 @@ class MenuForm extends React.Component {
                                 <div className="col-md-12">
                                     <div className="form-group">
                                         <input type="text" className="form-control" placeholder="What would you name your menu?"
+                                        value={this.state.title}
                                         onChange={this.update("title")}
                                         required />
                                     </div>
@@ -77,6 +118,7 @@ class MenuForm extends React.Component {
                                 <div className="col-md-12">
                                   <div className="form-group">
                                       <textarea className="form-control" placeholder="Tell everybody about your menu." rows="5"
+                                      value={this.state.description}
                                       onChange={this.update("description")} required />
                                   </div>
                                 </div>
@@ -99,6 +141,7 @@ class MenuForm extends React.Component {
                                 <div className="col-md-12">
                                   <div className="form-group">
                                       <input type="number" className="form-control" placeholder="How much are you charging?"
+                                      value={this.state.price}
                                       onChange={this.update("price")}
                                       required />
                                   </div>
@@ -121,6 +164,7 @@ class MenuForm extends React.Component {
                                 <div className="col-md-12">
                                   <div className="form-group">
                                       <input type="text" className="form-control" placeholder="Where will this be hosted?"
+                                      value={this.state.address}
                                       onChange={this.update("address")}
                                       required />
                                   </div>
@@ -165,7 +209,7 @@ class MenuForm extends React.Component {
             </div>
         </div>
         <div className="col-md-6 text-center">
-          <a href="https://clipartfest.com/download/9d8b98c6e628dab878145182fa4559299a5021a4"><img src="https://img.clipartfest.com/5076c81c86b3d51ddd74703dd93c401d_-barbeque-pig-pit-style-pig-cooking-clipart_1600-1526.png" width="400" alt="pig cooking clipart" /></a>
+          <a href="https://clipartfest.com/download/9d8b98c6e628dab878145182fa4559299a5021a4"><img src={this.state.picture_url} width="400" alt="pig cooking clipart" /></a>
         </div>
     </div>
 </div>

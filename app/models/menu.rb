@@ -2,6 +2,9 @@ class Menu < ApplicationRecord
   geocoded_by :address
   validates :title, :price, :description, :address, :owner, presence:true
   before_save :downcase_address
+
+  has_attached_file :picture, default_url: "default-menu.jpg"
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
   after_validation :geocode
 
   belongs_to :owner,

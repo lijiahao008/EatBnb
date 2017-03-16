@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
+import { Link, hashHistory, withRouter } from 'react-router';
 
 
 class MyMenus extends React.Component {
   constructor(props){
     super(props);
-
   }
 
   componentDidMount(){
@@ -25,13 +24,15 @@ class MyMenus extends React.Component {
           return (
             <div className="col-md-4"
               key={menu.id}>
-              <div
-                onClick={() => hashHistory.push(`menus/${menu.id}`)}>
-        				<img src={menu.picture_url} className="img-thumbnail" height="300" width="400"/>
+              <div>
+        				<img src={menu.picture_url}
+                  className="img-thumbnail"
+                  height="300" width="400"
+                  onClick={(e) => {e.preventDefault(); hashHistory.push(`menus/${menu.id}`)}}/>
         				<h2>${menu.price} {menu.title}</h2>
         				<p>{menu.description}</p>
                 <div>
-        				<a className="btn btn-danger btn-block"> Edit </a>
+        				<a className="btn btn-danger btn-block" onClick={(e) => {e.preventDefault(); hashHistory.push(`menus/${menu.id}/edit`)}}> Edit </a>
                 <a className="btn btn-default btn-block pull-right"> Delete </a>
                 </div>
         			</div>
@@ -45,4 +46,4 @@ class MyMenus extends React.Component {
   }
 }
 
-export default MyMenus;
+export default withRouter(MyMenus);

@@ -6,7 +6,7 @@ import Dropzone from 'react-dropzone';
 class UserEditForm extends React.Component {
   constructor(props){
     super(props)
-    
+
     let user = this.props.user
     this.state = {
       id: user.id,
@@ -15,9 +15,11 @@ class UserEditForm extends React.Component {
       description: user.description,
       email: user.email,
       host: user.host,
-      profile_image_url: user.profile_image_url
+      profile_image_url: user.profile_image_url,
+      profile_image: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onDrop = this.onDrop.bind(this);
   }
 
   update(field) {
@@ -27,13 +29,22 @@ class UserEditForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = this.state;
-    this.props.editUser({user}).then(()=> hashHistory.push('/'));
+    let formData = new FormData();
+    formData.append("user[id]", this.state.id);
+    formData.append("user[f_name]", this.state.f_name);
+    formData.append("user[l_name]", this.state.l_name);
+    formData.append("user[description]", this.state.description);
+    formData.append("user[email]", this.state.email);
+    formData.append("user[host]", this.state.host);
+    if (this.state.profile_image) {
+      formData.append("user[profile_image]", this.state.profile_image);
+    }
+    this.props.editUser(formData).then(()=> hashHistory.push('/'));
   }
 
   onDrop(acceptedFiles, rejectedFiles){
-    console.log('Accepted files: ', acceptedFiles);
-    console.log('Rejected files: ', rejectedFiles);
+    this.setState({profile_image: acceptedFiles[0],
+    profile_image_url: acceptedFiles[0].preview})
   }
 
 
@@ -112,7 +123,7 @@ class UserEditForm extends React.Component {
       <div className="form-group">
         <label className="col-md-4 control-label" ></label>
         <div className="col-md-4">
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-danger profile-button">Submit</button>
         </div>
       </div>
 

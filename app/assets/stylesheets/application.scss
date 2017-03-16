@@ -123,7 +123,7 @@ nav.navbar-eatbnb button.navbar-toggle > span.icon-bar {
 	font-size: 15px;
 }
 
-.btn-primary {
+.profile-button {
 	border-radius: 2px;
 	background-color: #23a9f6;
 	border-color: #23a9f6;
@@ -148,13 +148,13 @@ strong {
 }
 
 .form-control {
-    background: none;
-    height: 40px;
-    border: none;
-    border-radius: 0px;
-    box-shadow: none;
-    color: #8b9eb6;
-    padding: 0px;
+  background: none;
+  height: 40px;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  color: #8b9eb6;
+  padding: 0px;
 }
 
 .form-control:focus {
@@ -173,7 +173,7 @@ strong {
   font-size: 50px;
 }
 
-.form-section{
+.form-section {
   margin-top: 7%;
 	border: 2px solid lightgrey;
 	border-radius: 5px;
@@ -181,10 +181,10 @@ strong {
     background: #f14444;
     border: none;
     border-radius: 10%;
-    margin-top: 6px;
     outline: none;
   }
   .col-md-4{
+    padding-top: 10px;
     border-left: 2px solid lightgrey;
   }
   .col-md-4:first-child{
@@ -216,6 +216,13 @@ strong {
 
 .slider-slide {
   text-align: center;
+  img {
+    object-fit: cover;
+  }
+}
+
+.slider-slide:hover {
+  cursor: pointer;
 }
 
 .homeTopRatedMenus {
@@ -261,6 +268,7 @@ strong {
     padding: 20px;
     img{
       cursor: pointer;
+      object-fit: cover;
     }
   }
 }

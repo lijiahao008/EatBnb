@@ -25,6 +25,8 @@ const Root = ({ store }) => {
           <Route path="/users/:userId/edit" component={UserEditFormContainer} />
           <Route path="/menus/new"
             component={MenuFormContainer} />
+          <Route path="/menus/:menuId/edit"
+            component={MenuFormContainer} />
           <Route path="/menus/:menuId"
             component={MenuShowContainer} />
           <Route path="/search" component={SearchContainer} />

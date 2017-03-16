@@ -20,13 +20,12 @@ class ReservationForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
     if (this.props.currentUser) {
       const reservation = this.state;
       this.props.createReservation({reservation}).then(hashHistory.push('/myReservations'));
     }
     else {
-      
+      document.getElementById("log-in-button").click();
     }
   }
 

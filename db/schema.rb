@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314234249) do
+ActiveRecord::Schema.define(version: 20170315141214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,16 +26,19 @@ ActiveRecord::Schema.define(version: 20170314234249) do
   end
 
   create_table "menus", force: :cascade do |t|
-    t.string   "title",                                                            null: false
-    t.integer  "price",                                                            null: false
-    t.text     "description",                                                      null: false
-    t.string   "address",                                                          null: false
-    t.float    "longitude",                                                        null: false
-    t.float    "latitude",                                                         null: false
-    t.integer  "owner_id",                                                         null: false
-    t.string   "picture_url", default: "http://www.drodd.com/images15/food18.jpg"
-    t.datetime "created_at",                                                       null: false
-    t.datetime "updated_at",                                                       null: false
+    t.string   "title",                null: false
+    t.integer  "price",                null: false
+    t.text     "description",          null: false
+    t.string   "address",              null: false
+    t.float    "longitude",            null: false
+    t.float    "latitude",             null: false
+    t.integer  "owner_id",             null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
     t.index ["owner_id"], name: "index_menus_on_owner_id", using: :btree
     t.index ["price"], name: "index_menus_on_price", using: :btree
   end

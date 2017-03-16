@@ -13,8 +13,8 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(user_params[:id])
-    
+    @user = User.find(params[:user][:id])
+
     if @user.id == current_user.id && @user.update(user_params)
       session[:session_token] = @user.session_token
       render "api/users/show"
@@ -26,6 +26,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:id, :email, :password, :f_name, :l_name, :host, :description, :profile_image_url)
+    params.require(:user).permit(:email, :password, :f_name, :l_name, :host, :description, :profile_image)
   end
 end

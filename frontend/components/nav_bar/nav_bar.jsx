@@ -94,7 +94,7 @@ class NavBar extends React.Component {
         <div className="collapse navbar-collapse" id="navbar">
       		<ul className="nav navbar-nav navbar-right">
             <li><a href="#" onClick={this.handleBecomeAHost}>Become A Host</a></li>
-      			<li><a href="#" onClick={this.openLogInModal}>Log In </a></li>
+      			<li><a href="#" id="log-in-button" onClick={this.openLogInModal}>Log In </a></li>
             <li><a href="#" onClick={this.openSignUpModal}>Sign Up</a></li>
       		</ul>
       	</div>
