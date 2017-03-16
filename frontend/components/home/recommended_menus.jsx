@@ -17,7 +17,7 @@ class RecommendedMenus extends React.Component {
 
     const menus = this.props.menus;
     if (typeof(menus) === "undefined") {
-      return <div>Loading...</div>;
+      return <div className="home-loading"><img src={window.images.spinner}/></div>;
     }
     return (
       <Carousel

@@ -2,6 +2,7 @@ class Api::MenusController < ApplicationController
   before_action :require_logged_in, except: [:index, :show]
 
   def index
+    sleep(1)
     if params[:top_rated]
       @menus = Menu.order(price: :desc).limit(6)
       render 'api/menus/top_rated'
@@ -46,6 +47,7 @@ class Api::MenusController < ApplicationController
   end
 
   def show
+    sleep(1)
     @menu = Menu.includes(:owner, [{reviews: :owner}]).find(params[:id])
     @reviews = @menu.reviews
     unless @reviews.length == 0

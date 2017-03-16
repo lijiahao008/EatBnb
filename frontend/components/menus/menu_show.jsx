@@ -23,7 +23,7 @@ class MenuShow extends React.Component {
   render () {
     const menu = this.props.menu;
     if (!menu) {
-      return <div>Loading...</div>;
+      return <div className="loading"><img src={window.images.spinner}/></div>;
       }
 
     const average_rating_spoons = this.generateSpoon(menu.average_rating);

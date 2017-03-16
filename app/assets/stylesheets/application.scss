@@ -61,6 +61,25 @@ nav.navbar-eatbnb button.navbar-toggle > span.icon-bar {
   background: #fff;
 }
 
+.loading {
+  position: absolute;
+  width: 100%;
+  top: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-loading {
+  img {
+      height: 100px;
+      width: 100px;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .Overlay {
   position: fixed;
   top: 0px;
