@@ -24,11 +24,11 @@ class SessionForm extends React.Component {
 			});
 		}
 		else if (this.state.formType == "signup") {
-			this.props.signup({user}).then(()=>{
+			this.props.signup({user}).then((user)=>{
+				debugger
 				this.props.parent.closeModal();
 			});
 		}
-
 	}
 
 	renderErrors() {

@@ -17,6 +17,7 @@ class MenuForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onDrop = this.onDrop.bind(this);
+    this.removeError = this.removeError.bind(this);
   }
 
   componentDidMount() {
@@ -68,6 +69,10 @@ class MenuForm extends React.Component {
 
   }
 
+  removeError(){
+    this.props.clearErrors();
+  }
+
   onDrop(acceptedFiles, rejectedFiles){
     this.setState({picture: acceptedFiles[0],
     picture_url: acceptedFiles[0].preview})
@@ -75,11 +80,21 @@ class MenuForm extends React.Component {
 
 
   render () {
+
+    let errors_display;
+    if (this.props.errors && this.props.errors.length > 0) {
+      const errors = [];
+      this.props.errors.forEach((error, idx) => {errors.push(<div key={idx} className="single-error">{error}</div>)});
+      errors_display = <div className="menu-form-errors"><div
+      className="close-errors">Errors: <i className="fa fa-times" onClick={this.removeError}></i></div>{errors}</div>
+    }
+
     return (
 
   <div className="container menu-steps">
     <div className="row">
         <div className="col-md-6">
+          {errors_display}
             <div className="panel-group" id="accordion">
                 <div className="panel panel-default">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">

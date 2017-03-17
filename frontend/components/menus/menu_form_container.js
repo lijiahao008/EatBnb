@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import MenuForm from './menu_form';
-import { createMenu, updateMenu, fetchMenu } from '../../actions/menu_actions';
+import { createMenu, updateMenu, fetchMenu, receiveErrors } from '../../actions/menu_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    menu: {}
+    menu: {},
+    errors: state.menus.errors
   }
 };
 
@@ -22,6 +23,7 @@ const mapDispatchToProps = (dispatch, { location }) => {
   createMenu: (menu) => dispatch(createMenu(menu)),
   updateMenu: (menu) => dispatch(updateMenu(menu)),
   fetchMenu: (id) => dispatch(fetchMenu(id)),
+  clearErrors: () => dispatch(receiveErrors([])),
   formType
 }};
 

@@ -6,6 +6,7 @@ export const RECEIVE_MENU = "RECEIVE_MENU";
 export const REMOVE_MENU = "REMOVE_MENU";
 export const RECEIVE_TOPRATED_MENUS = "RECEIVE_TOPRATED_MENUS";
 export const RECEIVE_RECOMMENDED_MENUS = "RECEIVE_RECOMMENDED_MENUS";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 
 export const receiveAllMenus = menus => ({
@@ -36,6 +37,11 @@ export const receiveMenu = menu => ({
 export const removeMenu = menu => ({
   type: REMOVE_MENU,
   menu
+});
+
+export const receiveErrors = errors => ({
+  type: RECEIVE_ERRORS,
+  errors
 });
 
 export const fetchTopRatedMenus = () => dispatch => (
@@ -71,7 +77,8 @@ export const deleteMenu = id => dispatch => (
 
 export const createMenu = (menu) => dispatch => (
   APIUtil.createMenu(menu).then(
-    menu => dispatch(receiveMenu(menu)))
+    menu => dispatch(receiveMenu(menu)),
+      err => dispatch(receiveErrors(err.responseJSON)))
 );
 
 export const updateMenu = (menu) => dispatch => (

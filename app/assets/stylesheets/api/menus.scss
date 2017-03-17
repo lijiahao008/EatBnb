@@ -29,8 +29,6 @@
   }
 }
 
-
-
 .ownerProfilePic {
   height: 100px;
   width: 100px;
@@ -56,7 +54,6 @@
 .specs {
   margin-left: 10%;
   width: 50%;
-
 }
 
 .specs > h2 {
@@ -200,5 +197,30 @@
       h4 {
         color: white;
       }
+  }
+}
+
+.menu-form-errors {
+
+  border: 1px solid #e3e4e8;
+  background: #f4f5f7;
+  color: #f14444;
+  margin-bottom: 15px;
+  .close-errors {
+    font-size: 20px;
+    i {
+      position: absolute;
+      right: 25px;
+    }
+  }
+  .close-errors > i:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  div {
+    padding: 3px;
+  }
+  .single-error {
+    margin-left: 5px;
   }
 }

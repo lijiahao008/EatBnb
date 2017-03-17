@@ -3,7 +3,8 @@ import { RECEIVE_ALL_MENUS,
          RECEIVE_TOPRATED_MENUS,
          RECEIVE_RECOMMENDED_MENUS,
          RECEIVE_MENU,
-         REMOVE_MENU } from '../actions/menu_actions';
+         REMOVE_MENU,
+         RECEIVE_ERRORS } from '../actions/menu_actions';
 import merge from 'lodash/merge';
 
 const MenusReducer = (oldState = {}, action) => {
@@ -24,6 +25,11 @@ const MenusReducer = (oldState = {}, action) => {
       let index = newState.my_menus.indexOf(action.menu);
       newState.my_menus.splice(index, 1);
       return newState;
+    case RECEIVE_ERRORS:
+      const errors = action.errors;
+      return merge({}, {
+        errors
+      });
     default:
       return oldState;
   }

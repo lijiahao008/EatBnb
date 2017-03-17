@@ -12,7 +12,6 @@ class MyMenus extends React.Component {
   }
 
   render () {
-
     const menus = this.props.menus;
     if (typeof(menus) === "undefined") {
       return <div className="loading"><img src={window.images.spinner}/></div>;
@@ -30,10 +29,14 @@ class MyMenus extends React.Component {
                   className="img-thumbnail"
                   height="300" width="400"
                   onClick={(e) => {e.preventDefault(); hashHistory.push(`menus/${menu.id}`)}}/>
-        				<h2>${menu.price} {menu.title}</h2>
-        				<p>{menu.description}</p>
+        				<h2
+                  onClick={(e) => {e.preventDefault(); hashHistory.push(`menus/${menu.id}`)}}
+                  >${menu.price} {menu.title}</h2>
+        				<p
+                  onClick={(e) => {e.preventDefault(); hashHistory.push(`menus/${menu.id}`)}}
+                  >{menu.description}</p>
                 <div>
-        				<a className="btn btn-danger btn-block" onClick={(e) => {e.preventDefault(); hashHistory.push(`menus/${menu.id}/edit`)}}> Edit </a>
+        				<a className="btn btn-danger btn-block edit-button" onClick={(e) => {e.preventDefault(); hashHistory.push(`menus/${menu.id}/edit`)}}> Edit </a>
                 <a className="btn btn-default btn-block pull-right"
                 onClick={()=>this.props.deleteMenu(menu.id)}> Delete </a>
                 </div>
