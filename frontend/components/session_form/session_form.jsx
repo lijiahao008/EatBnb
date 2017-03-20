@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link, withRouter, hashHistory } from 'react-router';
 
 class SessionForm extends React.Component {
 	constructor(props) {
@@ -24,9 +24,9 @@ class SessionForm extends React.Component {
 			});
 		}
 		else if (this.state.formType == "signup") {
-			this.props.signup({user}).then((user)=>{
-				debugger
+			this.props.signup({user}).then((res)=>{
 				this.props.parent.closeModal();
+				hashHistory.push(`users/${res.currentUser.id}/edit`)
 			});
 		}
 	}
@@ -73,7 +73,7 @@ class SessionForm extends React.Component {
 					<span className="input-group-addon addon-facebook">
 						<i className="fa fa-fw fa-2x fa-facebook"></i>
 					</span>
-					<a className="btn btn-lg btn-block btn-facebook" href="#"> Log in with Facebook</a>
+					<a className="btn btn-lg btn-block btn-facebook" href="/auth/facebook"> Log in with Facebook</a>
 				</div>
 
 				<div className="input-group">

@@ -17,18 +17,18 @@ class User < ApplicationRecord
     foreign_key: :owner_id
 
 
-	def password= password
+	def password=(password)
 		self.password_digest = BCrypt::Password.create(password)
 		@password = password
 	end
 
-	def self.find_by_credentials email, password
+	def self.find_by_credentials(email, password)
 		user = User.find_by(email: email)
 		return nil unless user
 		user.password_is?(password) ? user : nil
 	end
 
-	def password_is? password
+	def password_is?(password)
 		BCrypt::Password.new(self.password_digest).is_password?(password)
 	end
 
@@ -38,6 +38,30 @@ class User < ApplicationRecord
 		self.save
 		self.session_token
 	end
+
+  def profile_image_from_url(url)
+    self.profile_image = open(url)
+  end
+
+  def self.from_omniauth(auth_hash)
+
+    user = User.find_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
+    if user
+      user
+    else
+      user = User.new
+      user.provider = auth_hash['provider']
+      user.uid = auth_hash['uid']
+      user.email = auth_hash['info']['email']
+      user.password = auth_hash['uid'] + auth_hash['info']['name']
+      user.f_name = auth_hash['info']['first_name'] || ""
+      user.l_name = auth_hash['info']['last_name'] || ""
+      user.profile_image_from_url(auth_hash['info']['image'])
+      user.save!
+      user
+    end
+  end
+
 
 	private
 
