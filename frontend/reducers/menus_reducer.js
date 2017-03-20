@@ -4,7 +4,7 @@ import { RECEIVE_ALL_MENUS,
          RECEIVE_RECOMMENDED_MENUS,
          RECEIVE_MENU,
          REMOVE_MENU,
-         RECEIVE_ERRORS } from '../actions/menu_actions';
+         RECEIVE_MENU_ERRORS } from '../actions/menu_actions';
 import merge from 'lodash/merge';
 
 const MenusReducer = (oldState = {}, action) => {
@@ -17,15 +17,17 @@ const MenusReducer = (oldState = {}, action) => {
     case RECEIVE_TOPRATED_MENUS:
       return merge({}, oldState, {"top_rated_menus": action.menus});
     case RECEIVE_MY_MENUS:
+      debugger
       return merge({}, oldState, {"my_menus": action.menus});
     case RECEIVE_MENU:
+      debugger
       return merge({}, oldState, {[action.menu.id]: action.menu});
     case REMOVE_MENU:
       let newState = merge({}, oldState);
       let index = newState.my_menus.indexOf(action.menu);
       newState.my_menus.splice(index, 1);
       return newState;
-    case RECEIVE_ERRORS:
+    case RECEIVE_MENU_ERRORS:
       const errors = action.errors;
       return merge({}, {
         errors

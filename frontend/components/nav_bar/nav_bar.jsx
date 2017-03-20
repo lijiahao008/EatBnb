@@ -144,6 +144,7 @@ class NavBar extends React.Component {
 
 
   render() {
+    debugger
     if (this.props.currentUser) {
       return this.logged_in(this.props.currentUser, this.props.logout) }
     else{
