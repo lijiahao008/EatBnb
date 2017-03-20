@@ -17,10 +17,8 @@ const MenusReducer = (oldState = {}, action) => {
     case RECEIVE_TOPRATED_MENUS:
       return merge({}, oldState, {"top_rated_menus": action.menus});
     case RECEIVE_MY_MENUS:
-      debugger
       return merge({}, oldState, {"my_menus": action.menus});
     case RECEIVE_MENU:
-      debugger
       return merge({}, oldState, {[action.menu.id]: action.menu});
     case REMOVE_MENU:
       let newState = merge({}, oldState);
