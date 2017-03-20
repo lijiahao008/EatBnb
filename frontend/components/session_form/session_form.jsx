@@ -80,7 +80,7 @@ class SessionForm extends React.Component {
 					<span className="input-group-addon addon-google">
 						<i className="fa fa-fw fa-2x fa-google fa-fw"></i>
 					</span>
-					<a className="btn btn-lg btn-block btn-google" href="#"> Log in with Google</a>
+					<a className="btn btn-lg btn-block btn-google" href="/auth/google_oauth2"> Log in with Google</a>
 				</div>
 				{this.renderErrors()}
 				<form role="form" onSubmit={this.handleSubmit}>

@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resources :menu_reviews, only: [:create, :update]
     resources :reservations, only: [:create, :index]
   end
-  get 'auth/facebook/callback', to: 'api/sessions#create', :defaults => { :format => 'json' }
+  get 'auth/:provider/callback', to: 'api/sessions#create', :defaults => { :format => 'json' }
   get '/', to: 'home_page#homepage'
 end

@@ -1,5 +1,4 @@
 json.array! @menus do |menu|
-
   json.id menu.id
   json.title menu.title
   json.price menu.price
