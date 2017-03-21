@@ -4,7 +4,8 @@ import { RECEIVE_ALL_MENUS,
          RECEIVE_RECOMMENDED_MENUS,
          RECEIVE_MENU,
          REMOVE_MENU,
-         RECEIVE_MENU_ERRORS } from '../actions/menu_actions';
+         RECEIVE_MENU_ERRORS} from '../actions/menu_actions';
+import { RECEIVE_MENU_REVIEW_ERRORS } from '../actions/review_actions';
 import merge from 'lodash/merge';
 
 const MenusReducer = (oldState = {}, action) => {
@@ -30,6 +31,11 @@ const MenusReducer = (oldState = {}, action) => {
       return merge({}, {
         errors
       });
+    case RECEIVE_MENU_REVIEW_ERRORS:
+      const review_errors = action.errors;
+      oldState[action.id].review_errors = [];
+      oldState[action.id].review_errors = review_errors;
+      return merge({}, oldState);
     default:
       return oldState;
   }

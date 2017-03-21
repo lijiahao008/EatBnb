@@ -1,20 +1,19 @@
 import * as APIUtil from '../util/review_api_util'
 import { receiveMenu } from './menu_actions';
 
-export const RECEIVE_MENU_REVIEW = "RECEIVE_MENU_REVIEW";
+export const RECEIVE_MENU_REVIEW_ERRORS = "RECEIVE_MENU_REVEW_ERRORS";
 
 
-
-export const receiveMenuReview = review => {
-  return {
-    type: RECEIVE_MENU_REVIEW,
-    review
-  }
-
-};
+export const receiveMenuReviewErrors = (id, errors) => ({
+  type: RECEIVE_MENU_REVIEW_ERRORS,
+  errors,
+  id
+});
 
 
-export const createMenuReview = (review) => dispatch => (
+export const createMenuReview = (review) => dispatch => {
+  return(
   APIUtil.createMenuReview(review).then(
-    menu => {return dispatch(receiveMenu(menu))})
-);
+    menu => dispatch(receiveMenu(menu)),
+      err => dispatch(receiveMenuReviewErrors(review.menu_review.menu_id, err.responseJSON)))
+)};

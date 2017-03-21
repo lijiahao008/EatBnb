@@ -77,7 +77,7 @@ export const deleteMenu = id => dispatch => (
 
 export const createMenu = (menu) => dispatch => (
   APIUtil.createMenu(menu).then(
-    menu => dispatch(receiveMenu(menu)),
+     menu => dispatch(receiveMenu(menu)),
       err => dispatch(receiveMenuErrors(err.responseJSON)))
 );
 

@@ -84,9 +84,16 @@ class MenuForm extends React.Component {
     let errors_display;
     if (this.props.errors && this.props.errors.length > 0) {
       const errors = [];
-      this.props.errors.forEach((error, idx) => {errors.push(<div key={idx} className="single-error">{error}</div>)});
-      errors_display = <div className="menu-form-errors"><div
-      className="close-errors">Errors: <i className="fa fa-times" onClick={this.removeError}></i></div>{errors}</div>
+      this.props.errors.forEach((error, idx) => {
+        errors.push(<div key={idx} className="single-error">{error}</div>)
+      });
+      errors_display =
+      <div className="menu-form-errors">
+        <div className="close-errors">
+          Errors: <i className="fa fa-times" onClick={this.removeError}></i>
+        </div>
+        {errors}
+      </div>
     }
 
     return (
