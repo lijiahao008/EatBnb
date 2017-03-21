@@ -83,5 +83,6 @@ export const createMenu = (menu) => dispatch => (
 
 export const updateMenu = (menu) => dispatch => (
   APIUtil.updateMenu(menu).then(
-    menu => dispatch(receiveMenu(menu)))
+    menu => dispatch(receiveMenu(menu)),
+      err => dispatch(receiveMenuErrors(err.responseJSON)))
 );

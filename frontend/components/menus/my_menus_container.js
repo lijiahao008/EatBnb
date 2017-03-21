@@ -3,7 +3,7 @@ import MyMenus from './my_menus';
 import { fetchMyMenus, deleteMenu } from '../../actions/menu_actions';
 
 const mapStateToProps = (state) => {
-  
+
   return {menus: state.menus.my_menus}
 };
 

@@ -224,7 +224,7 @@ class MenuForm extends React.Component {
             </div>
         </div>
         <div className="col-md-6 text-center">
-          <a href="https://clipartfest.com/download/9d8b98c6e628dab878145182fa4559299a5021a4"><img src={this.state.picture_url} width="400" alt="pig cooking clipart" /></a>
+          <a><img src={this.state.picture_url} width="400" alt="pig cooking clipart" /></a>
         </div>
     </div>
 </div>
