@@ -42,6 +42,7 @@ gem 'aws-sdk'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'mailboxer', github: 'mailboxer/mailboxer'
 
 
 # Use Capistrano for deployment

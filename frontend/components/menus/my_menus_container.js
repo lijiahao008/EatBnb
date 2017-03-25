@@ -3,8 +3,9 @@ import MyMenus from './my_menus';
 import { fetchMyMenus, deleteMenu } from '../../actions/menu_actions';
 
 const mapStateToProps = (state) => {
-
-  return {menus: state.menus.my_menus}
+  let my_menus = state.menus.my_menus || {}
+  return {
+    menus: Object.keys(my_menus).map(id => my_menus[id])}
 };
 
 const mapDispatchToProps = dispatch => ({

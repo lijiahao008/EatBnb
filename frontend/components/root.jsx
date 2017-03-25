@@ -13,6 +13,8 @@ import UserEditFormContainer from './user/user_edit_form_container';
 import SearchContainer from './search/search_container';
 import MyMenusContainer from './menus/my_menus_container';
 import MyReservationsContainer from './reservations/my_reservations_container';
+import ConversationsContainer from './conversations/conversations_container';
+import ConversationContainer from './conversations/conversation_container';
 
 
 const Root = ({ store }) => {
@@ -32,6 +34,8 @@ const Root = ({ store }) => {
           <Route path="/search" component={SearchContainer} />
           <Route path="/myMenus" component={MyMenusContainer} />
           <Route path="/myReservations" component={MyReservationsContainer} />
+          <Route path="/conversations" component={ConversationsContainer} />
+          <Route path="/conversations/:conversationId" component={ConversationContainer} />
         </Route>
       </Router>
     </Provider>

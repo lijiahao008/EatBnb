@@ -56,7 +56,7 @@ export const fetchRecommendedMenus = () => dispatch => (
 
 export const fetchMyMenus = () => dispatch => (
   APIUtil.fetchMyMenus()
-  .then(menus => dispatch(receiveMyMenus(menus)))
+  .then(menus => {return dispatch(receiveMyMenus(menus))})
 );
 
 

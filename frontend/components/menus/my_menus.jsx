@@ -13,7 +13,7 @@ class MyMenus extends React.Component {
 
   render () {
     const menus = this.props.menus;
-    if (typeof(menus) === "undefined" || menus === null) {
+    if (menus.length == 0) {
       return <div className="loading"><img src={window.images.spinner}/></div>;
     }
     return (

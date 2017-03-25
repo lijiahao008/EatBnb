@@ -48,6 +48,11 @@ class NavBar extends React.Component {
     }
   }
 
+  handleMessages(e){
+    e.preventDefault();
+    hashHistory.push("/conversations");
+  }
+
   handleCreateAMenu(e){
     e.preventDefault();
     hashHistory.push("/menus/new");
@@ -134,6 +139,7 @@ class NavBar extends React.Component {
         <div className="collapse navbar-collapse" id="navbar">
       		<ul className="nav navbar-nav navbar-right">
             {link}
+            <li><a href="#" onClick={this.handleMessages}>Messages</a></li>
       			{greeting}
             <li><a href="#" onClick={logout}>Log Out</a></li>
       		</ul>

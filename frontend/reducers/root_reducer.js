@@ -5,6 +5,7 @@ import MenusReducer from './menus_reducer';
 import FilterReducer from './filters_reducer';
 import SearchReducer from './search_reducer';
 import ReservationsReducer from './reservations_reducer';
+import ConversationsReducer from './conversations_reducer';
 
 
 const RootReducer = combineReducers({
@@ -12,7 +13,8 @@ const RootReducer = combineReducers({
   menus: MenusReducer,
   filters: FilterReducer,
   searchResults: SearchReducer,
-  reservations: ReservationsReducer
+  reservations: ReservationsReducer,
+  conversations: ConversationsReducer
 });
 
 export default RootReducer;

@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :reservations,
     foreign_key: :owner_id
 
+  acts_as_messageable
+
 
 	def password=(password)
 		self.password_digest = BCrypt::Password.create(password)
@@ -60,6 +62,14 @@ class User < ApplicationRecord
       user.save!
       user
     end
+  end
+
+  def name
+    "User #{id}"
+  end
+
+  def mailboxer_email(object)
+    nil
   end
 
 

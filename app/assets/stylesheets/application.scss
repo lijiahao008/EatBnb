@@ -356,3 +356,16 @@ strong {
 	background: rgba(200, 200, 200, 0.1);
 	transition: 0.5s;
 }
+
+.messages {
+  position: relative;
+  top: 70px;
+  .nav-pills {
+    margin-top: 20px;
+  }
+}
+
+.conversation {
+  position: relative;
+  top: 70px;
+}

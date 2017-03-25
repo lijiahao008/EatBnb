@@ -23,8 +23,7 @@ const MenusReducer = (oldState = {}, action) => {
       return merge({}, oldState, {[action.menu.id]: action.menu});
     case REMOVE_MENU:
       let newState = merge({}, oldState);
-      let index = newState.my_menus.indexOf(action.menu);
-      newState.my_menus.splice(index, 1);
+      delete newState.my_menus[action.menu.id]
       return newState;
     case RECEIVE_MENU_ERRORS:
       const errors = action.errors;

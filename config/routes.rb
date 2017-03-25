@@ -4,11 +4,22 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resource :user, only: [:create, :update]
-    resources :users, only: [:show]
     resource :session, only: [:create, :destroy, :show]
     resources :menus, only: [:index, :create, :update, :show, :destroy]
     resources :menu_reviews, only: [:create, :update]
     resources :reservations, only: [:create, :index]
+    resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+      post :mark_as_unread
+    end
+    collection do
+      delete :empty_trash
+    end
+  end
+  resources :messages, only: [:create]
   end
   get 'auth/:provider/callback', to: 'api/sessions#create', :defaults => { :format => 'json' }
   get '/', to: 'home_page#homepage'
