@@ -19,7 +19,7 @@ class Conversation extends React.Component {
 	render() {
     const conversation = this.props.conversation;
     if (!conversation.id) {
-      return <div>loading...</div>
+      return <div className="loading"><img src={window.images.spinner}/></div>;
     }
     const messages =
     <div>

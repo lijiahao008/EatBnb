@@ -6,11 +6,11 @@ class Conversations extends React.Component {
 		super(props);
 		this.state = {currentBox: "Inbox"}
 
-		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 		this.renderMailbox = this.renderMailbox.bind(this);
 	}
 
-	handleSubmit(e) {
+	handleClick(e) {
 		e.preventDefault();
 	}
 
@@ -35,8 +35,8 @@ class Conversations extends React.Component {
 			<div className="mail-list">
 				<h1 className="text-center">{box}</h1>
 					{mailbox.map(conversation => {
-						let read_button_text = conversation.is_unread ? "Mark as read" : "Mark as unread";
-						let trash_button_text = conversation.trashed ? "Restore" : "Move to trash"
+						let trash_button = conversation.trashed ? <a className="btn btn-sm btn-default"><i className="fa fa-recycle"></i></a> : <a className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></a>
+						let read_button = conversation.is_unread ? <a className="btn btn-sm btn-success"><i className="fa fa-envelope-open"></i></a> : <a className="btn btn-sm btn-primary"><i className="fa fa-envelope-o"></i></a>;
 						return (
 							<li key={conversation.id}
 								onClick={(e)=> {e.preventDefault(); hashHistory.push(`conversations/${conversation.id}`)}}>
@@ -48,8 +48,8 @@ class Conversations extends React.Component {
 										<div className="conversation-last-activity">{conversation.updated_at}</div>
 								</div>
 								<div className="col-md-3 mail-buttons text-center">
-									<a className="btn btn-sm btn-danger">{trash_button_text}</a>
-									<a className="btn btn-sm btn-primary">{read_button_text}</a>
+									{read_button}
+									{trash_button}
 								</div>
 							</div>
 							</li>

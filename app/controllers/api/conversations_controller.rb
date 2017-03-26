@@ -15,12 +15,12 @@ class Api::ConversationsController < ApplicationController
 
   def mark_as_read
     @conversation.mark_as_read(current_user)
-    render 'api/conversations/index'
+    render 'api/conversations/show'
   end
 
   def mark_as_unread
     @conversation.mark_as_unread(current_user)
-    render 'api/conversations/index'
+    render 'api/conversations/show'
   end
 
   def reply

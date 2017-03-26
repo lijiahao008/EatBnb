@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Conversations from './conversations';
-import { fetchConversations } from '../../actions/conversation_actions';
+import { fetchConversations, markAsRead, markAsUnRead } from '../../actions/conversation_actions';
 
 const mapStateToProps = state => {
   let inbox = state.conversations.inbox || {};
@@ -14,7 +14,10 @@ const mapStateToProps = state => {
 }};
 
 const mapDispatchToProps = dispatch => ({
-  fetchConversations: () => dispatch(fetchConversations())
+  fetchConversations: () => dispatch(fetchConversations()),
+  markAsRead: (id) => dispatch(markAsRead(id)),
+  markAsUnRead: (id) => dispatch(markAsUnRead(id))
+
 });
 
 export default connect(
