@@ -1,0 +1,23 @@
+.mail-list{
+    padding:0;
+    margin:0;
+    list-style:none;
+    margin-top:30px;
+}
+.mail-list li {
+    display:block;
+    border-bottom:1px dotted #CFCFCF;
+    padding:20px;
+    text-decoration:none;
+}
+.mail-list li:last-child{
+    border-bottom:none;
+}
+.mail-list li:hover{
+    cursor: pointer;
+    background-color:#DBF9FF;
+}
+
+.mail-buttons a{
+  margin: 10px;
+}

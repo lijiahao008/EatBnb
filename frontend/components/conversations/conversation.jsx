@@ -17,14 +17,35 @@ class Conversation extends React.Component {
 	}
 
 	render() {
+    const conversation = this.props.conversation;
+    if (!conversation.id) {
+      return <div>loading...</div>
+    }
+    const messages =
+    <div>
+    {Object.keys(conversation.messages).map(id => {
+      return (
+        <div key={id}>
+          <div>{conversation.messages[id].body}</div>
+          <div>{conversation.messages[id].sender}</div>
+          <div>{conversation.messages[id].created_at}</div>
+        </div>
+      )
+    })}
+    </div>
 		return (
       <div className="container conversation">
         <div
-          className="col-md-9"
-           key={this.props.conversation.id}>
-          <div>Subject: {this.props.conversation.subject}</div>
-          <div>Started on: {this.props.conversation.created_at}</div>
-          <div>Last Activity: {this.props.conversation.updated_at}</div>
+           key={conversation.id}>
+          <div>Subject: {conversation.subject}</div>
+          <div>Started on: {conversation.created_at}</div>
+          <div>Last Activity: {conversation.updated_at}</div>
+      </div>
+      <div>
+        Messages:
+        <div>
+          {messages}
+        </div>
       </div>
 
       </div>
