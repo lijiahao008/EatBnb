@@ -38,10 +38,10 @@ class Conversations extends React.Component {
 						let trash_button = conversation.trashed ? <a className="btn btn-sm btn-default"><i className="fa fa-recycle"></i></a> : <a className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></a>
 						let read_button = conversation.is_unread ? <a className="btn btn-sm btn-success"><i className="fa fa-envelope-open"></i></a> : <a className="btn btn-sm btn-primary"><i className="fa fa-envelope-o"></i></a>;
 						return (
-							<li key={conversation.id}
-								onClick={(e)=> {e.preventDefault(); hashHistory.push(`conversations/${conversation.id}`)}}>
+							<li key={conversation.id}>
 								<div className="row">
-									<div className="col-md-9">
+									<div className="col-md-9"
+										onClick={(e)=> {e.preventDefault(); hashHistory.push(`conversations/${conversation.id}`)}}>
 										<div className="conversation-last-message-sender"><strong>From:</strong> {conversation.last_message_sender}</div>
 										<div className="conversation-subject"><strong>Subject:</strong> {conversation.subject}</div>
 										<div className="conversation-last-message"><strong>Last Message:</strong> {conversation.last_message}</div>
