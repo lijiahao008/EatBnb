@@ -74,8 +74,8 @@ class Api::MenusController < ApplicationController
   end
 
   def destroy
-    @menu = Menu.find(params[:id])
-    if @menu.delete
+    @menu = Menu.includes(:reviews, :reservations).find(params[:id])
+    if @menu.destroy
       @reviews = []
       @average_rating = 0
       render "api/menus/show"

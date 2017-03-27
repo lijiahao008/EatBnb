@@ -13,11 +13,13 @@ class Menu < ApplicationRecord
 
   has_many :reservations,
     class_name: "Reservation",
-    foreign_key: :menu_id
+    foreign_key: :menu_id,
+    dependent: :destroy
 
   has_many :reviews,
     class_name: "MenuReview",
-    foreign_key: :menu_id
+    foreign_key: :menu_id,
+    dependent: :destroy
 
 
   def self.in_bounds(bounds)

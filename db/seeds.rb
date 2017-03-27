@@ -6,11 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
-User.create(email: "123@gmail.com", password: "password", f_name: "James", l_name: "Bond", description: "I'm a self-taught chef who has been working at a 5 star hotel for the past 6 years. Please feel free to contact me directly here.", host: true)
-
-User.create(email: "1234@gmail.com", password: "password", f_name: "Howard", l_name: "Hall", description: "His upright nature though, this is what he's often adored for. People regularly count on this and his sense of order whenever they need assistance or help.", host: true, profile_image: open("https://lh3.googleusercontent.com/IcoKsmcNorkWu8lBns2o_80PRJFrP-avGz7-bX00MhFEGm3Kpw"))
-
 
 Menu.destroy_all
 Menu.create(title: 'Korean Fried Chicken', description: "The BEST Korean fried chicken recipe that yields crispy fried chicken in spicy, savory and sweet sauce.", price: 20, address: "9 St Marks Pl D, New York, NY 10003", owner_id: User.first.id, picture: open( "http://www.monnylam.com/wp-content/uploads/2015/09/IMG_3479-1080x810.jpg"))
@@ -116,11 +111,11 @@ Reservation.create(date: DateTime.new(2017, 8, 22), confirmed: true, owner_id: U
 
 Reservation.create(date: DateTime.new(2017, 9, 28), confirmed: false, owner_id: User.first.id, menu_id: Menu.last.id)
 
-Reservation.create(date: DateTime.new(2017, 2, 12), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
+Reservation.create(date: DateTime.new(2017, 2, 12), confirmed: true, owner_id: User.last.id, menu_id: Menu.first.id)
 
-Reservation.create(date: DateTime.new(2017, 6, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
+Reservation.create(date: DateTime.new(2017, 6, 22), confirmed: true, owner_id: User.last.id, menu_id: Menu.first.id)
 
-Reservation.create(date: DateTime.new(2017, 6, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.last.id)
+Reservation.create(date: DateTime.new(2017, 6, 22), confirmed: true, owner_id: User.last.id, menu_id: Menu.last.id)
 
 Reservation.create(date: DateTime.new(2017, 7, 28), confirmed: false, owner_id: User.first.id, menu_id: Menu.last.id)
 

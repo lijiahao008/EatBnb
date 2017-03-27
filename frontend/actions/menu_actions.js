@@ -72,7 +72,7 @@ export const fetchMenu = id => dispatch => (
 
 export const deleteMenu = id => dispatch => (
   APIUtil.removeMenu(id)
-  .then(menu => {debugger; return dispatch(removeMenu(menu))})
+  .then(menu => {return dispatch(removeMenu(menu))})
 );
 
 export const createMenu = (menu) => dispatch => (

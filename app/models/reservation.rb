@@ -4,5 +4,6 @@ class Reservation < ApplicationRecord
     class_name: "User",
     foreign_key: :owner_id
 
-  belongs_to :menu
+  belongs_to :menu,
+    dependent: :destroy
 end
