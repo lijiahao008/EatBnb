@@ -35,10 +35,17 @@ export const markAsRead = (id) => {
   });
 };
 
-export const markAsUnread = (id) => {
+export const markAsUnRead = (id) => {
   return $.ajax({
     method: 'POST',
     url: `/api/conversations/${id}/mark_as_unread`
+  });
+};
+
+export const moveToTrash = (id) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/conversations/${id}`
   });
 };
 

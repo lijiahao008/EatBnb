@@ -1,5 +1,5 @@
 json.inbox do
-  @inbox.each do |conversation|
+  @mailbox.inbox.each do |conversation|
     json.set! conversation.id do
       json.id conversation.id
       json.subject conversation.subject
@@ -13,7 +13,7 @@ json.inbox do
 end
 
 json.sentbox do
-  @sentbox.each do |conversation|
+  @mailbox.sentbox.each do |conversation|
     json.set! conversation.id do
       json.id conversation.id
       json.subject conversation.subject
@@ -27,7 +27,7 @@ json.sentbox do
 end
 
 json.trash do
-  @trash.each do |conversation|
+  @mailbox.trash.each do |conversation|
     json.set! conversation.id do
       json.id conversation.id
       json.subject conversation.subject

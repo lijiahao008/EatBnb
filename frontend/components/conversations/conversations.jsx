@@ -35,8 +35,25 @@ class Conversations extends React.Component {
 			<div className="mail-list">
 				<h1 className="text-center">{box}</h1>
 					{mailbox.map(conversation => {
-						let trash_button = conversation.trashed ? <a className="btn btn-sm btn-default"><i className="fa fa-recycle"></i></a> : <a className="btn btn-sm btn-danger"><i className="fa fa-trash"></i></a>
-						let read_button = conversation.is_unread ? <a className="btn btn-sm btn-success"><i className="fa fa-envelope-open"></i></a> : <a className="btn btn-sm btn-primary"><i className="fa fa-envelope-o"></i></a>;
+						let trash_button;
+						let read_button;
+						if (conversation.trashed) {
+							trash_button = <a className="btn btn-sm btn-default" onClick={(e)=>{e.preventDefault(); this.props.restoreConversation(conversation.id);}}><i className="fa fa-recycle"></i></a>
+						}
+						else{
+							trash_button = <a className="btn btn-sm btn-danger" onClick={(e)=>{e.preventDefault(); this.props.moveToTrash(conversation.id);}}><i className="fa fa-trash"></i></a>
+						}
+						if (box === "Trash") {
+							read_button = "";
+						}
+						else{
+							if (conversation.is_unread) {
+								read_button =	<a className="btn btn-sm btn-success" onClick={(e)=>{e.preventDefault(); this.props.markAsRead(conversation.id);}}><i className="fa fa-envelope-open"></i></a>
+							}
+							else {
+						  	read_button = <a className="btn btn-sm btn-primary" onClick={(e)=>{e.preventDefault(); this.props.markAsUnRead(conversation.id);}}><i className="fa fa-envelope-o"></i></a>
+							}
+						}
 						return (
 							<li key={conversation.id}>
 								<div className="row">
@@ -54,7 +71,7 @@ class Conversations extends React.Component {
 							</div>
 							</li>
 						)
-					})}
+					},this)}
 			</div>)
 
 	}

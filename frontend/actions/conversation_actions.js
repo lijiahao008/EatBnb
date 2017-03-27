@@ -3,6 +3,8 @@ import * as APIUtil from '../util/conversation_api_util'
 export const RECEIVE_CONVERSATIONS = "RECEIVE_CONVERSATIONS";
 export const RECEIVE_CONVERSATION = "RECEIVE_CONVERSATION";
 export const RECEIVE_CURRENT_CONVERSATION = "RECEIVE_CURRENT_CONVERSATION";
+export const MOVE_TO_TRASH = "MOVE_TO_TRASH";
+export const RESTORE = "RESTORE";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 
 
@@ -26,6 +28,16 @@ export const receiveMessage = message => ({
   message
 });
 
+export const movetoTrash = conversation => ({
+  type: MOVE_TO_TRASH,
+  conversation
+});
+
+export const restore = conversation => ({
+  type: RESTORE,
+  conversation
+});
+
 export const fetchConversations = () => dispatch => (
   APIUtil.fetchConversations().then(
      conversations => dispatch(receiveConversations(conversations)))
@@ -44,6 +56,16 @@ export const markAsRead = (id) => dispatch => (
 export const markAsUnRead = (id) => dispatch => (
   APIUtil.markAsUnRead(id).then(
     conversation => dispatch(receiveConversation(conversation)))
+);
+
+export const moveToTrash = (id) => dispatch => (
+  APIUtil.moveToTrash(id).then(
+    conversation => dispatch(movetoTrash(conversation)))
+);
+
+export const restoreConversation = (id) => dispatch => (
+  APIUtil.restoreConversation(id).then(
+    conversations => dispatch(receiveConversations(conversations)))
 );
 
 export const createMessage = (message) => dispatch => (

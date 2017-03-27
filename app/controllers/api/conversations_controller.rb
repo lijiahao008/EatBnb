@@ -4,9 +4,7 @@ class Api::ConversationsController < ApplicationController
 
 
   def index
-    @inbox = current_user.mailbox.inbox
-    @sentbox = current_user.mailbox.sentbox
-    @trash = current_user.mailbox.trash
+    @mailbox = current_user.mailbox
     render 'api/conversations/index'
   end
 
@@ -15,26 +13,27 @@ class Api::ConversationsController < ApplicationController
 
   def mark_as_read
     @conversation.mark_as_read(current_user)
-    render 'api/conversations/show'
+    render 'api/conversations/conversation'
   end
 
   def mark_as_unread
     @conversation.mark_as_unread(current_user)
-    render 'api/conversations/show'
+    render 'api/conversations/conversation'
   end
 
   def reply
     current_user.reply_to_conversation(@conversation, params[:body])
-    render 'api/conversations/show'
+    render 'api/conversations/conversation'
   end
 
   def destroy
     @conversation.move_to_trash(current_user)
-    render 'api/conversations/index'
+    render 'api/conversations/conversation'
   end
 
   def restore
     @conversation.untrash(current_user)
+    @mailbox = current_user.mailbox
     render 'api/conversations/index'
   end
 
