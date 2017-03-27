@@ -2,8 +2,7 @@ import { RECEIVE_CONVERSATIONS,
          RECEIVE_CONVERSATION,
          RECEIVE_CURRENT_CONVERSATION,
          RECEIVE_MESSAGE,
-         MOVE_TO_TRASH,
-         RESTORE} from '../actions/conversation_actions';
+         MOVE_TO_TRASH} from '../actions/conversation_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -47,10 +46,6 @@ const ConversationsReducer = (oldState = defaultState, action) => {
         newState.trash[conversation_id] = action.conversation;
         return newState;
       }
-    case RESTORE:
-        let new_id = action.conversation.id;
-        delete newState.trash[new_id]
-        return newState;
     case RECEIVE_MESSAGE:
       debugger
       return merge({}, oldState);

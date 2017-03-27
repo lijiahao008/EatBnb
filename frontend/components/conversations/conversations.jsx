@@ -10,8 +10,30 @@ class Conversations extends React.Component {
 		this.renderMailbox = this.renderMailbox.bind(this);
 	}
 
-	handleClick(e) {
+	handleClick(id, action, e) {
 		e.preventDefault();
+		switch (action) {
+			case "restore":
+				e.preventDefault();
+				this.props.restoreConversation(id);
+				break;
+			case "trash":
+				e.preventDefault();
+				this.props.moveToTrash(id);
+				break;
+			case "markAsRead":
+				e.preventDefault();
+				this.props.markAsRead(id);
+				break;
+			case "markAsUnread":
+				e.preventDefault();
+				this.props.markAsUnRead(id);
+				break;
+			case "redirect":
+				e.preventDefault();
+				hashHistory.push(`conversations/${id}`)
+				break;
+		}
 	}
 
 	componentDidMount(){
@@ -38,27 +60,27 @@ class Conversations extends React.Component {
 						let trash_button;
 						let read_button;
 						if (conversation.trashed) {
-							trash_button = <a className="btn btn-sm btn-default" onClick={(e)=>{e.preventDefault(); this.props.restoreConversation(conversation.id);}}><i className="fa fa-recycle"></i></a>
+							trash_button = <a className="btn btn-sm btn-default" onClick={(e)=>this.handleClick(conversation.id, "restore", e)}><i className="fa fa-recycle"></i></a>
 						}
 						else{
-							trash_button = <a className="btn btn-sm btn-danger" onClick={(e)=>{e.preventDefault(); this.props.moveToTrash(conversation.id);}}><i className="fa fa-trash"></i></a>
+							trash_button = <a className="btn btn-sm btn-danger" onClick={(e)=>this.handleClick(conversation.id, "trash", e)}><i className="fa fa-trash"></i></a>
 						}
 						if (box === "Trash") {
 							read_button = "";
 						}
 						else{
 							if (conversation.is_unread) {
-								read_button =	<a className="btn btn-sm btn-success" onClick={(e)=>{e.preventDefault(); this.props.markAsRead(conversation.id);}}><i className="fa fa-envelope-open"></i></a>
+								read_button =	<a className="btn btn-sm btn-success" onClick={(e)=>this.handleClick(conversation.id, "markAsRead", e)}><i className="fa fa-envelope-open"></i></a>
 							}
 							else {
-						  	read_button = <a className="btn btn-sm btn-primary" onClick={(e)=>{e.preventDefault(); this.props.markAsUnRead(conversation.id);}}><i className="fa fa-envelope-o"></i></a>
+						  	read_button = <a className="btn btn-sm btn-primary" onClick={(e)=>this.handleClick(conversation.id, "markAsUnread", e)}><i className="fa fa-envelope-o"></i></a>
 							}
 						}
 						return (
 							<li key={conversation.id}>
 								<div className="row">
 									<div className="col-md-9"
-										onClick={(e)=> {e.preventDefault(); hashHistory.push(`conversations/${conversation.id}`)}}>
+										onClick={(e)=>this.handleClick(conversation.id, "redirect", e)}>
 										<div className="conversation-last-message-sender"><strong>From:</strong> {conversation.last_message_sender}</div>
 										<div className="conversation-subject"><strong>Subject:</strong> {conversation.subject}</div>
 										<div className="conversation-last-message"><strong>Last Message:</strong> {conversation.last_message}</div>
