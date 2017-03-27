@@ -14,6 +14,8 @@ class Conversation extends React.Component {
 
 	componentDidMount(){
 		this.props.fetchConversation(this.props.conversationId);
+		this.props.markAsRead(this.props.conversationId);
+
 	}
 
 	render() {
