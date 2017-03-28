@@ -5,8 +5,9 @@ import { fetchConversation, markAsRead } from '../../actions/conversation_action
 const mapStateToProps = (state, ownProps) => {
   let conversation = state.conversations.current_conversation || {};
   return {
-    conversationId: ownProps.params.conversationId,
-    conversation
+    conversationId: ownProps.id,
+    conversation,
+    parent: ownProps.parent
 }};
 
 const mapDispatchToProps = (dispatch) => ({

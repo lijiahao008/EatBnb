@@ -1,17 +1,21 @@
 import React from 'react';
 import { Link, withRouter, hashHistory } from 'react-router';
+import ConversationContainer from './conversation_container';
 
 class Conversations extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {currentBox: "Inbox"}
+		this.state = {
+			currentBox: "Inbox",
+			chatBoxId: 0
+		}
 
 		this.handleClick = this.handleClick.bind(this);
 		this.renderMailbox = this.renderMailbox.bind(this);
+		this.renderChatbox = this.renderChatbox.bind(this);
 	}
 
 	handleClick(id, action, e) {
-		e.preventDefault();
 		switch (action) {
 			case "restore":
 				e.preventDefault();
@@ -29,15 +33,26 @@ class Conversations extends React.Component {
 				e.preventDefault();
 				this.props.markAsUnRead(id);
 				break;
-			case "redirect":
+			case "openChat":
 				e.preventDefault();
-				hashHistory.push(`conversations/${id}`)
+				this.setState({chatBoxId: id});
 				break;
 		}
 	}
 
 	componentDidMount(){
 		this.props.fetchConversations();
+	}
+
+	renderChatbox(){
+		if (this.state.chatBoxId === 0) {
+			return "";
+		}
+		else {
+			return (
+				<ConversationContainer parent={this} id={this.state.chatBoxId} />
+			)
+		}
 	}
 
 	renderMailbox(box){
@@ -80,7 +95,7 @@ class Conversations extends React.Component {
 							<li key={conversation.id}>
 								<div className="row">
 									<div className="col-md-9"
-										onClick={(e)=>this.handleClick(conversation.id, "redirect", e)}>
+										onClick={(e)=>this.handleClick(conversation.id, "openChat", e)}>
 										<div className="conversation-last-message-sender"><strong>From:</strong> {conversation.last_message_sender}</div>
 										<div className="conversation-subject"><strong>Subject:</strong> {conversation.subject}</div>
 										<div className="conversation-last-message"><strong>Last Message:</strong> {conversation.last_message}</div>
@@ -101,7 +116,7 @@ class Conversations extends React.Component {
 
 	render() {
 		return (
-	<div className="container messages">
+	<div className="container messages-index">
 	  <div className="row">
     	<div className="col-md-3">
 				<div className="btn btn-lg btn-danger"><span className="glyphicon glyphicon-pencil"></span> Compose</div>
@@ -114,7 +129,9 @@ class Conversations extends React.Component {
 			<div className="col-md-9">
 				{this.renderMailbox(this.state.currentBox)}
 			</div>
+
 		</div>
+		{this.renderChatbox(this.state.chatBoxId)}
 	</div>
 		);
 	}

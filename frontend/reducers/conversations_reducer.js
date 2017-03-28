@@ -48,7 +48,6 @@ const ConversationsReducer = (oldState = defaultState, action) => {
         return newState;
       }
     case RECEIVE_MESSAGE:
-      debugger
       return merge({}, newState);
     default:
       return oldState;

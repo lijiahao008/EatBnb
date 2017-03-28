@@ -15,42 +15,66 @@ class Conversation extends React.Component {
 	componentDidMount(){
 		this.props.fetchConversation(this.props.conversationId);
 		this.props.markAsRead(this.props.conversationId);
+	}
 
+	componentDidUpdate(prevProps, prevState){
+		if (this.props.conversationId != prevProps.conversationId ) {
+			this.props.fetchConversation(this.props.conversationId);
+			this.props.markAsRead(this.props.conversationId);
+		}
 	}
 
 	render() {
     const conversation = this.props.conversation;
     if (!conversation.id) {
-      return <div className="loading"><img src={window.images.spinner}/></div>;
+      return null;
     }
     const messages =
-    <div>
-    {Object.keys(conversation.messages).map(id => {
+		<ul className="messages">
+    {Object.keys(conversation.messages).map((id, idx) => {
+			let side = idx % 2 === 1 ? " left" : " right";
       return (
-        <div key={id}>
-          <div>{conversation.messages[id].body}</div>
-          <div>{conversation.messages[id].sender}</div>
-          <div>{conversation.messages[id].created_at}</div>
-        </div>
+					<li className={"message" + side} key={id}>
+						<div className="text_wrapper">
+	          	<div className="text">{conversation.messages[id].body}</div>
+							<div className="time">{conversation.messages[id].created_at}</div>
+						</div>
+	          <img src={conversation.messages[id].sender_image} className="avatar" />
+
+					</li>
       )
     })}
-    </div>
+		</ul>
 		return (
-      <div className="container conversation">
-        <div
-           key={conversation.id}>
-          <div>Subject: {conversation.subject}</div>
-          <div>Started on: {conversation.created_at}</div>
-          <div>Last Activity: {conversation.updated_at}</div>
-      </div>
-      <div>
-        Messages:
-        <div>
-          {messages}
-        </div>
-      </div>
+				<div className="chat_window">
+					<div className="top_menu">
+						<div className="buttons">
+							<i className="fa fa-times button close"
+								onClick={()=>this.props.parent.setState({chatBoxId: 0})}></i>
+							<i className="fa fa-window-minimize button minimize"></i>
+						</div>
+						<div className="title">{conversation.subject}</div>
+					</div>
 
-      </div>
+						{messages}
+
+					<div className="bottom_wrapper clearfix">
+						<div className="message_input_wrapper">
+							<input className="message_input" placeholder="Type your message ..." />
+						</div>
+						<div className="send_message">
+							<div className="icon"></div>
+							<div className="text">Send</div>
+						</div>
+					</div>
+
+				<div className="message_template">
+					<div key={conversation.id}>
+						<div>Started on: {conversation.created_at}</div>
+						<div>Last Activity: {conversation.updated_at}</div>
+					</div>
+				</div>
+			</div>
 		);
 	}
 

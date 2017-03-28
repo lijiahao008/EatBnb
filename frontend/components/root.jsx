@@ -35,7 +35,6 @@ const Root = ({ store }) => {
           <Route path="/myMenus" component={MyMenusContainer} />
           <Route path="/myReservations" component={MyReservationsContainer} />
           <Route path="/conversations" component={ConversationsContainer} />
-          <Route path="/conversations/:conversationId" component={ConversationContainer} />
         </Route>
       </Router>
     </Provider>
