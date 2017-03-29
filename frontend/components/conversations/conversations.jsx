@@ -50,7 +50,7 @@ class Conversations extends React.Component {
 		}
 		else {
 			return (
-				<ConversationContainer parent={this} id={this.state.chatBoxId} />
+				<ConversationContainer removeSelf={()=>this.setState({chatBoxId: 0})} id={this.state.chatBoxId} />
 			)
 		}
 	}

@@ -6,8 +6,7 @@ const mapStateToProps = (state, ownProps) => {
   let conversation = state.conversations.current_conversation || {};
   return {
     conversationId: ownProps.id,
-    conversation,
-    parent: ownProps.parent
+    conversation
 }};
 
 const mapDispatchToProps = (dispatch) => ({

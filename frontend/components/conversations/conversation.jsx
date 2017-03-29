@@ -50,30 +50,23 @@ class Conversation extends React.Component {
 					<div className="top_menu">
 						<div className="buttons">
 							<i className="fa fa-times button close"
-								onClick={()=>this.props.parent.setState({chatBoxId: 0})}></i>
+								onClick={this.props.removeSelf}></i>
+
 							<i className="fa fa-window-minimize button minimize"></i>
 						</div>
 						<div className="title">{conversation.subject}</div>
 					</div>
-
 						{messages}
-
 					<div className="bottom_wrapper clearfix">
 						<div className="message_input_wrapper">
-							<input className="message_input" placeholder="Type your message ..." />
+							<input className="message_input" placeholder="Type your message here..." />
 						</div>
 						<div className="send_message">
 							<div className="icon"></div>
-							<div className="text">Send</div>
+							<div className="text"><i className="fa fa-paper-plane"></i></div>
 						</div>
 					</div>
 
-				<div className="message_template">
-					<div key={conversation.id}>
-						<div>Started on: {conversation.created_at}</div>
-						<div>Last Activity: {conversation.updated_at}</div>
-					</div>
-				</div>
 			</div>
 		);
 	}
