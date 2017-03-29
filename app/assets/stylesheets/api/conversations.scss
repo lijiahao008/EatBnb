@@ -50,15 +50,12 @@
   display: flex;
   flex-direction: row;
   i {
-    text-align: center;
     color: white;
-    font-size: 17px;
     text-shadow: none;
+    transform: scale(1.8, 1.5);
   }
 }
 .top_menu .buttons .button {
-  width: 16px;
-  height: 16px;
   border-radius: 50%;
   margin-right: 10px;
 }
@@ -66,9 +63,7 @@
   background-color: #f14444;
   opacity: 1;
 }
-.top_menu .buttons .button.minimize {
-  background-color: lightgreen;
-}
+
 .top_menu .title {
   text-align: center;
   color: #bcbdc0;
@@ -132,6 +127,9 @@
   border-radius: 50%;
   display: inline-block;
 }
+
+
+
 .messages .message .text_wrapper {
   display: inline-block;
   padding: 20px;
@@ -162,10 +160,15 @@
   font-weight: 300;
 }
 
+.messages .message .text_wrapper .name {
+  font-size: 12px;
+}
+
 .messages .message .text_wrapper .time {
   font-size: 11px;
-  font-weight: 300;
+  color: grey;
 }
+
 
 
 .bottom_wrapper {

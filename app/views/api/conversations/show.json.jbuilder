@@ -5,6 +5,7 @@ json.messages do
     message = receipt.message
     json.set! message.id do
       json.sender_id message.sender.id
+      json.sender_name message.sender.f_name + " " + message.sender.l_name
       json.sender_image asset_path(message.sender.profile_image.url)
       json.body message.body
       json.created_at time_ago_in_words(message.created_at) + " ago"

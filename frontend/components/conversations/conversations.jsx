@@ -80,7 +80,7 @@ class Conversations extends React.Component {
 						else{
 							trash_button = <a className="btn btn-sm btn-danger" onClick={(e)=>this.handleClick(conversation.id, "trash", e)}><i className="fa fa-trash"></i></a>
 						}
-						if (box === "Trash") {
+						if (box === "Trash" || box === "Sentbox") {
 							read_button = "";
 						}
 						else{
@@ -96,7 +96,7 @@ class Conversations extends React.Component {
 								<div className="row">
 									<div className="col-md-9"
 										onClick={(e)=>this.handleClick(conversation.id, "openChat", e)}>
-										<div className="conversation-last-message-sender"><strong>From:</strong> {conversation.last_message_sender}</div>
+										<div className="conversation-last-message-sender"><strong>Last From:</strong> {conversation.last_message_sender}</div>
 										<div className="conversation-subject"><strong>Subject:</strong> {conversation.subject}</div>
 										<div className="conversation-last-message"><strong>Last Message:</strong> {conversation.last_message}</div>
 										<div className="conversation-last-activity">{conversation.updated_at}</div>

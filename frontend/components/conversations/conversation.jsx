@@ -62,6 +62,7 @@ class Conversation extends React.Component {
       return (
 				<li className={"message" + side} key={id}>
 					<div className="text_wrapper">
+						<div className="name">{conversation.messages[id].sender_name}</div>
           	<div className="text">{conversation.messages[id].body}</div>
 						<div className="time">{conversation.messages[id].created_at}</div>
 					</div>
@@ -78,7 +79,6 @@ class Conversation extends React.Component {
 						<div className="buttons">
 							<i className="fa fa-times button close"
 								onClick={this.props.removeSelf}></i>
-							<i className="fa fa-window-minimize button minimize"></i>
 						</div>
 						<div className="title">{conversation.subject}</div>
 					</div>
