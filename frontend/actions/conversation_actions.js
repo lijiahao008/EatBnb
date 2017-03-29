@@ -62,6 +62,11 @@ export const restoreConversation = (id) => dispatch => (
     conversations => dispatch(receiveConversations(conversations)))
 );
 
+export const replyToConversation = (message) => dispatch => (
+  APIUtil.replyToConversation(message).then(
+    conversation => dispatch(receiveCurrentConversation(conversation)))
+);
+
 export const createMessage = (message) => dispatch => (
   APIUtil.createMessage(message).then(
     message => dispatch(receiveMessage(message)))

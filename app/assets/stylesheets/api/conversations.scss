@@ -181,7 +181,7 @@
   height: 50px;
   border-radius: 25px;
   border: 1px solid #bcbdc0;
-  width: 280px;
+  width: 290px;
   position: relative;
   padding: 0 20px;
 }
@@ -189,7 +189,7 @@
   border: none;
   height: 100%;
   box-sizing: border-box;
-  width: 230px;
+  width: 240px;
   position: absolute;
   outline-width: 0;
   color: gray;
@@ -197,6 +197,8 @@
 .bottom_wrapper .send_message {
   width: 50px;
   height: 50px;
+  padding: 0px 5px 7px 0px;
+
   display: inline-block;
   border-radius: 50px;
   background-color: #f14444;
@@ -204,7 +206,6 @@
   color: #fff;
   cursor: pointer;
   transition: all 0.2s linear;
-  text-align: center;
   float: right;
 }
 .bottom_wrapper .send_message:hover {
@@ -212,7 +213,7 @@
   background-color: #fff;
 }
 .bottom_wrapper .send_message .text {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 300;
   display: inline-block;
   line-height: 48px;

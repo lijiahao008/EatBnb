@@ -1,27 +1,51 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import ReactDOM from 'react-dom';
 
 class Conversation extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			message: ""
+		}
 
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.scrollToBottom = this.scrollToBottom.bind(this);
 	}
 
 	handleSubmit(e) {
 		e.preventDefault();
+		const message = {
+			conversationId: this.props.conversationId,
+			body: this.state.message
+		}
+		this.props.replyToConversation(message).then((message) => this.setState({message: ""}));
+	}
+
+	update(field){
+		return (e) =>
+      this.setState({[field]: e.target.value})
 	}
 
 	componentDidMount(){
-		this.props.fetchConversation(this.props.conversationId);
+		this.props.fetchConversation(this.props.conversationId).then(()=> this.scrollToBottom());
 		this.props.markAsRead(this.props.conversationId);
+
 	}
+
 
 	componentDidUpdate(prevProps, prevState){
 		if (this.props.conversationId != prevProps.conversationId ) {
 			this.props.fetchConversation(this.props.conversationId);
 			this.props.markAsRead(this.props.conversationId);
+			this.scrollToBottom();
 		}
+
+	}
+
+	scrollToBottom(){
+		const node = ReactDOM.findDOMNode(this.messagesEnd);
+    node.scrollIntoView({behavior: "smooth"});
 	}
 
 	render() {
@@ -31,19 +55,20 @@ class Conversation extends React.Component {
     }
     const messages =
 		<ul className="messages">
-    {Object.keys(conversation.messages).map((id, idx) => {
-			let side = idx % 2 === 1 ? " left" : " right";
+    {Object.keys(conversation.messages).map(id => {
+			let side = conversation.messages[id].sender_id === this.props.currentUserId ? " right" : " left";
       return (
-					<li className={"message" + side} key={id}>
-						<div className="text_wrapper">
-	          	<div className="text">{conversation.messages[id].body}</div>
-							<div className="time">{conversation.messages[id].created_at}</div>
-						</div>
-	          <img src={conversation.messages[id].sender_image} className="avatar" />
-
-					</li>
+				<li className={"message" + side} key={id}>
+					<div className="text_wrapper">
+          	<div className="text">{conversation.messages[id].body}</div>
+						<div className="time">{conversation.messages[id].created_at}</div>
+					</div>
+          <img src={conversation.messages[id].sender_image} className="avatar" />
+				</li>
       )
     })}
+		<div style={ {float:"left", clear: "both"} }
+        ref={(el) => { this.messagesEnd = el; }}></div>
 		</ul>
 		return (
 				<div className="chat_window">
@@ -51,20 +76,24 @@ class Conversation extends React.Component {
 						<div className="buttons">
 							<i className="fa fa-times button close"
 								onClick={this.props.removeSelf}></i>
-
 							<i className="fa fa-window-minimize button minimize"></i>
 						</div>
 						<div className="title">{conversation.subject}</div>
 					</div>
 						{messages}
 					<div className="bottom_wrapper clearfix">
+						<form onSubmit={this.handleSubmit}>
 						<div className="message_input_wrapper">
-							<input className="message_input" placeholder="Type your message here..." />
+								<input className="message_input"
+									value = {this.state.message}
+									onChange={this.update("message")}
+									placeholder="Type your message here..." />
 						</div>
-						<div className="send_message">
-							<div className="icon"></div>
+						<button className="send_message"
+							type="submit">
 							<div className="text"><i className="fa fa-paper-plane"></i></div>
-						</div>
+						</button>
+						</form>
 					</div>
 
 			</div>

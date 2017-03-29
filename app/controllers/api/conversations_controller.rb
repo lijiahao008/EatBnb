@@ -23,7 +23,7 @@ class Api::ConversationsController < ApplicationController
 
   def reply
     current_user.reply_to_conversation(@conversation, params[:body])
-    render 'api/conversations/conversation'
+    render 'api/conversations/show'
   end
 
   def destroy

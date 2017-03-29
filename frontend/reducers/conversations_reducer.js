@@ -34,6 +34,7 @@ const ConversationsReducer = (oldState = defaultState, action) => {
       }
       return newState;
     case RECEIVE_CURRENT_CONVERSATION:
+      debugger
       delete newState.current_conversation
       return Object.assign(newState, {"current_conversation": action.conversation});
     case MOVE_TO_TRASH:
