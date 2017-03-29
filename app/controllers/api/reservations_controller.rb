@@ -5,14 +5,12 @@ class Api::ReservationsController < ApplicationController
     @reservations = Reservation.where(owner_id: current_user.id).order(created_at: :desc)
   end
 
-
-
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.owner_id = current_user.id
     if @reservation.save
-      @reservations = Reservation.where(owner_id: current_user.id).order(created_at)
-      render action: :index
+      @reservations = Reservation.where(owner_id: current_user.id).order(created_at: :desc)
+      render "api/reservations/index"
     else
       render json: @reservation.errors.full_messages, status: 422
     end
