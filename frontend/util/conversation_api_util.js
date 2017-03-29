@@ -14,7 +14,6 @@ export const createMessage = (message) => {
 };
 
 export const replyToConversation = (message) => {
-  debugger
   return $.ajax({
     method: 'POST',
     url: `/api/conversations/${message.conversationId}/reply`,

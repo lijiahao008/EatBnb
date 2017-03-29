@@ -38,14 +38,16 @@ class Conversation extends React.Component {
 		if (this.props.conversationId != prevProps.conversationId ) {
 			this.props.fetchConversation(this.props.conversationId);
 			this.props.markAsRead(this.props.conversationId);
-			this.scrollToBottom();
 		}
+		this.scrollToBottom();
 
 	}
 
 	scrollToBottom(){
 		const node = ReactDOM.findDOMNode(this.messagesEnd);
-    node.scrollIntoView({behavior: "smooth"});
+		if (node) {
+			node.scrollIntoView({behavior: "smooth"});
+		}
 	}
 
 	render() {
