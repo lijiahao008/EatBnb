@@ -138,7 +138,7 @@ class Conversations extends React.Component {
 	renderEmptyTrashButton(){
 		if (this.state.currentBox === "Trash") {
 			return (
-				<div className="row"><div className="col-md-3 col-md-offset-9"><button className="btn btn-md btn-danger"
+				<div className="row"><div className="col-md-3 col-md-offset-9 empty-trash-button"><button className="btn btn-md btn-danger"
 			onClick={(e)=>this.handleClick(null, "emptyTrash", e)}><i className="fa fa-trash"></i> Empty Trash</button></div></div>
 			)
 		}else {
