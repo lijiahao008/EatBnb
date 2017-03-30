@@ -2,7 +2,7 @@ class Api::ReservationsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @reservations = Reservation.where(owner_id: current_user.id).order(created_at: :desc)
+    @reservations = Reservation.includes([{menu: :owner}]).where(owner_id: current_user.id).order(created_at: :desc)
   end
 
   def create
