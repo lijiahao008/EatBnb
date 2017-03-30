@@ -2,7 +2,7 @@
 
 ![home]
 
-[EatBnb][eatbnb]
+[SEE IT IN ACTION LIVE HERE!][eatbnb]
 
 
 ## Summary
