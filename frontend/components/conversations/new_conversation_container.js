@@ -5,7 +5,12 @@ import { fetchUsers } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let usersOptions = Object.keys(state.users).map(id => {
-    return {value: state.users[id].id, label: state.users[id].name}
+    if (state.users[id].name === " ") {
+      return {value: state.users[id].id, label: state.users[id].email};
+    }
+    else {
+      return {value: state.users[id].id, label: state.users[id].name};
+    }
   }) || [];
   return {usersOptions}
 };
