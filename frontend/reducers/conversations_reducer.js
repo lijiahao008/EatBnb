@@ -36,8 +36,8 @@ const ConversationsReducer = (oldState = defaultState, action) => {
       }
       return newState;
     case RECEIVE_NEW_CONVERSATION:
-      debugger
-      return merge(newState.sentbox, action.conversation);
+      newState.sentbox[action.conversation.id] = action.conversation
+      return newState;
     case RECEIVE_CURRENT_CONVERSATION:
       delete newState.current_conversation
       return Object.assign(newState, {"current_conversation": action.conversation});

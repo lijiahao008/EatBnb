@@ -4,8 +4,10 @@ import { createConversation } from '../../actions/conversation_actions';
 import { fetchUsers } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  let users = state.users;
-  return {users}
+  let usersOptions = Object.keys(state.users).map(id => {
+    return {value: state.users[id].id, label: state.users[id].name}
+  }) || [];
+  return {usersOptions}
 };
 
 const mapDispatchToProps = (dispatch) => ({

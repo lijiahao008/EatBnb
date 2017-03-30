@@ -4,7 +4,7 @@ class Api::MessagesController < ApplicationController
 
   def create
     recipients = User.where(id: params['recipients'])
-    @conversation = current_user.send_message(recipients, params[:message][:body], params[:message][:subject]).conversation
+    @conversation = current_user.send_message(recipients, params[:body], params[:subject]).conversation
     render 'api/conversations/conversation'
   end
 end

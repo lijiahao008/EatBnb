@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import ReactDOM from 'react-dom';
+import Select from 'react-select';
+
 
 class NewConversation extends React.Component {
 	constructor(props) {
@@ -21,10 +23,17 @@ class NewConversation extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const conversation = {
+			receipts: Object.keys(this.state.receipts).map(id => this.state.receipts[id].value),
       subject: this.state.subject,
 			body: this.state.body
 		}
 		this.props.createConversation(conversation);
+		this.setState({
+			receipts: [],
+			subject: "",
+			body: ""
+		});
+		this.props.close();
 	}
 
 	update(field){
@@ -33,10 +42,19 @@ class NewConversation extends React.Component {
 	}
 
 	render() {
+		if (this.props.usersOptions.length === 0) {
+			return <div>loading...</div>
+		}
     return (
 			<div>
 			<form onSubmit={this.handleSubmit}>
 				<div>users:</div>
+				<Select
+					value={this.state.receipts}
+					options={this.props.usersOptions}
+					multi
+					onChange={(val)=>this.setState({receipts: val})}
+					/>
 				<div>Subject:</div>
 				<input value={this.state.subject}
 					onChange={this.update("subject")}/>

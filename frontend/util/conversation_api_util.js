@@ -9,7 +9,7 @@ export const createConversation = (conversation) => {
   return $.ajax({
     method: 'POST',
     url: '/api/messages',
-    data: message
+    data: conversation
   });
 };
 
