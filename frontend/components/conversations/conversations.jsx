@@ -13,6 +13,7 @@ class Conversations extends React.Component {
 		this.handleClick = this.handleClick.bind(this);
 		this.renderMailbox = this.renderMailbox.bind(this);
 		this.renderChatbox = this.renderChatbox.bind(this);
+		this.renderEmptyTrashButton = this.renderEmptyTrashButton.bind(this);
 	}
 
 	handleClick(id, action, e) {
@@ -37,6 +38,9 @@ class Conversations extends React.Component {
 				e.preventDefault();
 				this.setState({chatBoxId: id});
 				break;
+			case "emptyTrash":
+				e.preventDefault();
+				this.props.emptyTrash();
 		}
 	}
 
@@ -71,6 +75,7 @@ class Conversations extends React.Component {
 		return(
 			<div className="mail-list">
 				<h1 className="text-center">{box}</h1>
+				{this.renderEmptyTrashButton()}
 					{mailbox.map(conversation => {
 						let trash_button;
 						let read_button;
@@ -111,6 +116,17 @@ class Conversations extends React.Component {
 					},this)}
 			</div>)
 
+	}
+
+	renderEmptyTrashButton(){
+		if (this.state.currentBox === "Trash") {
+			return (
+				<div className="row"><div className="col-md-3 col-md-offset-9"><button className="btn btn-md btn-danger"
+			onClick={(e)=>this.handleClick(null, "emptyTrash", e)}>Empty Trash</button></div></div>
+			)
+		}else {
+			return "";
+		}
 	}
 
 

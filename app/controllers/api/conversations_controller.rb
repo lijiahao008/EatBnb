@@ -38,10 +38,11 @@ class Api::ConversationsController < ApplicationController
   end
 
   def empty_trash
+    @mailbox = current_user.mailbox
     @mailbox.trash.each do |conversation|
       conversation.receipts_for(current_user).update_all(deleted: true)
     end
-    render 'api/conversations/index'
+    render json: ['Successful empty the trash.'], status: 200
   end
 
   private

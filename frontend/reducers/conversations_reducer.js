@@ -2,7 +2,9 @@ import { RECEIVE_CONVERSATIONS,
          RECEIVE_CONVERSATION,
          RECEIVE_CURRENT_CONVERSATION,
          RECEIVE_MESSAGE,
-         MOVE_TO_TRASH} from '../actions/conversation_actions';
+         MOVE_TO_TRASH,
+         EMPTY_TRASH,
+         RECEIVE_NEW_CONVERSATION} from '../actions/conversation_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -33,22 +35,26 @@ const ConversationsReducer = (oldState = defaultState, action) => {
         return newState;
       }
       return newState;
+    case RECEIVE_NEW_CONVERSATION:
+      debugger
+      return merge(newState.sentbox, action.conversation);
     case RECEIVE_CURRENT_CONVERSATION:
       delete newState.current_conversation
       return Object.assign(newState, {"current_conversation": action.conversation});
+    case EMPTY_TRASH:
+      newState.trash = {};
+      return newState;
     case MOVE_TO_TRASH:
       let conversation_id = action.conversation.id;
       if (newState.inbox[conversation_id]) {
         delete newState.inbox[conversation_id]
         newState.trash[conversation_id] = action.conversation;
-        return newState;
-      }else if (newState.sentbox[conversation_id]) {
+      }
+      if (newState.sentbox[conversation_id]) {
         delete newState.sentbox[conversation_id]
         newState.trash[conversation_id] = action.conversation;
-        return newState;
       }
-    case RECEIVE_MESSAGE:
-      return merge({}, newState);
+      return newState;
     default:
       return oldState;
   }

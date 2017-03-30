@@ -4,7 +4,8 @@ export const RECEIVE_CONVERSATIONS = "RECEIVE_CONVERSATIONS";
 export const RECEIVE_CONVERSATION = "RECEIVE_CONVERSATION";
 export const RECEIVE_CURRENT_CONVERSATION = "RECEIVE_CURRENT_CONVERSATION";
 export const MOVE_TO_TRASH = "MOVE_TO_TRASH";
-export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
+export const EMPTY_TRASH = "EMPTY_TRASH";
+export const RECEIVE_NEW_CONVERSATION = "RECEIVE_NEW_CONVERSATION";
 
 
 export const receiveConversations = conversations => ({
@@ -14,6 +15,11 @@ export const receiveConversations = conversations => ({
 
 export const receiveCurrentConversation = conversation => ({
   type: RECEIVE_CURRENT_CONVERSATION,
+  conversation
+});
+
+export const receiveNewConversation = conversation => ({
+  type: RECEIVE_NEW_CONVERSATION,
   conversation
 });
 
@@ -30,6 +36,10 @@ export const receiveMessage = message => ({
 export const movetoTrash = conversation => ({
   type: MOVE_TO_TRASH,
   conversation
+});
+
+export const emptyTheTrash = () => ({
+  type: EMPTY_TRASH
 });
 
 export const fetchConversations = () => dispatch => (
@@ -57,6 +67,11 @@ export const moveToTrash = (id) => dispatch => (
     conversation => dispatch(movetoTrash(conversation)))
 );
 
+export const emptyTrash = () => dispatch => (
+  APIUtil.emptyTrash().then(
+    () => dispatch(emptyTheTrash()))
+);
+
 export const restoreConversation = (id) => dispatch => (
   APIUtil.restoreConversation(id).then(
     conversations => dispatch(receiveConversations(conversations)))
@@ -67,7 +82,7 @@ export const replyToConversation = (message) => dispatch => (
     conversation => dispatch(receiveCurrentConversation(conversation)))
 );
 
-export const createMessage = (message) => dispatch => (
-  APIUtil.createMessage(message).then(
-    message => dispatch(receiveMessage(message)))
+export const createConversation = (conversation) => dispatch => (
+  APIUtil.createConversation(conversation).then(
+    conversation => dispatch(receiveNewConversation(conversation)))
 );

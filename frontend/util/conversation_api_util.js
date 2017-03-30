@@ -5,7 +5,7 @@ export const fetchConversations = () => {
   });
 };
 
-export const createMessage = (message) => {
+export const createConversation = (conversation) => {
   return $.ajax({
     method: 'POST',
     url: '/api/messages',
