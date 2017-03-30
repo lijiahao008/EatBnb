@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resource :user, only: [:create, :update]
+    get 'users', to: 'users#index'
     resource :session, only: [:create, :destroy, :show]
     resources :menus, only: [:index, :create, :update, :show, :destroy]
     resources :menu_reviews, only: [:create, :update]
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   end
   resources :messages, only: [:create]
   end
+
   get 'auth/:provider/callback', to: 'api/sessions#create', :defaults => { :format => 'json' }
   get '/', to: 'home_page#homepage'
 end

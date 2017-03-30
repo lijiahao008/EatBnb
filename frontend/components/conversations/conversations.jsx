@@ -1,19 +1,22 @@
 import React from 'react';
 import { Link, withRouter, hashHistory } from 'react-router';
 import ConversationContainer from './conversation_container';
+import NewConversationContainer from './new_conversation_container';
 
 class Conversations extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			currentBox: "Inbox",
-			chatBoxId: 0
+			chatBoxId: 0,
+			newConversation: false
 		}
 
 		this.handleClick = this.handleClick.bind(this);
 		this.renderMailbox = this.renderMailbox.bind(this);
 		this.renderChatbox = this.renderChatbox.bind(this);
 		this.renderEmptyTrashButton = this.renderEmptyTrashButton.bind(this);
+		this.renderNewConversation = this.renderNewConversation.bind(this);
 	}
 
 	handleClick(id, action, e) {
@@ -41,11 +44,25 @@ class Conversations extends React.Component {
 			case "emptyTrash":
 				e.preventDefault();
 				this.props.emptyTrash();
+				break;
+			case "newConversation":
+				e.preventDefault();
+				this.setState({newConversation: true});
+				break;
 		}
 	}
 
 	componentDidMount(){
 		this.props.fetchConversations();
+	}
+
+	renderNewConversation(open){
+		if (open) {
+			return (<NewConversationContainer close={()=>this.setState({newConversation: false})}/>)
+		}
+		else {
+			return "";
+		}
 	}
 
 	renderChatbox(){
@@ -135,7 +152,8 @@ class Conversations extends React.Component {
 	<div className="container messages-index">
 	  <div className="row">
     	<div className="col-md-3">
-				<div className="btn btn-lg btn-danger"><span className="glyphicon glyphicon-pencil"></span> Compose</div>
+				<div className="btn btn-lg btn-danger"
+					onClick={(e)=>this.handleClick(null, "newConversation", e)}><span className="glyphicon glyphicon-pencil"></span> Compose</div>
 					<ul className="nav nav-pills nav-stacked">
 						<li><a className="btn btn-md btn-default" onClick={()=>this.setState({currentBox: "Inbox"})}>Inbox</a></li>
 						<li><a className="btn btn-md btn-default" onClick={()=>this.setState({currentBox: "Sentbox"})}>Sent</a></li>
@@ -147,6 +165,7 @@ class Conversations extends React.Component {
 			</div>
 
 		</div>
+		{this.renderNewConversation(this.state.newConversation)}
 		{this.renderChatbox(this.state.chatBoxId)}
 	</div>
 		);

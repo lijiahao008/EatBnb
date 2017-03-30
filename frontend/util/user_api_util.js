@@ -8,3 +8,12 @@ export const editUser = (user) => {
     data: user
   });
 };
+
+
+
+export const fetchUsers = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users`
+  });
+};
