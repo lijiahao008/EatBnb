@@ -8,7 +8,7 @@ class NewConversation extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			receipts: [],
+			recipients: [],
       subject: "",
 			body: ""
 		}
@@ -23,13 +23,13 @@ class NewConversation extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const conversation = {
-			receipts: Object.keys(this.state.receipts).map(id => this.state.receipts[id].value),
+			recipients: Object.keys(this.state.recipients).map(id => this.state.recipients[id].value),
       subject: this.state.subject,
 			body: this.state.body
 		}
 		this.props.createConversation(conversation);
 		this.setState({
-			receipts: [],
+			recipients: [],
 			subject: "",
 			body: ""
 		});
@@ -48,12 +48,12 @@ class NewConversation extends React.Component {
     return (
 			<div>
 			<form onSubmit={this.handleSubmit}>
-				<div>users:</div>
+				<div>Users:</div>
 				<Select
-					value={this.state.receipts}
+					value={this.state.recipients}
 					options={this.props.usersOptions}
 					multi
-					onChange={(val)=>this.setState({receipts: val})}
+					onChange={(val)=>this.setState({recipients: val})}
 					/>
 				<div>Subject:</div>
 				<input value={this.state.subject}
