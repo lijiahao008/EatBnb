@@ -169,8 +169,6 @@
   color: grey;
 }
 
-
-
 .bottom_wrapper {
   position: relative;
   width: 100%;
@@ -224,4 +222,51 @@
 
 .empty-trash-button {
   margin-bottom: 20px;
+}
+
+.compose-form {
+  position: fixed;
+  left: 20px;
+  bottom: 10px;
+  width: 400px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.compose-form-topbar {
+  width: 100%;
+  padding: 10px;
+  height: 35px;
+  color: white;
+  background-color: #333a44;
+  .compose-form-close-button {
+    position: absolute;
+    right: 10px;
+    color: white;
+  }
+  .compose-form-close-button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}
+
+.compose-form-body {
+  padding: 10px;
+  .field-label {
+    margin: 5px 0 5px 0;
+  }
+  .input-field {
+    width: 100%;
+    border: 1px dotted #CFCFCF;
+    border-radius: 5px;
+    outline: none;
+  }
+  .subject {
+    height: 40px;
+  }
+  .body {
+    height: 240px;
+  }
 }

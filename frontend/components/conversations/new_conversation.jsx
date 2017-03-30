@@ -46,24 +46,32 @@ class NewConversation extends React.Component {
 			return <div>loading...</div>
 		}
     return (
-			<div>
+			<div className="compose-form">
+				<div className="compose-form-topbar">
+					Start New Conversation <i className="fa fa-times compose-form-close-button" onClick={this.props.close}></i>
+				</div>
+				<div className="compose-form-body">
 			<form onSubmit={this.handleSubmit}>
-				<div>Users:</div>
+				<div className="field-label">Select recipients:</div>
 				<Select
 					value={this.state.recipients}
 					options={this.props.usersOptions}
 					multi
 					onChange={(val)=>this.setState({recipients: val})}
 					/>
-				<div>Subject:</div>
+				<div className="field-label">Subject:</div>
 				<input value={this.state.subject}
+					className="input-field subject"
+					placeholder="Type your subject here..."
 					onChange={this.update("subject")}/>
-				<div>Body:</div>
-					<input value={this.state.body}
+				<div className="field-label">Body:</div>
+					<textarea value={this.state.body}
+						className="input-field body"
+						placeholder="Type your body here..."
 						onChange={this.update("body")}/>
-					<button type="submit">Send</button>
+					<button className="btn btn-block btn-success" type="submit">Send</button>
 			</form>
-			<button onClick={this.props.close}></button>
+			</div>
 			</div>
 		);
 	}
