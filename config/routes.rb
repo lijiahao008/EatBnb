@@ -25,4 +25,5 @@ Rails.application.routes.draw do
 
   get 'auth/:provider/callback', to: 'api/sessions#create', :defaults => { :format => 'json' }
   get '/', to: 'home_page#homepage'
+  mount ActionCable.server => '/cable'
 end
