@@ -49,7 +49,6 @@ class Conversation extends React.Component {
 
 	componentDidUpdate(prevProps, prevState){
 		if (this.props.conversationId != prevProps.conversationId ) {
-			debugger
 			this.props.fetchConversation(this.props.conversationId);
 			this.props.markAsRead(this.props.conversationId);
 			this.createActionCableconnection(this.props.conversationId);
