@@ -11,6 +11,7 @@ class Conversation extends React.Component {
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.scrollToBottom = this.scrollToBottom.bind(this);
+		this.createActionCableconnection = this.createActionCableconnection.bind(this);
 	}
 
 	handleSubmit(e) {
@@ -19,7 +20,8 @@ class Conversation extends React.Component {
 			conversationId: this.props.conversationId,
 			body: this.state.message
 		}
-		this.props.replyToConversation(message).then((message) => this.setState({message: ""}));
+		this.props.replyToConversation(message).then((message) => {this.setState({message: ""});
+					App['conversation' + this.props.conversationId].speak( this.props.conversationId);});
 	}
 
 	update(field){
@@ -27,20 +29,32 @@ class Conversation extends React.Component {
       this.setState({[field]: e.target.value})
 	}
 
+	createActionCableconnection(id){
+		if (typeof App !== 'undefined'){
+      App['conversation' + id] = App.cable.subscriptions.create({channel: 'ConversationChannel', conversation: id}, {
+				connected: function(){},
+        received: (data) => (this.props.fetchConversation(data.data.id)),
+        speak: function(id) {
+          return this.perform('speak', {id});
+        }
+      });
+    }
+	}
+
 	componentDidMount(){
 		this.props.fetchConversation(this.props.conversationId).then(()=> this.scrollToBottom());
 		this.props.markAsRead(this.props.conversationId);
-
+		this.createActionCableconnection(this.props.conversationId);
 	}
-
 
 	componentDidUpdate(prevProps, prevState){
 		if (this.props.conversationId != prevProps.conversationId ) {
+			debugger
 			this.props.fetchConversation(this.props.conversationId);
 			this.props.markAsRead(this.props.conversationId);
+			this.createActionCableconnection(this.props.conversationId);
 		}
 		this.scrollToBottom();
-
 	}
 
 	scrollToBottom(){

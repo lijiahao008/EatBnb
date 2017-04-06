@@ -13,6 +13,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require cable
 //= require_tree .
 
 $(document).ready(function () {
