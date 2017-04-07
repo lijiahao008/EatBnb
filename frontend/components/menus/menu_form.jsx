@@ -22,8 +22,8 @@ class MenuForm extends React.Component {
 
   componentDidMount() {
     if (this.props.formType === "edit") {
-      this.props.fetchMenu(this.props.params.menuId).then(action => {
-        this.setState(action.menu);
+      this.props.fetchMenu(this.props.params.menuId).then(res => {
+        this.setState(res.menu);
       })
     }
     else {

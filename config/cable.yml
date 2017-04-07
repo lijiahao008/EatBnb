@@ -4,7 +4,8 @@ production:
   url: <%= ENV['REDISTOGO_URL'] %>
 
 development:
+  adapter: redis
   url: redis://localhost:6379/2
 
 test:
-  url: redis://localhost:6379/3
+  url: async
