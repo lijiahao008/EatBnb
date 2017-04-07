@@ -4,7 +4,7 @@
     json.title menu.title
     json.price menu.price
     json.description menu.description
-    json.picture_url asset_path(menu.picture.url)
+    json.picture_url asset_path(menu.picture.url(:medium))
     json.latitude menu.latitude
     json.longitude menu.longitude
   end
