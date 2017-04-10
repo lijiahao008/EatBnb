@@ -18,12 +18,22 @@ class Api::ReservationsController < ApplicationController
 
 
   def update
+    @reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_params)
       render "api/reservations/show"
     else
       render json: @reservation.errors.full_messages, status: 422
     end
 
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    if @reservation.destroy
+      render "api/reservations/show"
+    else
+      render json: @reservation.errors.full_messages, status: 422
+    end
   end
 
 
