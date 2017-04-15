@@ -3,6 +3,7 @@ class Api::ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.includes([{menu: :owner}]).where(owner_id: current_user.id).order(created_at: :desc)
+    debugger
   end
 
   def create
@@ -40,6 +41,6 @@ class Api::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:date, :owner_id, :menu_id)
+    params.require(:reservation).permit(:date, :confirmed, :owner_id, :menu_id)
   end
 end
