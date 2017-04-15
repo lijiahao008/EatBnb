@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_RESERVATIONS,
-         RECEIVE_RESERVATION } from '../actions/reservation_actions';
+         REMOVE_RESERVATION } from '../actions/reservation_actions';
 import merge from 'lodash/merge';
 
 const ReservationsReducer = (oldState = {}, action) => {
@@ -7,6 +7,9 @@ const ReservationsReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_RESERVATIONS:
       return merge({}, action.reservations);
+    case REMOVE_RESERVATION:
+      debugger
+      return Object.assign(oldState)
     default:
       return oldState;
   }

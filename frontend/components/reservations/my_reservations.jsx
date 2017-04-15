@@ -37,7 +37,7 @@ class myReservations extends React.Component {
                       </p>
                   </div>
                   <div className="col-md-3 text-center">
-                    <button className="btn btn-danger btn-lg btn-block"> Cancel </button>
+                    <button className="btn btn-danger btn-lg btn-block" onClick={this.props.deleteReservation(reservation.id)}> Cancel </button>
                     <h3>{confirmed_text}</h3>
                     <h4>Updated: {reservation.created_at}</h4>
                   </div>

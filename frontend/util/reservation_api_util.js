@@ -21,3 +21,11 @@ export const updateReservation = (reservation) => {
     data: reservation
   });
 };
+
+
+export const removeReservation = (id) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/reservations/${id}`
+  });
+};
