@@ -17,21 +17,21 @@ class RecommendedMenus extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize',     this.handleResize);
+    window.removeEventListener('resize', this.handleResize);
   }
 
   handleResize(){
     const count = this.state.count;
     const width = $(window).width();
 
-  if(width < 1800 && width >= 1420 && count !== 4){
-     this.setState({ count: 4 });
-   } else if(width < 1420 && width >= 1001 && count !== 3){
-     this.setState({ count: 3 });
-   } else if(width < 1001 && width >= 550 && count !== 2){
-     this.setState({ count: 2 });
-   } else if(width <= 550 && count !== 1){
-     this.setState({ count: 1 });
+    if(width < 1800 && width >= 1420 && count !== 4){
+       this.setState({ count: 4 });
+     } else if(width < 1420 && width >= 1001 && count !== 3){
+       this.setState({ count: 3 });
+     } else if(width < 1001 && width >= 550 && count !== 2){
+       this.setState({ count: 2 });
+     } else if(width <= 550 && count !== 1){
+       this.setState({ count: 1 });
     }
   }
 

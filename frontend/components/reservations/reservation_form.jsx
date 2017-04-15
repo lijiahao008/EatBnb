@@ -8,7 +8,8 @@ class ReservationForm extends React.Component {
     this.state={
       date: "",
       menu_id: props.menu.id,
-      num_guests: 0
+      num_guests: 0,
+      confirmed: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
