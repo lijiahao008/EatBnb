@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :menus, only: [:index, :create, :update, :show, :destroy]
     resources :menu_reviews, only: [:create, :update]
-    resources :reservations, only: [:create, :index]
+    resources :reservations, only: [:create, :index, :destroy]
     resources :conversations, only: [:index, :show, :destroy] do
     member do
       post :reply
