@@ -3,7 +3,6 @@ import { fetchReservations, deleteReservation } from '../../actions/reservation_
 import myReservations from './my_reservations';
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     reservations: Object.keys(state.reservations).map(id => state.reservations[id])
 }};

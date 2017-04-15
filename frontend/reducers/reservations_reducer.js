@@ -8,8 +8,9 @@ const ReservationsReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_RESERVATIONS:
       return merge({}, action.reservations);
     case REMOVE_RESERVATION:
-      debugger
-      return Object.assign(oldState)
+      let newState = merge({}, oldState);
+      delete newState[action.reservation.id]
+      return newState
     default:
       return oldState;
   }

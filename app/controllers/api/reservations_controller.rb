@@ -3,7 +3,6 @@ class Api::ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.includes([{menu: :owner}]).where(owner_id: current_user.id).order(created_at: :desc)
-    debugger
   end
 
   def create
@@ -30,7 +29,7 @@ class Api::ReservationsController < ApplicationController
 
   def destroy
     @reservation = Reservation.find(params[:id])
-    if @reservation.destroy
+    if @reservation.delete
       render "api/reservations/show"
     else
       render json: @reservation.errors.full_messages, status: 422
