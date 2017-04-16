@@ -6,6 +6,7 @@ const ReservationsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ALL_RESERVATIONS:
+      debugger
       return merge({}, action.reservations);
     case REMOVE_RESERVATION:
       let newState = merge({}, oldState);
