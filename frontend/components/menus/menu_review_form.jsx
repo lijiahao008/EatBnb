@@ -38,6 +38,10 @@ class MenuReviewForm extends React.Component {
     this.setState({score: nextValue});
   }
 
+  componentWillUnmount(){
+    this.removeError();
+  }
+
   removeError(){
     this.props.clearErrors(this.props.menuId);
   }

@@ -10,8 +10,8 @@ class myReservations extends React.Component {
   }
 
   render () {
-    if (!this.props.reservations) {
-      return (<div>fetching</div>)
+    if (this.props.reservations.length == 0) {
+      return <div className="loading"><img src={window.images.spinner}/></div>;
     }
 
     return (

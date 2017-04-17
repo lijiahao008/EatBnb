@@ -44,6 +44,10 @@ class MenuForm extends React.Component {
     }
   }
 
+  componentWillUnmount(){
+    this.removeError();
+  }
+
   update(field) {
     return (e) =>
       this.setState({[field]: e.target.value})
