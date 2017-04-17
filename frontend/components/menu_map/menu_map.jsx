@@ -27,22 +27,17 @@ class MenuMap extends Component {
       geocoder.geocode( { 'address': address}, (results, status) => {
         result = {lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()}
 
-        const _mapOptions = this.props.singleMenu ?
-        {
+        const _mapOptions = {
           center: result,
-          zoom: 15
-        }
-        :
-        {
-          center: result,
-          zoom: 12
+          zoom: this.props.singleMenu ? 18 : 12,
+          mapTypeId: this.props.singleMenu ? google.maps.MapTypeId.HYBRID : google.maps.MapTypeId.ROADMAP
         }
         const map = this.refs.map;
         this.map = new google.maps.Map(map, _mapOptions);
 
         if (this.props.singleMenu) {
           this.props.fetchMenu(this.props.menuId);
-          this.spotCircle = new google.maps.Circle({
+          this.menuCircle = new google.maps.Circle({
             strokeColor: '#f14444',
             strokeOpacity: 0.8,
             strokeWeight: 2,
@@ -50,7 +45,7 @@ class MenuMap extends Component {
             fillOpacity: 0.35,
             map: this.map,
             center: result,
-            radius: 300
+            radius: 50
           });
         } else {
           this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
@@ -64,9 +59,7 @@ class MenuMap extends Component {
   }
 
   componentDidUpdate() {
-    if(this.props.singleMenu){
-      // this.MarkerManager.updateMarkers([this.props.menus[Object.keys(this.props.menus)[0]]]);
-    } else if(this.MarkerManager){
+    if(this.MarkerManager){
       this.MarkerManager.updateMarkers(this.props.menus);
     }
   }
