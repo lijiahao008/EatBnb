@@ -33,7 +33,7 @@ const Footer = () => {
               <li><a href="#" className="link-contrast">Trust &amp; Safety</a></li>
               <li><a href="#" className="link-contrast">Travel Credit</a></li>
               <li><a href="#" className="link-contrast">Gift Cards</a></li>
-              <li><a href="#" className="link-contrast">Airbnb Picks</a></li>
+              <li><a href="#" className="link-contrast">Eatbnb Picks</a></li>
               <li><a href="#" className="link-contrast">Mobile</a></li>
             </ul>
           </div>

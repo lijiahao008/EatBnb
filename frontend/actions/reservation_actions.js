@@ -16,7 +16,7 @@ export const removeReservation = reservation => ({
 
 export const fetchReservations = () => dispatch => (
   APIUtil.fetchReservations()
-  .then(reservations => {debugger; dispatch(receiveAllReservations(reservations))})
+  .then(reservations => { dispatch(receiveAllReservations(reservations))})
 );
 
 export const createReservation = (reservation) => dispatch => (

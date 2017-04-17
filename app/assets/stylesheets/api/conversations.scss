@@ -5,7 +5,9 @@
     height: 770px;
     list-style:none;
     margin-top:30px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
 }
 .mail-list li {
     display:block;
@@ -265,6 +267,7 @@
     border: 1px dotted #CFCFCF;
     border-radius: 5px;
     outline: none;
+    padding: 10px;
   }
   .subject {
     height: 40px;

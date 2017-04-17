@@ -70,7 +70,7 @@ class MenuReviewForm extends React.Component {
                   name="rate1"
                   starCount={5}
                   value={this.state.score}
-                  renderStarIcon={() => <span><i className="fa fa-spoon" aria-hidden="true"></i></span>}
+                  renderStarIcon={() => <span><i className="fa fa-spoon"></i></span>}
                   starColor={"#f14444"}
                   emptyStarColor={"lightgrey"}
                   onStarClick={this.onStarClick.bind(this)}

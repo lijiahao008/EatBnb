@@ -164,6 +164,8 @@
   textarea {
     border: 2px dashed #aebbcb;
     border-radius: 5%;
+    outline: none;
+    padding: 10px;
   }
   .new-review-body{
     display: flex;
@@ -223,4 +225,10 @@
   .single-error {
     margin-left: 5px;
   }
+}
+
+.map {
+  position: relative;
+  height: 350px;
+  width: 100%;
 }
