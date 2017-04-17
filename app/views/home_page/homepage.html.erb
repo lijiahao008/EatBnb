@@ -1,11 +1,1 @@
-<script id="bootstrap-current-user" type="text/javascript">
-  <% if logged_in? %>
-  	window.currentUser = <%= render("api/users/user.json.jbuilder",
-  		user: current_user).html_safe %>
-  <% end %>
-  window.images = {
-    spoon: "<%= image_path("spoon.png") %>",
-    spinner: "<%= image_path("spinner.gif") %>"
-  }
-</script>
-<main id="root"></main>
+<div id="root"></div>

@@ -7,7 +7,6 @@ import HomeSearchBarContainer from './home_search_bar_container';
 
 const Home = (props) => {
   return (
-    <main>
       <div className="container">
         <div className="row homeSearchBar">
           <div className="col-lg-8">
@@ -29,7 +28,6 @@ const Home = (props) => {
           <TopRatedMenusContainer />
         </div>
       </div>
-    </main>
 
   );
 };

@@ -5,14 +5,13 @@
 
 
 .container-full {
-  height: 800px;
   width: 100%;
   right: 0;
 }
 
 .container-full > img {
   object-fit: cover;
-  height: 100%;
+  height: 719px;
   max-height: 90%;
   width: 100%;
 }
@@ -116,7 +115,8 @@
 
 
 .menu-steps{
-  margin-top: 15%;
+  position: relative;
+  margin: 170px 0px;
   a:link{
     color: #f14444;
     text-decoration: none;

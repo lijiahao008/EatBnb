@@ -62,8 +62,9 @@ nav.navbar-eatbnb button.navbar-toggle > span.icon-bar {
 }
 
 .loading {
-  position: absolute;
+  position: relative;
   width: 100%;
+  height: 100%;
   top: 35%;
   display: flex;
   align-items: center;
@@ -359,9 +360,122 @@ strong {
 }
 
 .messages-index {
-  position: relative;
-  top: 70px;
+  margin-top: 70px;
+  height: 800px;
   .nav-pills {
     margin-top: 20px;
+  }
+}
+
+footer{
+  background-color: #E3E3E3;
+  font-family:'Helvetica',sans-serif;
+  padding-bottom:40px;
+}
+
+a{
+  text-decoration:none;
+}
+footer *{
+  color: grey;
+}
+select {
+  display: block;
+  height: 50px;
+  margin-bottom: 16px;
+  font-weight:bold;
+  padding: 12px 20px;
+  min-width: 17em;
+  border-radius: 3px;
+}
+option{
+  padding:100px 0;
+}
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.seperator{
+  display:flex;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-bottom:1px solid #aaa;
+}
+.seperator:last-of-type{
+  border:none;
+}
+.seperator.column{
+  flex-direction:column;
+}
+.seperator.padded{
+  padding-right:100px;
+  padding-left:100px;
+}
+.col-2{
+  flex-grow:1.5;
+  margin-top: 20px;
+}
+.col-1{
+  flex-grow:1;
+  font-size:0.9em;
+}
+.col-1 h3{
+  font-size:1.3em;
+  margin-bottom:1em;
+}
+.col-1 a{
+  display:inline-block;
+  margin-bottom:5px;
+  font-size:0.9em;
+  letter-spacing:0.03em;
+}
+footer{
+}
+.text-center{
+  text-align:center;
+}
+.margin-below-1{
+  margin-bottom:1em;
+}
+footer a:hover{
+  color:#ccc;
+}
+.smedialinks i{
+  display:inline-block;
+  width:16px;
+  height:16px;
+  font-size:0.9em;
+  background:#333;
+  padding:8px;
+  border:1px solid white;
+  border-radius:50%;
+  margin-left:20px;
+}
+.copyright{
+  text-align:center;
+  color:grey;
+  font-size:0.9em;
+  letter-spacing:0.01;
+}
+ i:hover{
+  opacity:0.8;
+  cursor:pointer;
+}
+@media (max-width:750px){
+  .seperator{
+    flex-direction:column;
+  }
+  .col-1,.col-1 h3{
+    display:none;
+  }
+  .col-1.first{
+    display:block;
+  }
+  footer{
+    text-align:center;
+  }
+  select{
+    margin-left:auto;
+    margin-right:auto;
   }
 }
