@@ -1,5 +1,6 @@
 class Api::MenuReviewsController < ApplicationController
   before_action :require_logged_in, except: [:index, :show]
+  before_filter :cannot_review_self, only: [:create]
 
   def create
     @menu_review = MenuReview.new(menu_review_params)
@@ -27,5 +28,11 @@ class Api::MenuReviewsController < ApplicationController
 
   def menu_review_params
     params.require(:menu_review).permit(:score, :body, :menu_id)
+  end
+
+  def cannot_review_self
+    if current_user.id == Menu.find(params[:menu_review][:menu_id]).owner.id
+      render json: ["You can not review yourself."], status: 422
+    end
   end
 end
