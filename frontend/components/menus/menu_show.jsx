@@ -89,7 +89,9 @@ class MenuShow extends React.Component {
             <MenuReviewFormContainer menuId={menu.id} />
             <ReservationFormContainer menu={menu}/>
         </div>
-        <MenuMap singleMenu={true} address={menu.address} fetchMenu={this.props.fetchMenu} menuId={menu.id}/>
+        <div className="single-map">
+          <MenuMap singleMenu={true} address={menu.address} fetchMenu={this.props.fetchMenu} menuId={menu.id}/>
+        </div>
       </div>
     );
   }

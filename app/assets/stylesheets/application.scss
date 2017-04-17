@@ -269,21 +269,43 @@ strong {
   opacity: 0.7;
 }
 
+.map {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
 .search-page{
   margin: 70px 0px;
   width: 100%;
   bottom: 0;
-  .row > div:first-child {
-    float: right;
+  .filter-form {
+    padding-left: 10px;
   }
-  .map{
-    position: absolute;
-    height: 850px;
-    width: 100%;
+  .search-map{
+    position: relative;
+    height: 35vh;
   }
-  .menu-index{
-    height: 700px;
-    overflow: scroll;
+  .search-result {
+    margin-top: 10px;
+    .menu-index{
+      height: 72vh;
+      width: 100%;
+      overflow: scroll;
+      overflow-x: hidden;
+    }
+  }
+  @media (min-width:992px){
+    .search-map{
+      position: absolute;
+      height: 85vh;
+      left: 50vw;
+    }
+    .menu-index{
+      height: 72vh;
+      right: 50vw;
+      overflow: scroll;
+    }
   }
   .search-menu-items{
     padding: 20px;

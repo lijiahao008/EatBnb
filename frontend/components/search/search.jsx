@@ -8,14 +8,14 @@ const Search = ({ address, results, updateFilter }) => {
   return(
   <div className="container search-page">
     <div className="row">
-      <div className="col-md-6">
+      <div className="col-md-6 search-map">
         <MenuMap
           menus={results}
           updateFilter={updateFilter}
           address={address}
           singleMenu={false} />
       </div>
-    <div className="col-md-6">
+    <div className="col-md-6 search-result">
       <FilterForm
         minPrice={1}
         maxPrice={1000}

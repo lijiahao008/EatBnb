@@ -29,7 +29,7 @@ class FilterForm extends React.Component  {
         onChange={this.handleChange('address', this.props.updateFilter)}/>
       </div>
       <div className="row">
-        <div className="col-sm-3">
+        <div className="col-sm-6">
         <label>Minimum Price </label>
         <input
           type="number"
@@ -37,7 +37,7 @@ class FilterForm extends React.Component  {
           value={this.state.minPrice}
           onChange={this.handleChange('minPrice', this.props.updateFilter)}/>
         </div>
-        <div className="col-sm-3">
+        <div className="col-sm-6">
         <label>Maximum Price </label>
         <input
           type="number"
