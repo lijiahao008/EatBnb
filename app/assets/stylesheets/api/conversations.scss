@@ -1,13 +1,29 @@
-.mail-list{
-    position: relative;
-    padding:0;
-    margin:0;
-    height: 770px;
-    list-style:none;
-    margin-top:30px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+.messages-index {
+  margin-top: 70px;
+  margin-bottom: 10px;
+  height: 100%;
+  .nav-pills {
+    margin-top: 20px;
+  }
+}
 
+.mail-box {
+  overflow: hidden;
+  position: relative;
+  height: 800px;
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+}
+
+.mail-list{
+  position: relative;
+  height: 100%;
+  list-style:none;
+  margin-top:30px;
+  overflow-y: scroll;
+  right: -27px;
 }
 .mail-list li {
     display:block;
