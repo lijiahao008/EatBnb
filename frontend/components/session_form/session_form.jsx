@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
 		let link;
     if (this.state.formType === "login"){
 			buttonText = "Log In";
-			link = <p className="text-center">Dont't have an account yet? <a href="#" onClick={
+			link = <p className="text-center">Don't have an account yet? <a href="#" onClick={
 					()=>{
 						this.props.clearErrors();
 						this.setState({formType: "signup"});
