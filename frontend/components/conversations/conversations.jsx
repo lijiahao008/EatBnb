@@ -160,7 +160,7 @@ class Conversations extends React.Component {
 						<li><a className="btn btn-md btn-default" onClick={()=>this.setState({currentBox: "Trash"})}>Trash</a></li>
 	       	</ul>
 			</div>
-			<div className="col-md-9">
+			<div className="col-md-9 mail-box">
 				{this.renderMailbox(this.state.currentBox)}
 			</div>
 
