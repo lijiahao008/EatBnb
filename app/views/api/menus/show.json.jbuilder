@@ -3,8 +3,6 @@ json.title @menu.title
 json.description @menu.description
 json.price @menu.price
 json.address @menu.address.upcase
-json.latitude @menu.latitude
-json.longitude @menu.longitude
 json.average_rating @average_rating
 json.picture_url asset_path(@menu.picture.url)
 json.owner_name @menu.owner.f_name + " " + @menu.owner.l_name
