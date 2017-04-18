@@ -16,7 +16,7 @@ const MenuIndex = ({ menus }) => {
 
   return (
     <div className="row text-center menu-index">
-      <h1>Results({results.length}): </h1>
+      <h1>Results({results.length || 0}): </h1>
       {results}
     </div>
 )};
