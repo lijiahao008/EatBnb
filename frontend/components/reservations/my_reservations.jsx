@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import Infinite from 'react-infinite';
 
 
 class myReservations extends React.Component {
@@ -20,7 +19,6 @@ class myReservations extends React.Component {
     		<div className="well">
             <h1 className="text-center">My Reservations</h1>
             <div className="list-group">
-              <Infinite containerHeight={800} elementHeight={150}>
               {this.props.reservations.map(reservation => {
                 const confirmed_text = reservation.confirmed ? "Reservation has already been confirmed" : "Reservation has not been confirmed yet."
                 return (
@@ -45,7 +43,6 @@ class myReservations extends React.Component {
             )
           })
         }
-      </Infinite>
         </div>
       </div>
     </div>
