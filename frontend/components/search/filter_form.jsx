@@ -9,6 +9,7 @@ class FilterForm extends React.Component  {
       address: this.props.address
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(filter, updateFilter) {
@@ -17,17 +18,25 @@ class FilterForm extends React.Component  {
       this.setState({[filter]: e.currentTarget.value}))};
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+    debugger
+    this.props.updateFilter("address", this.state.address);
+  }
+
   render(){
     return (
     <div className="filter-form">
       <div className="row col-md-12">
       <label>Location </label>
+      <form onSubmit={this.handleSubmit}>
       <input
         type="text"
         className="form-control"
         placeholder={this.state.address}
-        onChange={this.handleChange('address', this.props.updateFilter)}/>
-      </div>
+        onChange={(e)=>this.setState({"address": e.currentTarget.value})}/>
+      </form>
+    </div>
       <div className="row">
         <div className="col-sm-6">
         <label>Minimum Price </label>

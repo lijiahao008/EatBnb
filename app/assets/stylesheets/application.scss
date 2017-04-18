@@ -291,9 +291,15 @@ strong {
     .menu-index{
       height: 72vh;
       width: 100%;
+      color: grey;
       overflow: scroll;
       overflow-x: hidden;
     }
+  }
+  .no-results {
+    font-size: 30px;
+    font-weight: bold;
+    color: grey;
   }
   @media (min-width:992px){
     .search-map{

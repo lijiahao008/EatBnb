@@ -18,7 +18,7 @@ const Search = ({ address, results, updateFilter }) => {
     <div className="col-md-6 search-result">
       <FilterForm
         minPrice={1}
-        maxPrice={1000}
+        maxPrice={500}
         address={address}
         updateFilter={updateFilter} />
       <MenuIndex menus={results} />
