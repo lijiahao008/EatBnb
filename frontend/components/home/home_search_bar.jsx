@@ -34,6 +34,7 @@ class HomeSearchBar extends React.Component {
 				<div className="col-md-12">
 					<div className="form-section">
 						<div className="row">
+							<form onSubmit={this.handleSubmit}>
 									<div className="col-md-4">
 										<div className="form-group">
 											<input type="text" className="form-control" placeholder="Ex. New York"
@@ -59,6 +60,7 @@ class HomeSearchBar extends React.Component {
 											<button onClick={this.handleSubmit} className="btn btn-lg btn-danger">Search</button>
 										</div>
 									</div>
+							</form>
 						</div>
 					</div>
 				</div>

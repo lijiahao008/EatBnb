@@ -48,6 +48,7 @@ class MenuMap extends Component {
             radius: 50
           });
         } else {
+          window.map = this.map;
           this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
           this._registerListeners();
           this.MarkerManager.updateMarkers(this.props.menus);

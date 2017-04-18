@@ -20,8 +20,11 @@ class FilterForm extends React.Component  {
 
   handleSubmit(e){
     e.preventDefault();
-    debugger
-    this.props.updateFilter("address", this.state.address);
+    let geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': this.state.address}, (results, status) => {
+      let result = {lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()}
+      window.map.setCenter(result);
+    });
   }
 
   render(){
