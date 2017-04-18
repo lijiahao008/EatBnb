@@ -10,11 +10,11 @@
 .mail-box {
   overflow: hidden;
   position: relative;
-  height: 800px;
+  height: 80vh;
   width: 100%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   padding-bottom: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .mail-list{
@@ -24,8 +24,12 @@
   margin-top:30px;
   overflow-y: scroll;
   overflow-x: hidden;
-  right: -27px;
 }
+
+.mail-list::-webkit-scrollbar {
+ display: none;
+}
+
 .mail-list li {
     display:block;
     border-bottom:1px dotted #CFCFCF;
