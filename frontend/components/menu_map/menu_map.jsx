@@ -73,21 +73,10 @@ class MenuMap extends Component {
         southWest: { lat: south, lng: west } };
       this.props.updateFilter('bounds', bounds);
     });
-    google.maps.event.addListener(this.map, 'click', event => {
-      const coords = _getCoordsObj(event.latLng);
-      this._handleClick(coords);
-    });
   }
 
   _handleMarkerClick(menu) {
     this.props.router.push(`menus/${menu.id}`);
-  }
-
-  _handleClick(coords) {
-    this.props.router.push({
-      pathname: "menus/new",
-      query: coords
-    });
   }
 
   render() {
