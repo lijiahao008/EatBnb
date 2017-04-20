@@ -119,7 +119,7 @@ Users will have full control over menus that they have created, such as edit and
   end
 ````
 
-![create-menu]
+![my-listings]
 
 #### Search
 EatBnb gives you the ability to search listings based on location, price and keywords. It will also present your search results on google map with custom markers.
