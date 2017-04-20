@@ -108,6 +108,19 @@ Being able to create menus are the most important part of EatBnb which enables u
 
 ![create-menu]
 
+#### My Listings
+Users will have full control over menus that they have created, such as edit and delete. All the CRUD functionalities can be accessed through my listings page.
+
+````ruby
+  def index
+    if params[:my_menus]
+      @menus = current_user.menus
+    end
+  end
+````
+
+![create-menu]
+
 #### Search
 EatBnb gives you the ability to search listings based on location, price and keywords. It will also present your search results on google map with custom markers.
 
@@ -127,6 +140,7 @@ EatBnb also has a built-in messaging system with a live chat feature. Users are 
 
 [signin]: ./app/assets/images/sign-in.jpg
 [create-menu]: ./app/assets/images/create-menu.jpg
+[my-listings]: ./app/assets/images/my-listings.jpg
 [facebook]: ./app/assets/images/facebook.png
 [user-profile]: ./app/assets/images/user-profile.jpg
 [search]: ./app/assets/images/search.jpg
