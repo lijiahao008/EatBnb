@@ -127,7 +127,7 @@ EatBnb also has a built-in messaging system with a live chat feature. Users are 
 
 [signin]: ./app/assets/images/sign-in.jpg
 [create-menu]: ./app/assets/images/create-menu.jpg
-[facebook]: ./app/assets/images/facebook.jpg
+[facebook]: ./app/assets/images/facebook.png
 [user-profile]: ./app/assets/images/user-profile.jpg
 [search]: ./app/assets/images/search.jpg
 [home-responsive]: ./app/assets/images/home.gif
