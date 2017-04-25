@@ -42,9 +42,11 @@ The front end is built in [React.js][React] and JavaScript and utilizes React's 
 EatBnb uses:
 - [React.js][React]
 - [Flux][Flux]
+- [Bootstrap][Bootstrap]
 - [BCrypt](https://github.com/codahale/bcrypt-ruby) for authorization
 - [Geocoder](https://github.com/alexreisner/geocoder) to easily convert address strings into latitude and longitude.
 - [react-dropzone](https://github.com/okonet/react-dropzone) enable the drag and drop file upload feature
+- [Mailboxer][mailboxer] easy management for messaging feature
 
 ## Primary Components
 
@@ -132,9 +134,10 @@ EatBnb also has a built-in messaging system with a live chat feature. Users are 
 ![messages]
 
 [eatbnb]: https://eatbnb.herokuapp.com/
-[react-infinite]:https://github.com/seatgeek/react-infinite
+[mailboxer]: https://github.com/mailboxer/mailboxer
 [React]:https://facebook.github.io/react/
 [Flux]:https://facebook.github.io/flux/
+[Bootstrap]:http://getbootstrap.com/
 
 
 
