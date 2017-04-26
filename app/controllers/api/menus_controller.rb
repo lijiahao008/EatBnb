@@ -34,8 +34,6 @@ class Api::MenusController < ApplicationController
     @menu.owner_id = current_user.id
 
     if @menu.save
-      @reviews = []
-      @average_rating = 0
       render "api/menus/show"
     else
       render json: @menu.errors.full_messages, status: 422
@@ -45,23 +43,11 @@ class Api::MenusController < ApplicationController
   def show
     sleep(1)
     @menu = Menu.includes(:owner, [{reviews: :owner}]).find(params[:id])
-    @reviews = @menu.reviews
-    unless @reviews.length == 0
-      @average_rating = @reviews.map{|review| review.score }.reduce(:+) / @reviews.length
-    else
-      @average_rating = 0
-    end
   end
 
   def update
     @menu = Menu.find(params[:menu][:id])
     if @menu.update(menu_params)
-      @reviews = @menu.reviews
-      unless @reviews.length == 0
-        @average_rating = @reviews.map{|review| review.score }.reduce(:+) / @reviews.length
-      else
-        @average_rating = 0
-      end
       render "api/menus/show"
     else
       render json: @menu.errors.full_messages, status: 422
@@ -72,8 +58,6 @@ class Api::MenusController < ApplicationController
   def destroy
     @menu = Menu.includes(:reviews, :reservations).find(params[:id])
     if @menu.destroy
-      @reviews = []
-      @average_rating = 0
       render "api/menus/show"
     else
       render json: @menu.errors.full_messages, status: 422

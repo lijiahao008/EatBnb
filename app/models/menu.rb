@@ -33,4 +33,10 @@ class Menu < ApplicationRecord
     self.address.downcase!
   end
 
+  def average_rating
+    reviews = self.reviews
+    return 0 if reviews.length == 0
+    reviews.map{|review| review.score }.reduce(:+) / reviews.length
+  end
+
 end

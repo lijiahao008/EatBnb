@@ -11,7 +11,8 @@ class NavBar extends React.Component {
     super(props);
     this.state = {
       modalIsOpen: false,
-      formType: ""
+      formType: "",
+      unread_messages: this.props.currentUser.unread_messages
     };
 
     this.openLogInModal = this.openLogInModal.bind(this);
@@ -19,6 +20,7 @@ class NavBar extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.handleBecomeAHost = this.handleBecomeAHost.bind(this);
     this.handleCreateAMenu = this.handleCreateAMenu.bind(this);
+    this.handleMessages = this.handleMessages.bind(this);
   }
 
   componentWillMount() {
@@ -147,7 +149,7 @@ class NavBar extends React.Component {
         <div className="collapse navbar-collapse" id="navbar">
       		<ul className="nav navbar-nav navbar-right">
             {link}
-            <li><a href="#" onClick={this.handleMessages}>Messages<div className="unread_messages">{currentUser.unread_messages}</div></a></li>
+            <li><a href="#" onClick={this.handleMessages}>Messages<div className="unread_messages">{this.state.unread_messages}</div></a></li>
       			{greeting}
             <li><a href="#" onClick={logout}>Log Out</a></li>
       		</ul>
