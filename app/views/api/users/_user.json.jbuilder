@@ -5,3 +5,4 @@ json.l_name user.l_name
 json.description user.description
 json.profile_image_url asset_path(user.profile_image.url)
 json.host user.host
+json.unread_messages user.unread_messages

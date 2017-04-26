@@ -72,6 +72,10 @@ class User < ApplicationRecord
     nil
   end
 
+  def unread_messages
+    self.mailbox.receipts.where(is_read:false).count
+  end
+
 
 	private
 

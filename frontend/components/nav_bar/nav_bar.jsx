@@ -31,7 +31,8 @@ class NavBar extends React.Component {
   }
 
   openSignUpModal(e) {
-    e.preventDefault();    this.setState({modalIsOpen: true, formType: "signup"});
+    e.preventDefault();
+    this.setState({modalIsOpen: true, formType: "signup"});
   }
 
   closeModal() {
@@ -119,10 +120,17 @@ class NavBar extends React.Component {
       </li>;
     }
     else {
-      greeting = <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hi, {currentUser.f_name}! <span className="caret"></span></a>
+      greeting = <li className="dropdown">
+        <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          Hi, {currentUser.f_name}!
+          <span className="caret"></span></a>
         <ul className="dropdown-menu" role="menu">
-					<li><Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i> My Profile</Link></li>
-					<li><Link to={`myMenus`}><i className="fa fa-list" aria-hidden="true"></i> My Listings</Link></li>
+					<li>
+            <Link to={`users/${currentUser.id}/edit`}><i className="fa fa-user" aria-hidden="true"></i> My Profile</Link>
+          </li>
+					<li>
+            <Link to={`myMenus`}><i className="fa fa-list" aria-hidden="true"></i> My Listings</Link>
+          </li>
           <li><Link to={`myReservations`}><i className="fa fa-book" aria-hidden="true"></i> My Reservations</Link></li>
 				</ul>
       </li>;
@@ -139,7 +147,7 @@ class NavBar extends React.Component {
         <div className="collapse navbar-collapse" id="navbar">
       		<ul className="nav navbar-nav navbar-right">
             {link}
-            <li><a href="#" onClick={this.handleMessages}>Messages</a></li>
+            <li><a href="#" onClick={this.handleMessages}>Messages<div className="unread_messages">{currentUser.unread_messages}</div></a></li>
       			{greeting}
             <li><a href="#" onClick={logout}>Log Out</a></li>
       		</ul>

@@ -61,6 +61,19 @@ nav.navbar-eatbnb button.navbar-toggle > span.icon-bar {
   background: #fff;
 }
 
+.unread_messages {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  border: 1px solid #f14444;
+  border-radius: 50%;
+  color: white;
+  background: #f14444;
+  line-height: 100%;
+  font-weight: bold;
+  font-size: 12px;
+}
+
 .loading {
   position: relative;
   width: 100%;
