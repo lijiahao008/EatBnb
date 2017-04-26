@@ -4,7 +4,8 @@ import ReservationForm from './reservation_form';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    menu: ownProps.menu,
+    menuId: ownProps.menuId,
+    menuPrice: ownProps.menuPrice,
     currentUser: state.session.currentUser
 }};
 

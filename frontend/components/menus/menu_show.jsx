@@ -11,6 +11,21 @@ class MenuShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchMenu(this.props.params.menuId);
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.handleScroll, false);
+  }
+
+  handleScroll(){
+    let form = document.getElementById("reservation-form");
+    if (window.scrollY > 620 && window.scrollY < 1940) {
+      form.classList.add('stay-top');
+    }
+    else {
+      form.classList.remove('stay-top');
+    }
   }
 
   generateSpoon(num){
@@ -86,9 +101,11 @@ class MenuShow extends React.Component {
             <hr/>
               <h2>Write A Review</h2>
               <hr />
-            <MenuReviewFormContainer menuId={menu.id} />
-            <ReservationFormContainer menu={menu}/>
         </div>
+        <MenuReviewFormContainer menuId={menu.id} />
+        <ReservationFormContainer
+          menuId={menu.id}
+          menuPrice={menu.price}/>
         <div className="single-map">
           <MenuMap singleMenu={true} address={menu.address} fetchMenu={this.props.fetchMenu} menuId={menu.id}/>
         </div>

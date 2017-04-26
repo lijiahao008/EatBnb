@@ -7,7 +7,8 @@ class ReservationForm extends React.Component {
     super(props)
     this.state={
       date: "",
-      menu_id: props.menu.id,
+      menu_id: props.menuId,
+      menu_price: props.menuPrice,
       num_guests: 0,
       confirmed: false
     }
@@ -33,10 +34,10 @@ class ReservationForm extends React.Component {
 
   render () {
     return (
-        <div className="pull-right reservation-form" >
+        <div className="pull-right reservation-form" id="reservation-form">
             <div className="panel panel-default">
               <div className="row title">
-                <h4 className="col-xs-6">$ {this.props.menu.price}</h4>
+                <h4 className="col-xs-6">$ {this.state.menu_price}</h4>
                 <h4 className="col-xs-6 pull-right text-right">Per Meal</h4>
               </div>
                 <div className="panel-body">
@@ -62,7 +63,7 @@ class ReservationForm extends React.Component {
                     </div>
                     <div className="form-group">
                       <label>Final Amount</label>
-                      <strong className="pull-right">{this.props.menu.price * this.state.num_guests}</strong>
+                      <strong className="pull-right">{this.state.menu_price * this.state.num_guests}</strong>
                     </div>
                     <button type="submit" className="btn btn-danger btn-lg btn-block">Reserve</button>
                     </form>

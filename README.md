@@ -29,7 +29,6 @@ Ruby on Rails is used as the back end together with postgreSQL as the database. 
 ````ruby
   def show
     @menu = Menu.includes(:owner, [{reviews: :owner}]).find(params[:id])
-    @reviews = @menu.reviews
   end
 ````
 
