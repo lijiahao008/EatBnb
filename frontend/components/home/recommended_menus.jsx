@@ -85,14 +85,13 @@ class RecommendedMenus extends React.Component {
              }]}>
              {
                this.props.menus.map(menu => (
-                 <div
-                 key={menu.id}>
+                 <div key={menu.id}>
                    <img src={menu.picture_url} alt={menu.title}
                    onClick={()=>hashHistory.push(`/menus/${menu.id}`)}
                    height= "200"
                    width="260"
                    />
-                 <div>$ {menu.price} {menu.title}</div>
+                 <div>$ {menu.price} {menu.title} </div>
                 </div>
                ))
              }

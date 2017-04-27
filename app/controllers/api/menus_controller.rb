@@ -19,7 +19,7 @@ class Api::MenusController < ApplicationController
       @menus = Menu.all
     end
 
-    if (params[:minPrice] && params[:maxPrice])
+    if (params[:priceRange])
       @menus = @menus.where(price: price_range)
     end
 
@@ -67,7 +67,7 @@ class Api::MenusController < ApplicationController
   private
 
   def price_range
-    (params[:minPrice]..params[:maxPrice])
+    (params[:priceRange][0]..params[:priceRange][1])
   end
 
   def menu_params

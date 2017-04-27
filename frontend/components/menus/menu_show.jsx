@@ -20,11 +20,13 @@ class MenuShow extends React.Component {
 
   handleScroll(){
     let form = document.getElementById("reservation-form");
-    if (window.scrollY > 620 && window.scrollY < 1940) {
-      form.classList.add('stay-top');
-    }
-    else {
-      form.classList.remove('stay-top');
+    if (form) {
+      if (window.scrollY > 620 && window.scrollY < (document.body.offsetHeight - 1070)) {
+        form.classList.add('stay-top');
+      }
+      else {
+        form.classList.remove('stay-top');
+      }
     }
   }
 

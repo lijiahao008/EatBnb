@@ -1,11 +1,11 @@
 import React from 'react';
+import Rheostat from 'rheostat';
 
 class FilterForm extends React.Component  {
   constructor(props){
     super(props);
     this.state = {
-      minPrice: this.props.minPrice,
-      maxPrice: this.props.maxPrice,
+      priceRange: [this.props.minPrice, this.props.maxPrice],
       address: this.props.address
     }
     this.handleChange = this.handleChange.bind(this);
@@ -14,8 +14,8 @@ class FilterForm extends React.Component  {
 
   handleChange(filter, updateFilter) {
     return e => {
-      updateFilter(filter, e.currentTarget.value).then(
-      this.setState({[filter]: e.currentTarget.value}))};
+      updateFilter(filter, e.values).then(
+      this.setState({[filter]: e.values}))};
   }
 
   handleSubmit(e){
@@ -31,31 +31,32 @@ class FilterForm extends React.Component  {
     return (
     <div className="filter-form">
       <div className="row col-md-12">
-      <label>Location </label>
-      <form onSubmit={this.handleSubmit}>
-      <input
-        type="text"
-        className="form-control"
-        placeholder={this.state.address}
-        onChange={(e)=>this.setState({"address": e.currentTarget.value})}/>
-      </form>
-    </div>
-      <div className="row">
-        <div className="col-sm-6">
-        <label>Minimum Price </label>
+        <label>Location </label>
+        <form onSubmit={this.handleSubmit}>
         <input
-          type="number"
+          type="text"
           className="form-control"
-          value={this.state.minPrice}
-          onChange={this.handleChange('minPrice', this.props.updateFilter)}/>
-        </div>
-        <div className="col-sm-6">
-        <label>Maximum Price </label>
-        <input
-          type="number"
-          className="form-control"
-          value={this.state.maxPrice}
-          onChange={this.handleChange('maxPrice', this.props.updateFilter)}/>
+          placeholder={this.state.address}
+          onChange={(e)=>this.setState({"address": e.currentTarget.value})}/>
+        </form>
+      </div>
+      <div className="row col-md-12">
+        <label>Price Range </label>
+        <div className="row price-range">
+          <div className="col-sm-1">
+            {this.state.priceRange[0]}
+          </div>
+          <div className="col-sm-10">
+            <Rheostat
+              min={this.props.minPrice}
+              max={this.props.maxPrice}
+              values={[this.state.priceRange[0], this.state.priceRange[1]]}
+              onChange={this.handleChange('priceRange', this.props.updateFilter)}
+            />
+          </div>
+          <div className="col-sm-1">
+            {this.state.priceRange[1]}
+          </div>
         </div>
       </div>
     </div>

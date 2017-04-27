@@ -3,8 +3,7 @@ import merge from 'lodash/merge';
 
 const _defaultFilters = Object.freeze({
   bounds: {},
-  minPrice: 1,
-  maxPrice: 500,
+  priceRange: [1, 500],
   address: ""
 });
 
