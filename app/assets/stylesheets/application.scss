@@ -292,34 +292,68 @@ strong {
   margin: 70px 0px;
   width: 100%;
   bottom: 0;
+  color: grey;
+  .filter-form label{
+    color: grey;
+    padding: 5px;
+    margin-left: 10px;
+  }
   .filter-form {
-    padding-left: 10px;
+    padding: 10px;
+    .filter-form-location{
+      border-bottom: 1px solid lightgrey;
+    }
+    .filter-form-price-range{
+      border-bottom: 1px solid lightgrey;
+      margin-bottom: 20px;
+    }
     .price-range{
-      margin: 20px 0px;
+      margin-bottom: 20px;
+    }
+    .price-tag{
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      left: 3%;
+    }
+    .min-price{
+      left: 3%;
+    }
+    .max-price{
+      position: relative;
+      left: 90%;
     }
     .rheostat {
       overflow: visible;
+      margin-bottom: 10px;
       width: 90%;
+      left: 5%;
     }
     .rheostat-background {
       background-color: #fcfcfc;
       border: 1px solid #d8d8d8;
       position: relative;
+      left: 11px;
+      top: 13px;
     }
 
     .rheostat-progress {
-      background-color: #abc4e8;
+      background-color: #f14444;
       position: absolute;
+      left: 11px;
+      top: 13px;
+      height: 4px;
     }
 
     .rheostat-handle {
       background-color: #fff;
       border: 1px solid #d8d8d8;
-      border-radius: 20%;
+      border-radius: 50%;
       height: 24px;
       outline: none;
       z-index: 2;
       width: 24px;
+      margin-right: 10px;
     }
 
     .rheostat-handle:before,
@@ -330,19 +364,28 @@ strong {
       background-color: #dadfe8;
     }
   }
-  .search-map{
-    position: relative;
-    height: 35vh;
-  }
-  .search-result {
-    margin-top: 10px;
-    .menu-index{
-      height: 72vh;
-      width: 100%;
-      color: grey;
-      overflow: scroll;
-      overflow-x: hidden;
+  @media (max-width:992px){
+    .search-map{
+      position: relative;
+      height: 35vh;
+      top: 20px;
     }
+    .search-result{
+      margin-top: 10px;
+    }
+  }
+  .menu-index{
+    h3{
+      margin-left: 30px;
+    }
+    height: 65vh;
+    width: 100%;
+    color: grey;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+  .menu-index::-webkit-scrollbar {
+   display: none;
   }
   .no-results {
     font-size: 30px;
@@ -356,7 +399,7 @@ strong {
       left: 50vw;
     }
     .menu-index{
-      height: 72vh;
+      height: 65vh;
       right: 50vw;
       overflow: scroll;
     }
@@ -364,6 +407,7 @@ strong {
   .search-menu-items{
     padding: 20px;
     img{
+      width: 100%;
       cursor: pointer;
       object-fit: cover;
     }
@@ -419,7 +463,6 @@ strong {
       cursor: pointer;
     }
   }
-
 }
 .destacados > div > div{
 	padding: 10px;
@@ -496,8 +539,6 @@ option{
   margin-bottom:5px;
   font-size:0.9em;
   letter-spacing:0.03em;
-}
-footer{
 }
 .text-center{
   text-align:center;

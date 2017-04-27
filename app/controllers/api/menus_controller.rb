@@ -4,19 +4,19 @@ class Api::MenusController < ApplicationController
   def index
     sleep(1)
     if params[:top_rated]
-      @menus = Menu.order(price: :desc).limit(6)
+      @menus = Menu.includes(:reviews).order(price: :desc).limit(6)
       render 'api/menus/top_rated'
     end
 
     if params[:recomended]
-      @menus = Menu.order(created_at: :desc).limit(6)
+      @menus = Menu.includes(:reviews).order(created_at: :desc).limit(6)
       render 'api/menus/top_rated'
     end
 
     if bounds
-      @menus = Menu.in_bounds(bounds)
+      @menus = Menu.includes(:reviews).in_bounds(bounds)
     else
-      @menus = Menu.all
+      @menus = Menu.includes(:reviews).all
     end
 
     if (params[:priceRange])
