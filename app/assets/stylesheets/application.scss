@@ -25,7 +25,7 @@
    background: #fff;
    border-color: #ccc;
    box-shadow: 0 0 2px 0 #ccc;
-   z-index: 1;
+   z-index: 3;
  }
 nav.navbar-eatbnb a {
   color: #f14444;
@@ -282,6 +282,23 @@ strong {
   opacity: 0.7;
 }
 
+.home-menu-items{
+  width: 260px;
+  margin-left: 20px;
+}
+.menu-items-detail{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding: 5px;
+}
+
+.menu-items-ratings{
+  position: absolute;
+  color: #f14444;
+  right: 0px;
+}
+
 .map {
   position: relative;
   height: 100%;
@@ -296,7 +313,6 @@ strong {
   .filter-form label{
     color: grey;
     padding: 5px;
-    margin-left: 10px;
   }
   .filter-form {
     padding: 10px;
@@ -375,10 +391,8 @@ strong {
     }
   }
   .menu-index{
-    h3{
-      margin-left: 30px;
-    }
     height: 65vh;
+    margin-left: 10px;
     width: 100%;
     color: grey;
     overflow: scroll;

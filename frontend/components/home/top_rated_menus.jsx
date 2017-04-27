@@ -9,6 +9,7 @@ class TopRatedMenus extends React.Component {
     super(props);
     this.state = {count: 4};
     this.handleResize = this.handleResize.bind(this);
+    this.generateSpoon = this.generateSpoon.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +20,14 @@ class TopRatedMenus extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize',     this.handleResize);
+  }
+
+  generateSpoon(num){
+    let result=[];
+    for (var i = 0; i < num; i++) {
+      result.push(<i className="fa fa-spoon spoons" key={i}></i>);
+    }
+    return result;
   }
 
   handleResize(){
@@ -49,7 +58,14 @@ class TopRatedMenus extends React.Component {
         className="slide">
           <img src={menu.picture_url}
             height="200" width="260" />
-          <div className="text-center">$ {menu.price} {menu.title}</div>
+          <div className="home-menu-items menu-items-detail">
+            <div className="menu-items-price">
+             ${menu.price}  {menu.title}
+            </div>
+            <div className="menu-items-ratings">
+             {this.generateSpoon(menu.average_rating)}
+            </div>
+          </div>
         </div>
       )
     })

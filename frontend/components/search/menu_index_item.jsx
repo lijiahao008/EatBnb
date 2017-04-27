@@ -5,11 +5,20 @@ class IndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.generateSpoon = this.generateSpoon.bind(this);
   }
 
   handleClick() {
     const menuId = this.props.menu.id;
     this.props.router.push(`menus/${menuId}`);
+  }
+
+  generateSpoon(num){
+    let result=[];
+    for (var i = 0; i < num; i++) {
+      result.push(<i className="fa fa-spoon spoons" key={i}></i>);
+    }
+    return result;
   }
 
   render() {
@@ -21,9 +30,14 @@ class IndexItem extends React.Component {
           className="col-sm-6 search-menu-items">
             <img src={menu.picture_url} height="180" width="270" onClick={()=> (hashHistory.push(`/menus/${menu.id}`))}
             />
-           <div>
+          <div className="menu-items-detail">
+            <div className="menu-items-price">
              ${menu.price}  {menu.title}
-           </div>
+            </div>
+            <div className="menu-items-ratings">
+             {this.generateSpoon(menu.average_rating)}
+            </div>
+          </div>
       </div>
     );
   }
