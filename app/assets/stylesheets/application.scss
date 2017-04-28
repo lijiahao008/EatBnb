@@ -430,6 +430,12 @@ strong {
     font-size: 30px;
     font-weight: bold;
     color: grey;
+    width: 100%;
+    text-align: center;
+    img {
+      margin: auto;
+      display: block;
+    }
   }
   @media (min-width:992px){
     .search-map{
