@@ -9,13 +9,11 @@ const Home = (props) => {
   return (
       <div className="container">
         <div className="row homeSearchBar">
-          <div className="col-lg-8">
+          <div className="home-title">
             <h1>Welcome to EatBnb</h1>
             <h2>The 21 century's solution for an authentic meal experience.</h2>
           </div>
-          <div>
-            <HomeSearchBarContainer />
-          </div>
+          <HomeSearchBarContainer />
         </div>
         <div className="row homeRecommendedMenus">
           <div>
