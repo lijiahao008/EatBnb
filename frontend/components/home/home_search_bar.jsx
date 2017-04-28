@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 class HomeSearchBar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = Object.assign(
-			{ date: "", address: "New York, US" },
+			{ date: null, address: "New York, US", focused: false },
 			this.props.filters
 		);
 
@@ -21,52 +23,45 @@ class HomeSearchBar extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		this.props.updateSearchResults(this.state).then(this.props.router.push('/search'))
+		let date = this.state.date ? this.state.date.format() : null;
+		let filters = {
+			date,
+			address: this.state.address
+		}
+		filters = Object.assign(filters, this.props.filters)
+		this.props.updateSearchResults(filters).then(this.props.router.push('/search'))
 	}
 
 
 	render() {
 
 		return (
-			<div className="search">
-			<div className="container">
-			<div className="row">
-				<div className="col-md-12">
-					<div className="form-section">
-						<div className="row">
-							<form onSubmit={this.handleSubmit}>
-									<div className="col-md-4">
-										<div className="form-group">
-											<input type="text" className="form-control" placeholder="Ex. New York"
+				<div className="row form-section">
+						<form onSubmit={this.handleSubmit}>
+								<div className="col-md-4">
+									<label>Where</label>
+									<div className="search-address">
+										<input type="text" placeholder="Ex. New York"
 											onChange={this.update("address")}/>
-											<i className="hidden-lg hidden-md fa fa-search"
-												onClick={this.handleSubmit}></i>
-										</div>
+										<i className="hidden-lg hidden-md fa fa-search" onClick={this.handleSubmit}></i>
 									</div>
-									<div className="col-md-4 hidden-sm hidden-xs">
-										<div className="form-group">
-											<div className="input-group">
-												<input
-													type="date"
-												className="form-control"
-												onChange={this.update("date")}/>
-											</div>
-
-										</div>
-									</div>
-
-									<div className="col-md-4 text-center hidden-sm hidden-xs">
-										<div className="form-group">
-											<button onClick={this.handleSubmit} className="btn btn-lg btn-danger">Search</button>
-										</div>
-									</div>
-							</form>
-						</div>
+								</div>
+								<div className="col-md-4 hidden-sm hidden-xs">
+									<div><label>When</label></div>
+									<SingleDatePicker
+									  date={this.state.date}
+									  onDateChange={
+											date => this.setState({ date })}
+									  focused={this.state.focused}
+									  onFocusChange={
+											({ focused }) => this.setState({ focused })}
+									/>
+								</div>
+								<div className="col-md-4 hidden-sm hidden-xs">
+									<button onClick={this.handleSubmit} className="btn btn-lg btn-danger search-btn">Search</button>
+								</div>
+						</form>
 					</div>
-				</div>
-			</div>
-			</div>
-	</div>
 
 		);
 	}

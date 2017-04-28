@@ -16,11 +16,15 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
       }
     ]
   },
   devtool: 'source-maps',
   resolve: {
-    extensions: ["", ".js", ".jsx" ]
+    extensions: ["", ".js", ".jsx", '.css']
   }
 };

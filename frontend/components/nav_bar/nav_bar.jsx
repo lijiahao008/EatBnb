@@ -12,7 +12,7 @@ class NavBar extends React.Component {
     this.state = {
       modalIsOpen: false,
       formType: "",
-      unread_messages: this.props.currentUser.unread_messages
+      unread_messages: this.props.unreadMessages
     };
 
     this.openLogInModal = this.openLogInModal.bind(this);

@@ -207,38 +207,58 @@ strong {
 }
 
 .form-section {
-  margin-top: 7%;
+  margin: 100px auto 0px auto;
+  width: 95%;
 	border: 2px solid lightgrey;
 	border-radius: 5px;
-  button {
+  .search-btn {
     background: #f14444;
     border: none;
     border-radius: 10%;
     outline: none;
+    position: relative;
+    margin: 3px 35% 0px 35%;
   }
   .col-md-4{
-    padding-top: 10px;
+    align-items: center;
+    height: 70px;
+    padding: 10px;
     border-left: 2px solid lightgrey;
   }
   .col-md-4:first-child{
     border-left: none;
-    margin-top: 6px;
-    padding-left: 20px;
-    .form-group {
-      display: flex;
-      flex-direction: row;
+  }
+  .search-address {
+    display: flex;
+    flex-direction: row;
+    input {
+      border: none;
+      outline: none;
     }
-    .form-group > i {
-      position: absolute;
-      color: #aebbcb;
-      top: 15px;
-      right: 40px;
-      transform: scale(2, 2);
-    }
-    .form-group > i:hover {
-      cursor: pointer;
-      opacity: 0.7;
-    }
+  }
+  .search-address i {
+    position: absolute;
+    color: #aebbcb;
+    right: 40px;
+    transform: scale(2, 2);
+  }
+  .search-address i:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  .SingleDatePicker{
+    width: 100%;
+    bottom: 10px;
+  }
+  .SingleDatePickerInput{
+    border: none;
+  }
+  .DateInput{
+    padding-left: 0px;
+    right: 7px;
+    height: 30px;
+    font-size: 17px;
+    width: 100%;
   }
 }
 
