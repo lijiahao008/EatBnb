@@ -127,11 +127,12 @@ EatBnb gives you the ability to search listings based on location, price and key
 
 ![search]
 
-#### Messages and Live Chat
+#### Messages
 EatBnb also has a built-in messaging system with a live chat feature. Users are able to send messages to the other users, move conversation to trash, check sent messages, start a group conversation.
 
 ![messages]
 
+#### Live Chat
 The live chat feature is built using Action cable, it's a websocket framework utilizing redis and was built into Rails 5. Below is a demonstration of the feature in action.
 
 ![live-chat-demo]
