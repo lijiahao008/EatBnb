@@ -8,7 +8,7 @@ class ReservationForm extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      date: "",
+      date: null,
       menu_id: props.menuId,
       menu_price: props.menuPrice,
       num_guests: 0,
@@ -25,7 +25,14 @@ class ReservationForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if (this.props.currentUser) {
-      const reservation = this.state;
+      let date = this.state.date ? this.state.date.format() : null;
+      const reservation = {
+        date,
+        menu_id: this.state.menu_id,
+        menu_price: this.state.menu_price,
+        num_guests: this.state.num_guests,
+        confirmed: this.state.confirmed
+      };
       this.props.createReservation({reservation}).then(hashHistory.push('/myReservations'));
     }
     else {
@@ -45,12 +52,19 @@ class ReservationForm extends React.Component {
                 <div className="panel-body">
                     <form onSubmit={this.handleSubmit}>
                       <div className="form-group">
-                          <label>
-                              DATE</label>
+                          <label>DATE</label>
                             <div className="input-group">
-                              <input type="date" className="form-control"
-                              onChange={this.update("date")}
-                              required autoFocus />
+                              <SingleDatePicker
+            									  date={this.state.date}
+                                showClearDate={true}
+                                required={true}
+                                numberOfMonths={1}
+            									  onDateChange={
+            											date => this.setState({ date })}
+            									  focused={this.state.focused}
+            									  onFocusChange={
+            											({ focused }) => this.setState({ focused })}
+            									/>
                           </div>
                       </div>
                     <div className="form-group">
