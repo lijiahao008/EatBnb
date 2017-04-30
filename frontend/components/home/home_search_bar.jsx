@@ -50,6 +50,7 @@ class HomeSearchBar extends React.Component {
 									<div><label>When</label></div>
 									<SingleDatePicker
 									  date={this.state.date}
+										showClearDate={true}
 									  onDateChange={
 											date => this.setState({ date })}
 									  focused={this.state.focused}

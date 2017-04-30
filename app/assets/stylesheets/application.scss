@@ -255,16 +255,20 @@ strong {
     width: 100%;
     bottom: 10px;
   }
-  .SingleDatePickerInput{
-    border: none;
-  }
-  .DateInput{
-    padding-left: 0px;
-    right: 7px;
-    height: 30px;
-    font-size: 17px;
-    width: 100%;
-  }
+}
+.DateInput{
+  padding-left: 0px!important;
+  right: 7px;
+  max-height: 30px;
+  font-size: 17px!important;
+}
+
+.SingleDatePickerInput{
+  border: none!important;
+}
+
+.form-control {
+  z-index: 0!important;
 }
 
 .slider-frame {
