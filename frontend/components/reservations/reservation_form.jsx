@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, hashHistory, withRouter } from 'react-router';
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 
 class ReservationForm extends React.Component {
