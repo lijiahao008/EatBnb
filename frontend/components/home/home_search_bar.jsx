@@ -11,26 +11,23 @@ class HomeSearchBar extends React.Component {
 			this.props.filters
 		);
 
-		this.autoComplete = this.autoComplete.bind(this);
+		this.setUpAutoComplete = this.setUpAutoComplete.bind(this);			this.handleAutoComplete = this.handleAutoComplete.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	update(field) {
-		return e => {
-			this.setState({[field]: e.currentTarget.value});
-			this.props.updateFilter([field], e.currentTarget.value)
-		}
-	}
-
 	componentDidMount(){
-		this.autoComplete();
+		this.setUpAutoComplete();
 	}
 
-	autoComplete(){
-		let addressInput = document.getElementById('address-input');
-    let autocomplete = new google.maps.places.Autocomplete(addressInput);
-		autocomplete.addListener('place_changed', ()=>
-		this.setState({address: autocomplete.getPlace().formatted_address}));
+	handleAutoComplete(){
+		this.setState({address: this.autoComplete.getPlace().formatted_address});
+		this.props.updateFilter("address", this.state.address);
+	}
+
+	setUpAutoComplete(){
+		const addressInput = document.getElementById('address-input');
+    this.autoComplete = new google.maps.places.Autocomplete(addressInput);
+		this.autoComplete.addListener('place_changed', this.handleAutoComplete);
 	}
 
 	handleSubmit(e) {
@@ -40,7 +37,7 @@ class HomeSearchBar extends React.Component {
 			date,
 			address: this.state.address
 		}
-		filters = Object.assign(filters, this.props.filters)
+		filters = Object.assign(filters, this.props.filters);
 		this.props.updateSearchResults(filters).then(this.props.router.push('/search'))
 	}
 
@@ -53,8 +50,8 @@ class HomeSearchBar extends React.Component {
 								<div className="col-md-4">
 									<label>Where</label>
 									<div className="search-address">
-										<input type="text" id="address-input" placeholder="Ex. New York"
-											onChange={this.update("address")}/>
+										<input type="text" id="address-input"
+											placeholder="Ex. New York"/>
 										<i className="hidden-lg hidden-md fa fa-search" onClick={this.handleSubmit}></i>
 									</div>
 								</div>
