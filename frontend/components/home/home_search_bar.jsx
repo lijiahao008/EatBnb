@@ -21,6 +21,12 @@ class HomeSearchBar extends React.Component {
 		}
 	}
 
+	autoComplete(){
+		addressInput = document.getElementById('address-input');
+    autocomplete = new google.maps.places.Autocomplete(addressInput);
+    autocomplete.addListener('place_changed', this.fillInAddress);
+	}
+
 	handleSubmit(e) {
 		e.preventDefault();
 		let date = this.state.date ? this.state.date.format() : null;
@@ -41,7 +47,7 @@ class HomeSearchBar extends React.Component {
 								<div className="col-md-4">
 									<label>Where</label>
 									<div className="search-address">
-										<input type="text" placeholder="Ex. New York"
+										<input type="text" id="address-input" placeholder="Ex. New York"
 											onChange={this.update("address")}/>
 										<i className="hidden-lg hidden-md fa fa-search" onClick={this.handleSubmit}></i>
 									</div>
