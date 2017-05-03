@@ -11,6 +11,7 @@ class HomeSearchBar extends React.Component {
 			this.props.filters
 		);
 
+		this.autoComplete = this.autoComplete.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -21,10 +22,15 @@ class HomeSearchBar extends React.Component {
 		}
 	}
 
+	componentDidMount(){
+		this.autoComplete();
+	}
+
 	autoComplete(){
-		addressInput = document.getElementById('address-input');
-    autocomplete = new google.maps.places.Autocomplete(addressInput);
-    autocomplete.addListener('place_changed', this.fillInAddress);
+		let addressInput = document.getElementById('address-input');
+    let autocomplete = new google.maps.places.Autocomplete(addressInput);
+		autocomplete.addListener('place_changed', ()=>
+		this.setState({address: autocomplete.getPlace().formatted_address}));
 	}
 
 	handleSubmit(e) {
