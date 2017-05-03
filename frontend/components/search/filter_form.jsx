@@ -9,6 +9,7 @@ class FilterForm extends React.Component  {
       address: this.props.address
     }
     this.handleChange = this.handleChange.bind(this);
+		this.setUpAutoComplete = this.setUpAutoComplete.bind(this);			this.handleAutoComplete = this.handleAutoComplete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -19,8 +20,23 @@ class FilterForm extends React.Component  {
     };
   }
 
-  handleSubmit(e){
-    e.preventDefault();
+  componentDidMount(){
+    this.setUpAutoComplete();
+  }
+
+  handleAutoComplete(){
+    this.setState({address: this.autoComplete.getPlace().formatted_address});
+    this.props.updateFilter("address", this.state.address);
+    this.handleSubmit();
+  }
+
+  setUpAutoComplete(){
+    const addressInput = document.getElementById('address-input');
+    this.autoComplete = new google.maps.places.Autocomplete(addressInput);
+    this.autoComplete.addListener('place_changed', this.handleAutoComplete);
+  }
+
+  handleSubmit(){
     let geocoder = new google.maps.Geocoder();
     geocoder.geocode( { 'address': this.state.address}, (results, status) => {
       let result = {lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()}
@@ -38,7 +54,7 @@ class FilterForm extends React.Component  {
           type="text"
           className="form-control"
           placeholder={this.state.address}
-          onChange={(e)=>this.setState({"address": e.currentTarget.value})}/>
+          id="address-input"/>
         </form>
       </div>
       <div className="row col-md-12 filter-form-price-range">
