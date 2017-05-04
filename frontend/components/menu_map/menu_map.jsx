@@ -49,7 +49,7 @@ class MenuMap extends Component {
           });
         } else {
           window.map = this.map;
-          this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
+          this.MarkerManager = new MarkerManager(this.map);
           this._registerListeners();
           this.MarkerManager.updateMarkers(this.props.menus);
         }
@@ -75,9 +75,7 @@ class MenuMap extends Component {
     });
   }
 
-  _handleMarkerClick(menu) {
-    this.props.router.push(`menus/${menu.id}`);
-  }
+
 
   render() {
 

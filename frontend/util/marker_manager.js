@@ -1,7 +1,6 @@
 export default class MarkerManager {
-  constructor(map, handleClick){
+  constructor(map){
     this.map = map;
-    this.handleClick = handleClick;
     this.markers = [];
 
     this._createMarkerFromMenu = this._createMarkerFromMenu.bind(this);
@@ -33,7 +32,12 @@ export default class MarkerManager {
       menuId: menu.id,
       icon: window.images.spoon
     });
-    marker.addListener('click', () => this.handleClick(menu));
+    marker.infowindow = new google.maps.InfoWindow({
+      content: "<img class='menu-image' style='object-fit: cover' width='200' height='150' src=" + menu.picture_url +">" + "<div class='menu-name'>" +
+      menu.title +"</div>" + "<div class='menu-price'>" + "$ " +
+      menu.price +"</div>"
+    });
+    marker.addListener('click', () => marker.infowindow.open(this.map, marker));
     this.markers.push(marker);
   }
 

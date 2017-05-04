@@ -453,6 +453,8 @@ strong {
     .menu-index{
       height: 65vh;
       right: 50vw;
+      width: 100%;
+      color: grey;
       overflow: scroll;
     }
   }
@@ -463,6 +465,9 @@ strong {
       cursor: pointer;
       object-fit: cover;
     }
+  }
+  .menu-name {
+    font-weight: bold;
   }
 }
 
