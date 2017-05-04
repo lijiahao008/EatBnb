@@ -34,7 +34,6 @@ class MenuMap extends Component {
         }
         const map = this.refs.map;
         this.map = new google.maps.Map(map, _mapOptions);
-        this.map.fitBounds(results[0].geometry.viewport);
 
         if (this.props.singleMenu) {
           this.props.fetchMenu(this.props.menuId);
@@ -49,6 +48,7 @@ class MenuMap extends Component {
             radius: 50
           });
         } else {
+          this.map.fitBounds(results[0].geometry.viewport);
           window.map = this.map;
           this.MarkerManager = new MarkerManager(this.map);
           this._registerListeners();
