@@ -5,7 +5,10 @@ class IndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.generateSpoon = this.generateSpoon.bind(this);
+
   }
 
   handleClick() {
@@ -21,13 +24,33 @@ class IndexItem extends React.Component {
     return result;
   }
 
+  handleMouseEnter(){
+    window.map.markers.forEach((marker) => {
+        if (marker.menuId === this.props.menu.id) {
+          marker.infowindow.open(window.map, marker)
+        }
+      }
+    )
+  }
+
+  handleMouseLeave(){
+    window.map.markers.forEach((marker) => {
+        if (marker.menuId === this.props.menu.id) {
+          marker.infowindow.close()
+        }
+      }
+    )
+  }
+
   render() {
     const menu = this.props.menu;
 
     return (
         <div
           key={menu.id}
-          className="col-sm-6 search-menu-items">
+          className="col-sm-6 search-menu-items"
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}>
             <img src={menu.picture_url} height="180" width="270" onClick={()=> (hashHistory.push(`/menus/${menu.id}`))}
             />
           <div className="menu-items-detail">

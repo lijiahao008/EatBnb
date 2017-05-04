@@ -14,6 +14,7 @@ export default class MarkerManager {
     this.menus = menus;
     this._menusToAdd().forEach(this._createMarkerFromMenu);
     this._markersToRemove().forEach(this._removeMarker);
+    this.map.markers = this.markers;
   }
 
   _menusToAdd() {
