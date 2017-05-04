@@ -41,6 +41,7 @@ class FilterForm extends React.Component  {
     geocoder.geocode( { 'address': this.state.address}, (results, status) => {
       let result = {lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()}
       window.map.setCenter(result);
+      window.map.fitBounds(results[0].geometry.viewport);
     });
   }
 

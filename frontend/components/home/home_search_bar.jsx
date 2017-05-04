@@ -7,7 +7,7 @@ class HomeSearchBar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = Object.assign(
-			{ date: null, address: "New York, US", focused: false },
+			{ date: null, address: "New York City, NY, US", focused: false },
 			this.props.filters
 		);
 
