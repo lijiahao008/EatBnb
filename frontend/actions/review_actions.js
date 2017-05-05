@@ -17,3 +17,17 @@ export const createMenuReview = (review) => dispatch => {
     menu => dispatch(receiveMenu(menu)),
       err => dispatch(receiveMenuReviewErrors(review.menu_review.menu_id, err.responseJSON)))
 )};
+
+export const updateMenuReview = (review) => dispatch => {
+  return(
+  APIUtil.updateMenuReview(review).then(
+    menu => dispatch(receiveMenu(menu)),
+      err => dispatch(receiveMenuReviewErrors(review.menu_review.menu_id, err.responseJSON)))
+)};
+
+export const deleteMenuReview = (id) => dispatch => {
+  return(
+  APIUtil.deleteMenuReview(id).then(
+    menu => dispatch(receiveMenu(menu)),
+      err => dispatch(receiveMenuReviewErrors(review.menu_review.menu_id, err.responseJSON)))
+)};
