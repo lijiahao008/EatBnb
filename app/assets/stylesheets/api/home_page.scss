@@ -1,3 +1,60 @@
 // Place all the styles related to the HomePage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.slider-frame {
+  width: 95%;
+  left: 2.5%;
+}
+
+.slider-slide{
+  text-align: center;
+  img {
+    object-fit: cover;
+  }
+}
+
+.slider-slide:hover {
+  cursor: pointer;
+}
+
+.homeTopRatedMenus {
+  margin-bottom: 50px;
+}
+
+.homeTopRatedMenus button{
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.homeTopRatedMenus button:hover{
+  opacity: 0.8;
+}
+
+.homeRecommendedMenus button{
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.homeRecommendedMenus button:hover{
+  opacity: 0.7;
+}
+
+.home-menu-items{
+  width: 260px;
+  margin: auto;
+}
+.menu-items-detail{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding: 5px;
+}
+
+.menu-items-ratings{
+  position: absolute;
+  color: #f14444;
+  right: 0px;
+}

@@ -272,63 +272,6 @@ strong {
   z-index: 0!important;
 }
 
-.slider-frame {
-  width: 95%;
-  left: 2.5%;
-}
-
-.slider-slide{
-  text-align: center;
-  img {
-    object-fit: cover;
-  }
-}
-
-.slider-slide:hover {
-  cursor: pointer;
-}
-
-.homeTopRatedMenus {
-  margin-bottom: 50px;
-}
-
-.homeTopRatedMenus button{
-  background: none;
-  border: none;
-  outline: none;
-}
-
-.homeTopRatedMenus button:hover{
-  opacity: 0.8;
-}
-
-.homeRecommendedMenus button{
-  background: none;
-  border: none;
-  outline: none;
-}
-
-.homeRecommendedMenus button:hover{
-  opacity: 0.7;
-}
-
-.home-menu-items{
-  width: 260px;
-  margin: auto;
-}
-.menu-items-detail{
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  padding: 5px;
-}
-
-.menu-items-ratings{
-  position: absolute;
-  color: #f14444;
-  right: 0px;
-}
-
 .map {
   position: relative;
   height: 100%;
@@ -472,70 +415,6 @@ strong {
   .menu-name {
     font-weight: bold;
   }
-}
-
-.my-listings{
-  color: #f14444;
-  margin-top: 50px;
-  .well{
-    background: white;
-    border: none;
-  }
-  a.list-group-item {
-    height:auto;
-    min-height:220px;
-    margin: 20px;
-    background: #EBEFF1;
-    align-items: center;
-    p {color: black;}
-    .reservation-menu-owner-pic{
-      max-height: 200px;
-      width: auto;
-    }
-  }
-}
-
-.my-listing {
-  margin-top: 50px;
-  h1 {color: #f14444;}
-}
-.destacados{
-  padding: 20px 0;
-	text-align: center;
-}
-.destacados {
-  .col-md-4 {
-    height: 400px;
-    div {
-      height: 100%;
-      position: relative;
-      img {
-        object-fit: cover;
-        height: 200px;
-      }
-      div {
-        position: absolute;
-        bottom: -3px;
-        margin-left: -2px;
-      }
-    }
-    div:hover {
-      cursor: pointer;
-    }
-  }
-}
-.destacados > div > div{
-	padding: 10px;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	transition: 0.2s;
-}
-.destacados > div:hover > div{
-	margin-top: -10px;
-	border: 1px solid rgb(200, 200, 200);
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
-	background: rgba(200, 200, 200, 0.1);
-	transition: 0.5s;
 }
 
 footer{
