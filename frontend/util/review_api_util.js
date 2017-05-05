@@ -14,3 +14,10 @@ export const updateMenuReview = (menu_review) => {
     data: menu_review
   });
 };
+
+export const deleteMenuReview = (id) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/menu_reviews/${menu_review.id}`
+  });
+};
