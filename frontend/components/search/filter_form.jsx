@@ -25,7 +25,7 @@ class FilterForm extends React.Component  {
   }
 
   componentWillUnmount(){
-    this.setState({address: ""});
+    this.props.updateFilter("address", "New York City, NY, US");
   }
   handleAutoComplete(){
     this.setState({address: this.autoComplete.getPlace().formatted_address});
