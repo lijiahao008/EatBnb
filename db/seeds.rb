@@ -39,7 +39,7 @@ Menu.create(title: 'Blue Hill', description: "Locally sourced, seasonal ingredie
 
 Menu.create(title: 'Tartine Bakery', description: "Organic ingredients provide the makings for breakfast pastries, hot pressed sandwiches & coffee.", price: 35, address: "600 Guerrero St, San Francisco, CA 94110", owner_id: User.last.id, picture: open("https://cdn.pixabay.com/photo/2015/03/26/09/39/cupcakes-690040_960_720.jpg"))
 
-Menu.create(title: 'Thorough Bread and Pastry', description: "Bright shop with exposed brick & patio selling baked goods & light fare from cookies to sandwiches.", price: 15, address: "248 Church St, San Francisco, CA 94114", owner_id: User.last.id, picture: open("http://eskipaper.com/images/bread-wallpaper-3.jpg"))
+Menu.create(title: 'Thorough Bread and Pastry', description: "Bright shop with exposed brick & patio selling baked goods & light fare from cookies to sandwiches.", price: 15, address: "248 Church St, San Francisco, CA 94114", owner_id: User.last.id, picture: open("http://eskipaper.com/images/pastry-wallpaper-4.jpg"))
 
 
 
