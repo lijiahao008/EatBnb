@@ -39,9 +39,9 @@ class MenuShow extends React.Component {
     return result;
   }
 
-  generateButtons(reviewOwnerId){
+  generateButtons(reviewOwnerId, reviewId){
     if (reviewOwnerId === this.props.currentUserId) {
-      return <div className="review-buttons"><div className="btn btn-sm btn-danger"><i className="fa fa-times"></i></div><div className="btn btn-sm btn-primary"><i className="fa fa-pencil-square-o"></i></div></div>
+      return <div className="review-buttons"><div className="btn btn-sm btn-danger" onClick={()=>this.props.deleteMenuReview(reviewId)}><i className="fa fa-times"></i></div><div className="btn btn-sm btn-primary"><i className="fa fa-pencil-square-o"></i></div></div>
     }
   }
 
@@ -95,7 +95,7 @@ class MenuShow extends React.Component {
                   <h4>{review.body}</h4>
                   <strong>{review.created_at}</strong>
                 </div>
-                {this.generateButtons(review.owner_id)}
+                {this.generateButtons(review.owner_id, review.id)}
               </div>
             ))}</ul>
             <h2>Your Host</h2>

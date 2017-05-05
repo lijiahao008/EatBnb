@@ -20,7 +20,7 @@ const MenusReducer = (oldState = {}, action) => {
     case RECEIVE_MY_MENUS:
       return Object.assign({"recommended_menus": oldState.recommended_menus}, {"top_rated_menus": oldState.top_rated_menus}, {"my_menus": action.menus})
     case RECEIVE_MENU:
-      return merge({}, oldState, {[action.menu.id]: action.menu});
+      return merge({}, {[action.menu.id]: action.menu});
     case REMOVE_MENU:
       let newState = merge({}, oldState);
       delete newState.my_menus[action.menu.id]

@@ -33,8 +33,8 @@ class Api::MenuReviewsController < ApplicationController
       render json: ["You can only delete your own review."], status: 422
       return
     end
-    if @menu_review.destroy
-      @menu = Menu.includes(:owner, [{reviews: :owner}]).find(@menu_review.menu_id)
+    if @menu_review.delete
+      @menu = Menu.includes(:owner, [{reviews: :owner}]).find(@menu_review.menu.id)
       render "api/menus/show"
     else
       render json: @menu_review.errors.full_messages, status: 422

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MenuReviewForm from './menu_review_form';
-import { createMenuReview, updateMenuReview, deleteMenuReview, receiveMenuReviewErrors } from '../../actions/review_actions';
+import { createMenuReview, receiveMenuReviewErrors } from '../../actions/review_actions';
 
 const mapStateToProps = (state,ownProps) => {
   return {
@@ -12,8 +12,6 @@ const mapStateToProps = (state,ownProps) => {
 const mapDispatchToProps = dispatch => (
   {
   createMenuReview: (review) => dispatch(createMenuReview(review)),
-  updateMenuReview: (review) => dispatch(updateMenuReview(review)),
-  deleteMenuReview: (id) => dispatch(deleteMenuReview(id)),
   clearErrors: (id) => dispatch(receiveMenuReviewErrors(id, []))
 });
 

@@ -14,7 +14,7 @@ Menu.create(title: 'Korean BBQ', description: "Chic, zen-like Koreatown restaura
 
 Menu.create(title: 'Westside Steak', description: "Unpretentious neighborhood steak & seafood restaurant with a vibe that blends modern & traditional.", price: 40, address: "597 10th Ave, New York, NY 10036", owner_id: User.first.id, picture: open( "http://pixel.nymag.com/imgs/daily/grub/2016/04/07/09-the-dutch-steak.w710.h473.jpg"))
 
-Menu.create(title: 'Super Juice', description: "Modern, counter-serve chain offering juices & smoothies, plus raw foods, muffins & vegan soups.", price: 7, address: "122 E 42nd St, New York, NY 10017", owner_id: User.last.id, picture: open( "http://www.franchiseindia.com/uploads/content/fi/art/how-to-start-a-juice-business-24-2ec7112dc9.jpg"))
+Menu.create(title: 'Super Juice', description: "Modern, counter-serve chain offering juices & smoothies, plus raw foods, muffins & vegan soups.", price: 7, address: "122 E 42nd St, New York, NY 10017", owner_id: User.last.id, picture: open( "https://www.franchiseindia.com/uploads/content/fi/art/how-to-start-a-juice-business-24-2ec7112dc9.jpg"))
 
 Menu.create(title: 'Maialino', description: "Classic Roman-Italian soul food in an a casual but elegant setting.", price: 70, address: "Gramercy Park Hotel, 2 Lexington Ave, New York, NY 10010", owner_id: User.first.id, picture: open( "http://bloximages.newyork1.vip.townnews.com/stltoday.com/content/tncms/assets/v3/editorial/3/9f/39f5851d-2ddc-5705-9dba-16e358d838b9/57969eed703a2.image.jpg?resize=1200%2C805"))
 
