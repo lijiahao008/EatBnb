@@ -37,6 +37,10 @@ Menu.create(title: 'Veselka', description: "Borscht & pierogi are menu highlight
 
 Menu.create(title: 'Blue Hill', description: "Locally sourced, seasonal ingredients abound on the American menu served at this townhouse-set spot.", price: 50, address: "75 Washington Pl, New York, NY 10011", owner_id: User.last.id, picture: open("http://www.fluentu.com/blog/english/wp-content/uploads/sites/4/2014/05/fourth-july-picnic-english-vocabulary-american-food2.jpg"))
 
+Menu.create(title: 'Tartine Bakery', description: "Organic ingredients provide the makings for breakfast pastries, hot pressed sandwiches & coffee.", price: 35, address: "600 Guerrero St, San Francisco, CA 94110", owner_id: User.last.id, picture: open("https://cdn.pixabay.com/photo/2015/03/26/09/39/cupcakes-690040_960_720.jpg"))
+
+Menu.create(title: 'Thorough Bread and Pastry', description: "Bright shop with exposed brick & patio selling baked goods & light fare from cookies to sandwiches.", price: 15, address: "248 Church St, San Francisco, CA 94114", owner_id: User.last.id, picture: open("http://eskipaper.com/images/bread-wallpaper-3.jpg"))
+
 
 
 MenuReview.destroy_all
