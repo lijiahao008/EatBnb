@@ -106,6 +106,16 @@
     position: relative;
     left: 5%;
     right: 5%;
+    width: 80%;
+  }
+  .review-buttons {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 5%;
+    div {
+      margin: 7px 0px;
+    }
   }
   .spoons {
     color: #f14444;
