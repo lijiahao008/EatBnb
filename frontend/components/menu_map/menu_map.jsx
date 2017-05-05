@@ -22,7 +22,7 @@ class MenuMap extends Component {
     const createMap = address => {
       let geocoder = new google.maps.Geocoder();
       if (address === "") {
-        address = "New York City"
+        address = "Manhattan, New York"
       }
       geocoder.geocode( { 'address': address}, (results, status) => {
         result = {lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()}
