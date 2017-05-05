@@ -29,6 +29,7 @@ class MenuMap extends Component {
 
         const _mapOptions = {
           center: result,
+          scrollwheel: this.props.singleMenu ? false : true,
           zoom: this.props.singleMenu ? 18 : 12,
           mapTypeId: this.props.singleMenu ? google.maps.MapTypeId.HYBRID : google.maps.MapTypeId.ROADMAP
         }
