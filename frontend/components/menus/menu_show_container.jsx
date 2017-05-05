@@ -3,9 +3,10 @@ import MenuShow from './menu_show';
 import { fetchMenu } from '../../actions/menu_actions';
 import { updateMenuReview, deleteMenuReview } from '../../actions/review_actions';
 const mapStateToProps = (state,ownProps) => {
+  let currentUserId = state.session.currentUser ? state.session.currentUser.id : 0;
   return {
   menu: state.menus[ownProps.params.menuId],
-  currentUserId: state.session.currentUser.id
+  currentUserId
 }};
 
 const mapDispatchToProps = dispatch => ({
