@@ -13,6 +13,7 @@ json.reviews @menu.reviews.each do |review|
     json.id review.id
     json.score review.score
     json.body review.body
+    json.owner_id review.owner.id
     json.owner_name review.owner.f_name + " " + review.owner.l_name
     json.owner_profile_pic asset_path(review.owner.profile_image.url)
     json.created_at time_ago_in_words(review.created_at) + " ago"

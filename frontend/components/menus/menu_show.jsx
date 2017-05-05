@@ -7,6 +7,7 @@ class MenuShow extends React.Component {
   constructor(props){
     super(props);
     this.generateSpoon = this.generateSpoon.bind(this);
+    this.generateButtons = this.generateButtons.bind(this);
   }
 
   componentDidMount() {
@@ -36,6 +37,12 @@ class MenuShow extends React.Component {
       result.push(<i className="fa fa-spoon spoons" key={i}></i>);
     }
     return result;
+  }
+
+  generateButtons(reviewOwnerId){
+    if (reviewOwnerId === this.props.currentUserId) {
+      return <div className="review-buttons"><div className="btn btn-sm btn-danger"><i className="fa fa-times"></i></div><div className="btn btn-sm btn-primary"><i className="fa fa-pencil-square-o"></i></div></div>
+    }
   }
 
   render () {
@@ -88,6 +95,7 @@ class MenuShow extends React.Component {
                   <h4>{review.body}</h4>
                   <strong>{review.created_at}</strong>
                 </div>
+                {this.generateButtons(review.owner_id)}
               </div>
             ))}</ul>
             <h2>Your Host</h2>
