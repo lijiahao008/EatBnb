@@ -7,12 +7,14 @@ import SearchReducer from './search_reducer';
 import ReservationsReducer from './reservations_reducer';
 import ConversationsReducer from './conversations_reducer';
 import UsersReducer from './users_reducer';
+import LoadingReducer from './loading_reducer';
 
 
 const RootReducer = combineReducers({
   session: SessionReducer,
   menus: MenusReducer,
   filters: FilterReducer,
+  loading: LoadingReducer,
   searchResults: SearchReducer,
   reservations: ReservationsReducer,
   conversations: ConversationsReducer,

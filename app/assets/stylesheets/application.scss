@@ -283,6 +283,7 @@ strong {
   width: 100%;
   bottom: 0;
   color: grey;
+
   .filter-form label{
     color: grey;
     padding: 5px;
@@ -359,6 +360,14 @@ strong {
     }
   }
   @media (max-width:992px){
+    .search-loading {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top: 5px;
+      left: 20%;
+
+    }
     .search-map{
       position: relative;
       height: 35vh;
@@ -367,6 +376,7 @@ strong {
     .search-result{
       margin-top: 10px;
     }
+
   }
   .menu-index{
     height: 65vh;
@@ -391,6 +401,15 @@ strong {
     }
   }
   @media (min-width:992px){
+    .search-loading {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .search-map{
       position: absolute;
       height: 85vh;

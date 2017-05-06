@@ -1,9 +1,12 @@
 import React from 'react';
 import MenuIndexItem from './menu_index_item';
 
-const MenuIndex = ({ menus }) => {
+const MenuIndex = ({ menus, loading }) => {
   let results;
-  if (menus.length > 0){
+  if (loading) {
+    results = <div className="search-loading"><img src={window.images.spinner}/></div>;
+  }
+  else if (menus.length > 0){
     results = menus.map(menu => (
       <MenuIndexItem menu={menu} key={menu.id} />
     ))

@@ -6,10 +6,9 @@ import 'react-dates/lib/css/_datepicker.css';
 class HomeSearchBar extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = Object.assign(
-			{ date: null, address: "Manhattan, New York", focused: false },
-			this.props.filters
-		);
+		this.state =
+			{ date: null, address: "Manhattan, New York", focused: false }
+		;
 
 		this.setUpAutoComplete = this.setUpAutoComplete.bind(this);			this.handleAutoComplete = this.handleAutoComplete.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,8 +35,7 @@ class HomeSearchBar extends React.Component {
 		let filters = {
 			date,
 			address: this.state.address
-		}
-		filters = Object.assign(filters, this.props.filters);
+		};
 		this.props.updateSearchResults(filters).then(this.props.router.push('/search'))
 	}
 

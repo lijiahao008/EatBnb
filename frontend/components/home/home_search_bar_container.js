@@ -6,8 +6,7 @@ import { updateFilter } from '../../actions/filter_actions';
 
 const mapStateToProps = state => {
   return {
-  menus: Object.keys(state.menus).map(id => state.menus[id]),
-  filters: state.filters
+  menus: Object.keys(state.menus).map(id => state.menus[id])
 }};
 
 const mapDispatchToProps = dispatch => ({
