@@ -45,6 +45,12 @@ Menu.create(title: 'Outerlands', description: "Cozy place with weathered-wood wa
 
 Menu.create(title: 'St. Francis Fountain', description: "Classic soda fountain founded in 1918 featuring diner fare, milkshakes & a vintage candy counter.", price: 215, address: "2801 24th St, San Francisco, CA 94110", owner_id: User.first.id + 1, picture: open("http://assets.marthastewart.com/styles/wmax-520-highdpi/d35/EH0162-Blueberry%20Buttermilk%20Waffles/EH0162-Blueberry%20Buttermilk%20Waffles.jpg?itok=_R_NanZW"))
 
+Menu.create(title: 'Nicks Crispy Tacos', description: "Known for its signature 2-tortilla tacos, this Mexican restaurant also has a vibrant bar scene.", price: 315, address: "1500 Broadway, San Francisco, CA 94109", owner_id: User.first.id + 1, picture: open("http://az616578.vo.msecnd.net/files/2016/07/18/636044104859117199985990752_tacos.jpg"))
+
+Menu.create(title: 'Palace Bar', description: "Long-running gay fixture known for weekend drag shows, plus all-day breakfast & bar-food menu.", price: 315, address: "1200 Ocean Dr, Miami Beach, FL 33139", owner_id: User.last.id, picture: open("https://static1.squarespace.com/static/55b5793fe4b051ab94c180a8/t/565b1f46e4b0c668da661db7/1448812360904/breakfast.jpg?format=1500w"))
+
+Menu.create(title: 'Puerto Sagua', description: "No pretensions, no frills, just comfort-food staples like Cuban sandwich & ropa vieja since 1962. ", price: 300, address: "700 Collins Ave, Miami Beach, FL 33139", owner_id: User.last.id, picture: open("http://cdn.skim.gs/images/hisyr4wfw6syle4sjdpd/cuban-sandwich-recipe"))
+
 
 
 MenuReview.destroy_all
