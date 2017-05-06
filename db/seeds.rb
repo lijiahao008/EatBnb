@@ -51,6 +51,11 @@ Menu.create(title: 'Palace Bar', description: "Long-running gay fixture known fo
 
 Menu.create(title: 'Puerto Sagua', description: "No pretensions, no frills, just comfort-food staples like Cuban sandwich & ropa vieja since 1962. ", price: 300, address: "700 Collins Ave, Miami Beach, FL 33139", owner_id: User.last.id, picture: open("http://cdn.skim.gs/images/hisyr4wfw6syle4sjdpd/cuban-sandwich-recipe"))
 
+Menu.create(title: 'Yuca', description: "Festive, fashionable eatery offering live Latin music, salsa-dancing classes & people-watching.", price: 200, address: "501 Lincoln Rd, Miami Beach, FL 33139", owner_id: User.first.id, picture: open("http://food.unl.edu/NEP/NEP%20Images/150615_food_283.jpg"))
+
+Menu.create(title: 'Salsa Fiesta', description: "Upmarket fast-food spot preparing tacos & burritos topped with made-to-order salsas.", price: 250, address: "2929 Biscayne Blvd, Miami, FL 33137
+", owner_id: User.first.id, picture: open("http://www.primalrevolutions.com/wp-content/uploads/2015/11/Wishart-TheOnlySalsa-7J2C3037-1480x960.jpg"))
+
 
 
 MenuReview.destroy_all
