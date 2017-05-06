@@ -115,6 +115,20 @@ MenuReview.create(score: 3, body:"This place is not really authentic.", menu_id:
 
 MenuReview.create(score: 2, body:"The food was not as I expected.", menu_id: Menu.last.id - 8, owner_id: User.last.id)
 
+MenuReview.create(score: 4, body:"You have to try the soup special!", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
+
+MenuReview.create(score: 4, body:"This place serve the best dessert", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
+
+MenuReview.create(score: 1, body:"My food was really cold.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
+
+MenuReview.create(score: 1, body:"This is the worst place I have ever been.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
+
+MenuReview.create(score: 4, body:"I love the food but not too much the music.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
+
+MenuReview.create(score: 3, body:"This place is not really authentic.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.first.id)
+
+MenuReview.create(score: 2, body:"The food was not as I expected.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
+
 Reservation.destroy_all
 Reservation.create(date: DateTime.new(2015, 6, 22), confirmed: true, owner_id: User.first.id, menu_id: Menu.first.id)
 
