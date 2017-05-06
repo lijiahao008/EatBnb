@@ -41,6 +41,10 @@ Menu.create(title: 'Tartine Bakery', description: "Organic ingredients provide t
 
 Menu.create(title: 'Thorough Bread and Pastry', description: "Bright shop with exposed brick & patio selling baked goods & light fare from cookies to sandwiches.", price: 15, address: "248 Church St, San Francisco, CA 94114", owner_id: User.last.id, picture: open("http://eskipaper.com/images/pastry-wallpaper-4.jpg"))
 
+Menu.create(title: 'Outerlands', description: "Cozy place with weathered-wood walls serving New American eats, housemade bread & a popular brunch.", price: 115, address: "4001 Judah St, San Francisco, CA 94122", owner_id: User.last.id - 1, picture: open("https://www.catamaranresort.com/sites/default/files/banner-dine-sunday-champagne-brunch.jpg"))
+
+Menu.create(title: 'St. Francis Fountain', description: "Classic soda fountain founded in 1918 featuring diner fare, milkshakes & a vintage candy counter.", price: 215, address: "2801 24th St, San Francisco, CA 94110", owner_id: User.first.id + 1, picture: open("http://assets.marthastewart.com/styles/wmax-520-highdpi/d35/EH0162-Blueberry%20Buttermilk%20Waffles/EH0162-Blueberry%20Buttermilk%20Waffles.jpg?itok=_R_NanZW"))
+
 
 
 MenuReview.destroy_all
