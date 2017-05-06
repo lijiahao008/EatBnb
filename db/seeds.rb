@@ -61,59 +61,59 @@ Menu.create(title: 'Salsa Fiesta', description: "Upmarket fast-food spot prepari
 MenuReview.destroy_all
 MenuReview.create(score: 3, body:"Best food ever!!", menu_id: Menu.first.id, owner_id: User.first.id)
 
-MenuReview.create(score: 4, body:"I love the seafood.", menu_id: Menu.last.id - 5, owner_id: User.last.id)
+MenuReview.create(score: 4, body:"I love the seafood.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 3, body:"My favorite spot.", menu_id: Menu.first.id + 2, owner_id: User.last.id)
+MenuReview.create(score: 3, body:"My favorite spot.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
 MenuReview.create(score: 4, body:"Best place to a party!", menu_id: Menu.last.id, owner_id: User.first.id)
 
-MenuReview.create(score: 5, body:"I love this place!!!", menu_id: Menu.last.id - 2, owner_id: User.last.id)
+MenuReview.create(score: 5, body:"I love this place!!!", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 2, body:"I guess the food is ok.", menu_id: Menu.first.id + 2, owner_id: User.first.id)
+MenuReview.create(score: 2, body:"I guess the food is ok.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.first.id)
 
-MenuReview.create(score: 1, body:"I hate this place, the waiter is so rude.", menu_id: Menu.last.id - 1, owner_id: User.first.id)
+MenuReview.create(score: 1, body:"I hate this place, the waiter is so rude.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.first.id)
 
-MenuReview.create(score: 5, body:"I like this place so much.", menu_id: Menu.last.id - 3, owner_id: User.last.id)
+MenuReview.create(score: 5, body:"I like this place so much.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 4, body:"This is the best spot in the neighborhood", menu_id: Menu.last.id - 2, owner_id: User.last.id)
+MenuReview.create(score: 4, body:"This is the best spot in the neighborhood", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 5, body:"This is my favorite place to eat dinner.", menu_id: Menu.last.id - 1, owner_id: User.last.id)
+MenuReview.create(score: 5, body:"This is my favorite place to eat dinner.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 5, body:"This is my favorite place to eat lunch.", menu_id: Menu.last.id - 3, owner_id: User.last.id)
+MenuReview.create(score: 5, body:"This is my favorite place to eat lunch.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 5, body:"I love the music and the food here.", menu_id: Menu.last.id - 4, owner_id: User.last.id)
+MenuReview.create(score: 5, body:"I love the music and the food here.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 1, body:"I have no idea how this place is still in business.", menu_id: Menu.first.id + 3, owner_id: User.first.id)
+MenuReview.create(score: 1, body:"I have no idea how this place is still in business.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.first.id)
 
-MenuReview.create(score: 1, body:"The worst place I have ever been.", menu_id: Menu.last.id - 5, owner_id: User.last.id)
+MenuReview.create(score: 1, body:"The worst place I have ever been.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 4, body:"The food was amazing!!", menu_id: Menu.first.id + 4, owner_id: User.first.id)
+MenuReview.create(score: 4, body:"The food was amazing!!", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.first.id)
 
-MenuReview.create(score: 3, body:"I love the music here.", menu_id: Menu.last.id - 4, owner_id: User.last.id)
+MenuReview.create(score: 3, body:"I love the music here.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 5, body:"My favorite spot for breakfast.", menu_id: Menu.first.id + 3, owner_id: User.last.id)
+MenuReview.create(score: 5, body:"My favorite spot for breakfast.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 5, body:"Best place to a birthday party!", menu_id: Menu.last.id - 2, owner_id: User.first.id)
+MenuReview.create(score: 5, body:"Best place to a birthday party!", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.first.id)
 
-MenuReview.create(score: 5, body:"I love their food so much!!!", menu_id: Menu.last.id - 6, owner_id: User.last.id)
+MenuReview.create(score: 5, body:"I love their food so much!!!", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 1, body:"I really didn't like the food.", menu_id: Menu.first.id + 7, owner_id: User.first.id)
+MenuReview.create(score: 1, body:"I really didn't like the food.", menu_id: Menu.first.id, owner_id: User.first.id)
 
-MenuReview.create(score: 3, body:"The food was a little bit salty.", menu_id: Menu.last.id - 5, owner_id: User.first.id)
+MenuReview.create(score: 3, body:"The food was a little bit salty.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.first.id)
 
-MenuReview.create(score: 5, body:"I like this place so much.", menu_id: Menu.last.id - 4, owner_id: User.last.id)
+MenuReview.create(score: 5, body:"I like this place so much.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 4, body:"This place serve the best dessert", menu_id: Menu.last.id - 2, owner_id: User.last.id)
+MenuReview.create(score: 4, body:"This place serve the best dessert", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 1, body:"My food was really cold.", menu_id: Menu.last.id - 1, owner_id: User.last.id)
+MenuReview.create(score: 1, body:"My food was really cold.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 1, body:"This is the worst place I have ever been.", menu_id: Menu.last.id - 3, owner_id: User.last.id)
+MenuReview.create(score: 1, body:"This is the worst place I have ever been.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 4, body:"I love the food but not too much the music.", menu_id: Menu.last.id, owner_id: User.last.id)
+MenuReview.create(score: 4, body:"I love the food but not too much the music.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
-MenuReview.create(score: 3, body:"This place is not really authentic.", menu_id: Menu.first.id + 7, owner_id: User.first.id)
+MenuReview.create(score: 3, body:"This place is not really authentic.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.first.id)
 
-MenuReview.create(score: 2, body:"The food was not as I expected.", menu_id: Menu.last.id - 8, owner_id: User.last.id)
+MenuReview.create(score: 2, body:"The food was not as I expected.", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
 MenuReview.create(score: 4, body:"You have to try the soup special!", menu_id: Menu.first.id + rand(Menu.count), owner_id: User.last.id)
 
