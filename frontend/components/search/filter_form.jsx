@@ -53,13 +53,13 @@ class FilterForm extends React.Component  {
     <div className="filter-form">
       <div className="row col-md-12 filter-form-location">
         <label>Location </label>
-        <form onSubmit={this.handleSubmit}>
+        <div>
         <input
           type="text"
           className="form-control"
           placeholder={this.state.address}
           id="address-input"/>
-        </form>
+      </div>
       </div>
       <div className="row col-md-12 filter-form-price-range">
         <label>Price Range </label>

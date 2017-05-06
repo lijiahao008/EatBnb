@@ -44,7 +44,7 @@ class HomeSearchBar extends React.Component {
 
 		return (
 				<div className="row form-section">
-						<form>
+						<div>
 								<div className="col-md-4">
 									<label>Where</label>
 									<div className="search-address">
@@ -69,7 +69,7 @@ class HomeSearchBar extends React.Component {
 								<div className="col-md-4 hidden-sm hidden-xs">
 									<button onClick={this.handleSubmit} className="btn btn-lg btn-danger search-btn">Search</button>
 								</div>
-						</form>
+						</div>
 					</div>
 
 		);
