@@ -33,7 +33,8 @@ export default class MarkerManager {
       position: pos,
       map: this.map,
       menuId: menu.id,
-      icon: window.images.spoon
+      icon: window.images.spoon,
+      animation: google.maps.Animation.DROP
     });
     marker.infowindow = new google.maps.InfoWindow({
       content: `<a href='#/menus/${menu.id}'>` + "<img class='menu-image' style='object-fit: cover' width='200' height='150' src=" + menu.picture_url +">" + "<div class='menu-name'>" +
