@@ -161,12 +161,12 @@
 .cssload-container{
 	display: block;
 	margin:0px auto;
-	width:40px;
+	width:20px;
 }
 
 .loading6{
-	width: 40px;
-	height: 40px;
+	width: 20px;
+	height: 20px;
 	background: rgb(255,89,84);
 	border-radius: 50%;
 	display: flex;
@@ -178,7 +178,7 @@
 	width: 0;
 	height: 0;
 	margin:auto;
-	border: 19px solid rgb(255,255,255);
+	border: 10px solid rgb(255,255,255);
 	border-radius: 50%;
 	animation:loading6-ani1 1.15s infinite;
 		-webkit-animation:loading6-ani1 1.15s infinite;
@@ -187,24 +187,24 @@
 
 @keyframes loading6-ani1{
 	70%{
-		width: 40px;
-		height: 40px;
+		width: 20px;
+		height: 20px;
 	}
 	100%{
-		width: 40px;
-		height: 40px;
+		width: 20px;
+		height: 20px;
 		border-width: 0;
 	}
 }
 
 @-webkit-keyframes loading6-ani1{
 	70%{
-		width: 40px;
-		height: 40px;
+		width: 20px;
+		height: 20px;
 	}
 	100%{
-		width: 40px;
-		height: 40px;
+		width: 20px;
+		height: 20px;
 		border-width: 0;
 	}
 }
