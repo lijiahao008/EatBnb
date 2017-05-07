@@ -30,6 +30,7 @@ class Api::MenusController < ApplicationController
   end
 
   def create
+    sleep(1)
     @menu = Menu.new(menu_params)
     @menu.owner_id = current_user.id
 

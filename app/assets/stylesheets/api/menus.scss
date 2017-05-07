@@ -158,6 +158,58 @@
   }
 }
 
+.cssload-container{
+	display: block;
+	margin:0px auto;
+	width:40px;
+}
+
+.loading6{
+	width: 40px;
+	height: 40px;
+	background: rgb(255,89,84);
+	border-radius: 50%;
+	display: flex;
+		display: -webkit-flex;
+
+}
+.loading6:before{
+	content:"";
+	width: 0;
+	height: 0;
+	margin:auto;
+	border: 19px solid rgb(255,255,255);
+	border-radius: 50%;
+	animation:loading6-ani1 1.15s infinite;
+		-webkit-animation:loading6-ani1 1.15s infinite;
+}
+
+
+@keyframes loading6-ani1{
+	70%{
+		width: 40px;
+		height: 40px;
+	}
+	100%{
+		width: 40px;
+		height: 40px;
+		border-width: 0;
+	}
+}
+
+@-webkit-keyframes loading6-ani1{
+	70%{
+		width: 40px;
+		height: 40px;
+	}
+	100%{
+		width: 40px;
+		height: 40px;
+		border-width: 0;
+	}
+}
+
+
 .new-review{
   .spoons{
     display: flex;

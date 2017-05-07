@@ -12,12 +12,14 @@ class MenuForm extends React.Component {
       price: 0,
       address: "",
       picture_url: "",
-      picture: null
+      picture: null,
+      submitting: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onDrop = this.onDrop.bind(this);
     this.removeError = this.removeError.bind(this);
+    this.renderSubmitButton = this.renderSubmitButton.bind(this);
   }
 
   componentDidMount() {
@@ -45,6 +47,7 @@ class MenuForm extends React.Component {
   }
 
   componentWillUnmount(){
+    this.setState({submitting: false});
     this.removeError();
   }
 
@@ -55,6 +58,7 @@ class MenuForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({submitting: true});
     let formData = new FormData();
     formData.append("menu[id]", this.props.params.menuId);
     formData.append("menu[title]", this.state.title);
@@ -65,10 +69,10 @@ class MenuForm extends React.Component {
       formData.append("menu[picture]", this.state.picture);
     }
     if (this.props.formType === "new") {
-      this.props.createMenu(formData).then((menu)=>{ hashHistory.push(`/myMenus`)});
+      this.props.createMenu(formData).then((menu)=>{ hashHistory.push(`/myMenus`)}, () => this.setState({submitting: false}));
     }
     else if(this.props.formType === "edit"){
-      this.props.updateMenu(formData).then((menu)=>{ hashHistory.push(`/menus/${menu.menu.id}`)});
+      this.props.updateMenu(formData).then((menu)=>{ hashHistory.push(`/menus/${menu.menu.id}`)}, () => this.setState({submitting: false}));
     }
 
   }
@@ -80,6 +84,21 @@ class MenuForm extends React.Component {
   onDrop(acceptedFiles, rejectedFiles){
     this.setState({picture: acceptedFiles[0],
     picture_url: acceptedFiles[0].preview})
+  }
+
+  renderSubmitButton(){
+    if (!this.state.submitting) {
+      return  <h4 className="panel-title">
+                <i className="fa fa-check" aria-hidden="true"></i> Finish
+              </h4>;
+    }
+    else {
+      return  <h4 className="panel-title">
+                <div className="cssload-container">
+                  <div className="loading6"></div>
+                </div>
+              </h4>;
+    }
   }
 
 
@@ -226,9 +245,7 @@ class MenuForm extends React.Component {
                 <div className="panel panel-default menu-finish">
                   <a onClick={this.handleSubmit}>
                     <div className="panel-heading">
-                        <h4 className="panel-title">
-                            <i className="fa fa-check" aria-hidden="true"></i> Finish
-                        </h4>
+                        {this.renderSubmitButton()}
                     </div>
                   </a>
                 </div>
