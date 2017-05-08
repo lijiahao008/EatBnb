@@ -12,9 +12,16 @@ class MyMenus extends React.Component {
   }
 
   render () {
-    const menus = this.props.menus;
-    if (menus.length == 0) {
-      return <div className="loading"><img src={window.images.spinner}/></div>;
+    if (this.props.loading) {
+        return <div className="loading"><img src={window.images.spinner}/></div>;
+    }
+    else {
+      const menus = this.props.menus;
+      if (menus.length == 0) {
+        return <div className="no-results text-center"><img src={window.images.no_results}/>
+        <div>NO RESULTS FOUND...</div>
+        </div>;
+      }
     }
     return (
     <div className="container my-listing">

@@ -388,17 +388,6 @@ strong {
   .menu-index::-webkit-scrollbar {
    display: none;
   }
-  .no-results {
-    font-size: 30px;
-    font-weight: bold;
-    color: grey;
-    width: 100%;
-    text-align: center;
-    img {
-      margin: auto;
-      display: block;
-    }
-  }
   @media (min-width:992px){
     .search-loading {
       position: relative;
@@ -432,6 +421,19 @@ strong {
   }
   .menu-name {
     font-weight: bold;
+  }
+}
+
+.no-results {
+  margin-top: 100px;
+  font-size: 30px;
+  font-weight: bold;
+  color: grey;
+  width: 100%;
+  text-align: center;
+  img {
+    margin: auto;
+    display: block;
   }
 }
 
