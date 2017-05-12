@@ -16,10 +16,8 @@ const Home = (props) => {
           <HomeSearchBarContainer />
         </div>
         <div className="row homeRecommendedMenus">
-          <div>
-            <h3>Recommended Menus</h3>
-              <RecommendedMenusContainer />
-          </div>
+          <h3>Recommended Menus</h3>
+          <RecommendedMenusContainer />
         </div>
         <div className="row homeTopRatedMenus">
           <h3>Top Rated Menus</h3>
