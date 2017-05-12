@@ -21,7 +21,7 @@ const Root = ({ store }) => {
 
   return (
     <Provider store={store}>
-      <Router history={hashHistory}>
+      <Router onUpdate={() => window.scrollTo(0, 0)} history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={HomePage} />
           <Route path="/users/:userId/edit" component={UserEditFormContainer} />
