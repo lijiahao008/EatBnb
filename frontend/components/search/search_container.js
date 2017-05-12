@@ -15,7 +15,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
-  clearSearchResults: () => despatch(clearSearchResults())
+  clearSearchResults: () => dispatch(clearSearchResults())
 });
 
 export default connect(

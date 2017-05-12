@@ -20,7 +20,8 @@ const Search = ({ address, results, updateFilter, loading, clearSearchResults })
         minPrice={1}
         maxPrice={500}
         address={address}
-        updateFilter={updateFilter} />
+        updateFilter={updateFilter}
+        clearSearchResults={clearSearchResults} />
       <MenuIndex menus={results} loading={loading} clearSearchResults={clearSearchResults}/>
     </div>
 
